@@ -58,84 +58,250 @@ But this guide will help you to move the robot by publishing commands to `/cmd_v
 
 
 To do this, create a file, `robot_publisher.py` inside `scripts` folder in your ROS package (for example `test_publisher`) and make it executable.
-```shell
-mkdir test_publisher/scripts
-touch test_publisher/scripts/robot_publisher.py
-chmod +x test_publisher/scripts/robot_publisher.py
-```
 
-**NOTE:** You need to change the permission of the file to executable to be able to run (as done in the last command shown above).
+=== "MATLAB"
+    ```shell
+    mkdir test_publisher/scripts
+    touch test_publisher/scripts/robot_publisher.m
+    ```
+=== "Python"
+    ```shell
+    mkdir test_publisher/scripts
+    touch test_publisher/scripts/robot_publisher.py
+    chmod +x test_publisher/scripts/robot_publisher.py
+    ```
 
+=== "C++"
+    ```shell
+    mkdir test_publisher/src
+    touch test_publisher/src/robot_publisher.cpp
+    ```
+
+!!! note "MATLAB Note"
+    Ensure you have the [MATLAB ROS Toolbox](https://www.mathworks.com/help/ros/ug/install-the-matlab-ros-toolbox.html) installed and configured. Also, ensure you add test_publisher to the MATLAB path. Instructions for this can be found in the [MATLAB documentation](https://www.mathworks.com/help/matlab/ref/addpath.html).
+
+!!! note "Python Note"
+    You need to change the permission of the file to executable to be able to run (as done in the last command shown above).
 
 Now open the file and copy and paste the following code inside:
 
-```python
-#!/usr/bin/env python
-"""
-Script to move Robot
-"""
-import rospy
-from geometry_msgs.msg import Twist
-import time
+=== "MATLAB"
+    ```matlab
+    function move_robot()
+      % Script to move Robot
+      % Initialize ROS node
+      rosinit('localhost');
+      
+      % Create a publisher which can "talk" to Robot and tell it to move
+      pub = rospublisher('/cmd_vel', 'geometry_msgs/Twist');
+      
+      % Create a Twist message and add linear x and angular z values
+      move_cmd = rosmessage(pub);
+      
+      % Set publish rate at 10 Hz
+      rate = rosrate(10);
+      
+      %%%%%%%%%% Move Straight %%%%%%%%%%
+      disp("Moving Straight");
+      move_cmd.Linear.X = 0.5;           % move in X axis at 0.5 m/s
+      move_cmd.Angular.Z = 0.0;
+      
+      % For the next 4 seconds publish cmd_vel move commands
+      now = rostime('now');
+      while rostime('now') - now < rosduration(4)
+          send(pub, move_cmd);          % publish to Robot
+          waitfor(rate);
+      end
+      
+      %%%%%%%%%% Rotating Counterclockwise %%%%%%%%%%
+      disp("Rotating");
+      move_cmd.Linear.X = 0.0;
+      move_cmd.Angular.Z = 0.3;         % rotate at 0.3 rad/sec
+      
+      % For the next 3 seconds publish cmd_vel move commands
+      now = rostime('now');
+      while rostime('now') - now < rosduration(3)
+          send(pub, move_cmd);          % publish to Robot
+          waitfor(rate);
+      end
+      
+      %%%%%%%%%% Stop %%%%%%%%%%
+      disp("Stopping");
+      move_cmd.Linear.X = 0.0;
+      move_cmd.Angular.Z = 0.0;         % Giving both zero will stop the robot
+      
+      % For the next 1 seconds publish cmd_vel move commands
+      now = rostime('now');
+      while rostime('now') - now < rosduration(1)
+          send(pub, move_cmd);          % publish to Robot
+          waitfor(rate);
+      end
+      
+      disp("Exit");
+      
+      % Shutdown ROS node
+      rosshutdown;
+    end
+    ```
+=== "Python"
+    ```python
+    #!/usr/bin/env python
+    """
+    Script to move Robot
+    """
+    import rospy
+    from geometry_msgs.msg import Twist
+    import time
 
 
-def move_robot():
-    rospy.init_node('robot_publisher', anonymous=True)
-    # Create a publisher which can "talk" to Robot and tell it to move
-    pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+    def move_robot():
+        rospy.init_node('robot_publisher', anonymous=True)
+        # Create a publisher which can "talk" to Robot and tell it to move
+        pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 
-    # Set publish rate at 10 Hz
-    rate = rospy.Rate(10)
+        # Set publish rate at 10 Hz
+        rate = rospy.Rate(10)
 
-    # Create a Twist message and add linear x and angular z values
-    move_cmd = Twist()
+        # Create a Twist message and add linear x and angular z values
+        move_cmd = Twist()
 
-    ######## Move Straight ########
-    print("Moving Straight")
-    move_cmd.linear.x = 0.5             # move in X axis at 0.5 m/s
-    move_cmd.angular.z = 0.0
+        ######## Move Straight ########
+        print("Moving Straight")
+        move_cmd.linear.x = 0.5             # move in X axis at 0.5 m/s
+        move_cmd.angular.z = 0.0
 
-    now = time.time()
-    # For the next 4 seconds publish cmd_vel move commands
-    while time.time() - now < 4:
-        pub.publish(move_cmd)           # publish to Robot
-        rate.sleep()
+        now = time.time()
+        # For the next 4 seconds publish cmd_vel move commands
+        while time.time() - now < 4:
+            pub.publish(move_cmd)           # publish to Robot
+            rate.sleep()
 
-    ######## Rotating Counterclockwise ########
-    print("Rotating")
-    move_cmd.linear.x = 0.0
-    move_cmd.angular.z = 0.3            # rotate at 0.3 rad/sec
+        ######## Rotating Counterclockwise ########
+        print("Rotating")
+        move_cmd.linear.x = 0.0
+        move_cmd.angular.z = 0.3            # rotate at 0.3 rad/sec
 
-    now = time.time()
-    # For the next 3 seconds publish cmd_vel move commands
-    while time.time() - now < 3:
-        pub.publish(move_cmd)           # publish to Robot
-        rate.sleep()
+        now = time.time()
+        # For the next 3 seconds publish cmd_vel move commands
+        while time.time() - now < 3:
+            pub.publish(move_cmd)           # publish to Robot
+            rate.sleep()
 
-    ######## Stop ########
-    print("Stopping")
-    move_cmd.linear.x = 0.0
-    move_cmd.angular.z = 0.0            # Giving both zero will stop the robot
+        ######## Stop ########
+        print("Stopping")
+        move_cmd.linear.x = 0.0
+        move_cmd.angular.z = 0.0            # Giving both zero will stop the robot
 
-    now = time.time()
-    # For the next 1 seconds publish cmd_vel move commands
-    while time.time() - now < 1:
-        pub.publish(move_cmd)           # publish to Robot
-        rate.sleep()
+        now = time.time()
+        # For the next 1 seconds publish cmd_vel move commands
+        while time.time() - now < 1:
+            pub.publish(move_cmd)           # publish to Robot
+            rate.sleep()
 
-    print("Exit")
+        print("Exit")
 
 
-if __name__ == '__main__':
-    try:
-        move_robot()
-    except rospy.ROSInterruptException:
-        pass
+    if __name__ == '__main__':
+        try:
+            move_robot()
+        except rospy.ROSInterruptException:
+            pass
+    ```
 
-```
+=== "C++"
+    ```cpp
+    #include <ros/ros.h>
+    #include <geometry_msgs/Twist.h>
+    #include <ctime>
+
+    void move_robot()
+    {
+        ros::NodeHandle nh;
+        // Create a publisher which can "talk" to Robot and tell it to move
+        ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
+
+        // Set publish rate at 10 Hz
+        ros::Rate rate(10);
+
+        // Create a Twist message and add linear x and angular z values
+        geometry_msgs::Twist move_cmd;
+
+        //////////// Move Straight ////////////
+        ROS_INFO("Moving Straight");
+        move_cmd.linear.x = 0.5;            // move in X axis at 0.5 m/s
+        move_cmd.angular.z = 0.0;
+
+        time_t now = time(0);
+        // For the next 4 seconds publish cmd_vel move commands
+        while (time(0) - now < 4)
+        {
+            pub.publish(move_cmd);          // publish to Robot
+            rate.sleep();
+        }
+
+        //////////// Rotating Counterclockwise ////////////
+        ROS_INFO("Rotating");
+        move_cmd.linear.x = 0.0;
+        move_cmd.angular.z = 0.3;           // rotate at 0.3 rad/sec
+
+        now = time(0);
+        // For the next 3 seconds publish cmd_vel move commands
+        while (time(0) - now < 3)
+        {
+            pub.publish(move_cmd);          // publish to Robot
+            rate.sleep();
+        }
+
+        //////////// Stop ////////////
+        ROS_INFO("Stopping");
+        move_cmd.linear.x = 0.0;
+        move_cmd.angular.z = 0.0;           // Giving both zero will stop the robot
+
+        now = time(0);
+        // For the next 1 seconds publish cmd_vel move commands
+        while (time(0) - now < 1)
+        {
+            pub.publish(move_cmd);          // publish to Robot
+            rate.sleep();
+        }
+
+        ROS_INFO("Exit");
+    }
+
+    int main(int argc, char **argv)
+    {
+        ros::init(argc, argv, "robot_publisher");
+        try
+        {
+            move_robot();
+        }
+        catch (ros::Exception &e)
+        {
+            ROS_ERROR("Exception encountered: %s", e.what());
+            return 1;
+        }
+
+        return 0;
+    }
+    ```
 
 This code will make the robot move straight for 4 seconds, rotate counterclockwise for 3 seconds and then stop.
 
+## Compile and Run
+
+For C++, we need to update the `CMakeLists.txt` file to include our new program. Add the following line to the `CMakeLists.txt` file:
+
+```cmake
+add_executable(robot_publisher src/robot_publisher.cpp)
+target_link_libraries(robot_publisher ${catkin_LIBRARIES})
+```
+
+And then run the following command to compile the code:
+
+```shell
+cd ~/catkin_ws
+catkin_make
+```
 
 To see it working, first run the robot in simulation by running the following command in one terminal
 
@@ -145,10 +311,17 @@ roslaunch parc-robot task1.launch
 ```
 
 And run the following command in another terminal to run this new program:
-```shell
-source ~/catkin_ws/devel/setup.bash
-rosrun test_publisher robot_publisher.py
-```
+=== "Python"
+    ```shell
+    source ~/catkin_ws/devel/setup.bash
+    rosrun test_publisher robot_publisher.py
+    ```
+=== "C++"
+    ```shell
+    source ~/catkin_ws/devel/setup.bash
+    rosrun test_publisher robot_publisher
+    ```
+
 If you have set up everything well, you should see the robot moving in Gazebo as below:
 
 ![publisher demo](assets/publisher_demo.gif)
