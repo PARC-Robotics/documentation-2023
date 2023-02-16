@@ -311,6 +311,13 @@ roslaunch parc-robot task1.launch
 ```
 
 And run the following command in another terminal to run this new program:
+=== "MATLAB"
+    From the MATLAB command window, run the following command:
+    ```matlab
+    rosinit
+    robot_publisher
+    ```
+
 === "Python"
     ```shell
     source ~/catkin_ws/devel/setup.bash
@@ -320,12 +327,6 @@ And run the following command in another terminal to run this new program:
     ```shell
     source ~/catkin_ws/devel/setup.bash
     rosrun test_publisher robot_publisher
-    ```
-=== "MATLAB"
-    From the MATLAB command window, run the following command:
-    ```matlab
-    rosinit
-    robot_publisher
     ```
 
 If you have set up everything well, you should see the robot moving in Gazebo as below:

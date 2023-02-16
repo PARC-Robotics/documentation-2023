@@ -1,4 +1,4 @@
-# How to setup the Computer
+# Setting up your PC
 
 This guide helps you setup your computer for running the competition environment locally and developing the code.
 

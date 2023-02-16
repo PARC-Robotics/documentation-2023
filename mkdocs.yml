@@ -6,11 +6,13 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
-    # - navigation.sections
+    - navigation.sections
     - navigation.path
     - navigation.expand
     # - toc.integrate
     - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
   name: material
   palette: 
     # Palette toggle for automatic mode
