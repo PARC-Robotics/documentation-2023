@@ -1,11 +1,22 @@
 site_name: Pan African Robotics Competition
 theme:
+  language: en
+  custom_dir: overrides
+  logo: assets/logo.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    # - navigation.sections
+    - navigation.path
+    - navigation.expand
+    # - toc.integrate
+    - navigation.top
   name: material
   palette: 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      accent: blue
-      primary: deep orange
+      # accent: blue
+      # primary: deep orange
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
@@ -13,8 +24,8 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      accent: blue
-      primary: deep orange
+      # accent: blue
+      # primary: deep orange
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
@@ -22,9 +33,46 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      accent: blue
-      primary: deep orange
+      # accent: blue
+      # primary: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Français
+      link: /fr/
+      lang: fr
+nav:
+  - Introduction: index.md
+  - Competition Overview:
+    # - competition-overview/index.md/
+    - Objectives and goals: competition-overview/objectives-and-goals.md
+    - Prizes and rewards: competition-overview/prizes-and-rewards.md
+    - How to register: competition-overview/how-to-register.md
+    - Important dates: competition-overview/important-dates.md
+  - Getting Started:
+    - Setting up your PC: getting-started-tutorials/setting-up-your-pc.md
+    - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
+    - Getting started with Simulink: getting-started-tutorials/introduction-to-simulink.md
+    - Setting up your workspace: getting-started-tutorials/setting-up-your-workspace.md
+    - Getting started with ROS: getting-started-tutorials/getting-started-with-ros.md
+  - Competition Instructions:
+    - "Phase 1: Simulation":
+      - Introduction: competition-instructions/phase-1/introduction.md
+      - "Task 1: Navigate Farm": competition-instructions/phase-1/task-1-navigate-a-farm.md
+      - "Task 2: Weed Detection": competition-instructions/phase-1/task-2-weed-detection.md
+      - "Task 3: Seed Planting": competition-instructions/phase-1/task-3-seed-planting.md
+      - How to Submit: competition-instructions/phase-1/how-to-submit.md
+    - "Phase 2: Physical Robot": competition-instructions/phase-2/introduction.md
+    - Team Naming Conventions: competition-instructions/team-naming-conventions.md
+    - What to submit: competition-instructions/what-to-submit.md
+  - Frequently Asked Questions: faq.md
+  - Rules and Regulations: rules-and-regulations.md
+  - Resources and Support:
+    - Joining the Slack Channel: resources-and-support/joining-slack.md
+    - Additional Resources: resources-and-support/additional-resources.md
 
