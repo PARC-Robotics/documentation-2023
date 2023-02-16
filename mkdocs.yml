@@ -46,6 +46,18 @@ extra:
     - name: Français
       link: /fr/
       lang: fr
+markdown_extensions: 
+  - admonition
+  - codehilite
+  - smarty
+  - meta
+  - toc:
+      permalink: True
+  - abbr
+  - attr_list
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
 nav:
   - Introduction: index.md
   - Competition Overview:
