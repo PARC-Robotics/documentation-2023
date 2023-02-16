@@ -78,7 +78,7 @@ To do this, create a file, `robot_publisher.py` inside `scripts` folder in your 
     ```
 
 !!! note "MATLAB Note"
-    Ensure you have the [MATLAB ROS Toolbox](https://www.mathworks.com/help/ros/ug/install-the-matlab-ros-toolbox.html) installed and configured. Also, ensure you add test_publisher to the MATLAB path. Instructions for this can be found in the [MATLAB documentation](https://www.mathworks.com/help/matlab/ref/addpath.html).
+    Ensure you have the [MATLAB ROS Toolbox](https://www.mathworks.com/help/ros/ug/install-the-matlab-ros-toolbox.html) installed and configured. Also, ensure you add test_publisher/scripts/ to the MATLAB path. Instructions for this can be found in the [MATLAB documentation](https://www.mathworks.com/help/matlab/ref/addpath.html).
 
 !!! note "Python Note"
     You need to change the permission of the file to executable to be able to run (as done in the last command shown above).
@@ -87,7 +87,7 @@ Now open the file and copy and paste the following code inside:
 
 === "MATLAB"
     ```matlab
-    function move_robot()
+    function robot_publisher()
       % Script to move Robot
       % Initialize ROS node
       rosinit('localhost');
@@ -320,6 +320,12 @@ And run the following command in another terminal to run this new program:
     ```shell
     source ~/catkin_ws/devel/setup.bash
     rosrun test_publisher robot_publisher
+    ```
+=== "MATLAB"
+    From the MATLAB command window, run the following command:
+    ```matlab
+    rosinit
+    robot_publisher
     ```
 
 If you have set up everything well, you should see the robot moving in Gazebo as below:
