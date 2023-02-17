@@ -85,7 +85,6 @@ nav:
   - Getting Started:
     - Setting up your PC: getting-started-tutorials/setting-up-your-pc.md
     - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
-    - Getting started with Simulink: getting-started-tutorials/introduction-to-simulink.md
     - Setting up your workspace: getting-started-tutorials/setting-up-your-workspace.md
     - Getting started with ROS: getting-started-tutorials/getting-started-with-ros.md
   - Competition Instructions:

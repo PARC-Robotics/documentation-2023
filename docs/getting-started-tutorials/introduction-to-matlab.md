@@ -70,7 +70,7 @@ r = (x > y); % logical expression (returns true or false)
 % Displaying and manipulating data
 disp(x); % display value of x
 fprintf('The value of y is %f\n', y); % print formatted string
-s2 = strcat(s, ' Matlab is awesome!'); % concatenate strings
+s2 = strcat(s, ' MATLAB is awesome!'); % concatenate strings
 ```
 
 ## Common Functions and Tools
@@ -103,30 +103,7 @@ F = A .* B;        % element-wise multiplication
 G = A .^ 2;        % element-wise exponentiation
 ```
 
-### 3. Signal Processing
-
-MATLAB provides a powerful set of functions and tools for signal processing. You can use the fft function for fast Fourier transforms, filter function for filtering signals, and many others. Here is an example of how to use the fft function to compute the Fourier transform of a signal:
-
-``` matlab
-% Example code for signal processing
-x = linspace(0, 10, 1000);
-y = sin(2*pi*5*x) + 0.5*randn(size(x)); % create a noisy sine wave
-Y = fft(y);                            % perform a fast Fourier transform
-plot(abs(Y))
-```
-
-### 4. Optimization
-
-MATLAB provides a set of optimization functions that allow you to find the maximum or minimum of a function. You can use the fminsearch function for unconstrained optimization and fmincon function for constrained optimization. Here is an example of how to use the fminsearch function to find the minimum of a function:
-
-``` matlab
-% Example code for optimization
-fun = @(x) (x(1)-1)^2 + (x(2)-2.5)^2; % define a function to optimize
-x0 = [0 0];                           % starting point for optimization
-x = fminsearch(fun, x0)               % perform unconstrained optimization
-```
-
-### 5. Image Processing
+### 3. Image Processing
 
 MATLAB provides a set of functions and tools for image processing. You can use the imresize function to resize an image, imrotate function to rotate an image, and many others. Here is an example of how to use the imresize function to resize an image:
 
@@ -137,21 +114,7 @@ J = imresize(I, 0.5);    % resize the image by a factor of 0.5
 imshow(J);               % display the resized image
 ```
 
-### 6. Machine Learning
-
-MATLAB provides a comprehensive set of functions and tools for machine learning. You can use the fitcsvm function for training support vector machines, fitcknn function for training k-nearest neighbors classifiers, and many others.
-
-``` matlab
-% Example code for machine learning
-load fisheriris                             % load the Fisher iris dataset
-X = meas;                                   % predictor variables
-Y = species;                                % response variable
-mdl = fitcecoc(X, Y);                       % train a multiclass SVM
-Ypred = predict(mdl, X);                    % make predictions on training data
-accuracy = sum(Ypred == Y)/numel(Y)         % calculate classification accuracy
-```
-
-### 7. ROS Integration
+### 4. ROS Integration
 
 MATLAB provides a set of functions and tools for integrating with ROS. You can use the rossubscriber function to create a ROS subscriber, rospublisher function to create a ROS publisher, and many others. Here is an example of how to use the rossubscriber function to create a ROS subscriber:
 

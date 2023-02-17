@@ -11,9 +11,9 @@ To get started with ROS (if you are a beginner), we recommend you follow the "Be
 * [Chapter 12](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29) (Writing simple publisher and subscriber in Python)
 * Understand the [core tools provided by ROS](https://www.ros.org/core-components/), including RViz, rqt_graph, Gazebo, etc.
 
-After you complete the required tutorials listed above, you can start [setting up the workspace](../setting-up-your-workspace/index.md).
+After you complete the required tutorials listed above, you can start [setting up the workspace](../setting-up-your-workspace).
 
-Assuming the workspace at `~/catkin_ws/` as completed from the steps done in [setting up your workspace](../setting-up-your-workspace/index.md),
+Assuming the workspace at `~/catkin_ws/` as completed from the steps done in [setting up your workspace](../setting-up-your-workspace),
 This should be your folder structure till now.
 
 ```

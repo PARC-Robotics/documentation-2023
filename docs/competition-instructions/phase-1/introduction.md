@@ -15,8 +15,8 @@ Each task is designed as stand-alone, not depending on other task functionalitie
 Teams are provided with the robot's ROS packages and Gazebo environment models (see description below) to enable them develop and test their solutions (see [GitHub Repository](https://github.com/PARC-Robotics/PARC-Engineers-League)).
 
 
-### Agribot Robot
-The agribot robot is an unmanned ground vehicle (UGV) fitted with 2D LiDAR (light detection and ranging or laser scanner) and an RGB-Depth camera. The figure below shows the delivey robot with sensors labelled.
+### Agrobot Robot
+The agrobot robot is an unmanned ground vehicle (UGV) fitted with 2D LiDAR (light detection and ranging or laser scanner) and an RGB-Depth camera. The figure below shows the delivey robot with sensors labelled.
 
 ![robot](../assets/robot_description.png)
 
