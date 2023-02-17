@@ -1,4 +1,4 @@
-# Frequently asked 
+# Frequently Asked Questions
 
 ## General
 
