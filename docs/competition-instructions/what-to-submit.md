@@ -63,7 +63,7 @@ Submit your [Project Presentation Video here](https://forms.gle/ofoRbEXgdoL9rR1d
 
 The final item to submit is a zipped folder of your entire software solution. 
 
-- Please carefully review and follow the [How to Submit](../phase1-instructions/how-to-submit.md) page for the format of your submission. 
+- Please carefully review and follow the [How to Submit](/competition-instructions/phase-2/how-to-submit/) page for the format of your submission. 
 - In this case, you have ONLY ONE TASK, hence, kindly adjust your README.md file to show only one task and provide the commands to run to launch your solution.
 
 Submit your [Software Package (For Physical Robot) here](https://forms.gle/ofoRbEXgdoL9rR1d7).
@@ -75,7 +75,7 @@ Submit your [Software Package (For Physical Robot) here](https://forms.gle/ofoRb
 
 Please follow the same format as above (for the Physical Robot case).
 
-- Please carefully review and follow the [How to Submit](../phase1-instructions/how-to-submit.md) page for the format of your submission. 
+- Please carefully review and follow the [How to Submit](competition-instructions/phase-1/how-to-submit/) page for the format of your submission. 
 - In this case, you have ONLY ONE TASK, hence, kindly adjust your README.md file to show only one task and provide the commands to run to launch your solution.
 
 Submit your [Software Package (For Simulation) here](https://forms.gle/95ECZX54Kvxj84sc7).

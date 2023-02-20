@@ -22,3 +22,8 @@ If not already installed, Install **[Ubuntu Focal (20.04)](https://releases.ubun
 
 ## Installing ROS
 You need to install ROS Noetic by following [this guide](http://wiki.ros.org/noetic/Installation/Ubuntu){target=_blank} and install `ros-noetic-desktop-full` in the step `1.4` of the guide.
+
+If you prefer video instructions, you can follow these videos:
+
+- [Installing Ubuntu 20.04 on VirtualBox](https://www.youtube.com/watch?v=x5MhydijWmc){target=_blank}
+- [Installing ROS Noetic on Ubuntu 20.04](https://www.youtube.com/watch?v=ZEfh7NxLMxA){target=_blank}

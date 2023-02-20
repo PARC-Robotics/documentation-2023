@@ -50,7 +50,7 @@ And here you can create a new ROS package called `test_publisher` (for example) 
 catkin_create_pkg test_publisher roscpp rospy std_msgs geometry_msgs
 ```
 
-## Moving the Robot Programmically
+## Moving the Robot Programmatically
 
 [Setting up your workspace](../setting-up-your-workspace) guide has already shown how to control the robot with keyboard using `teleoperation`
 
@@ -332,3 +332,10 @@ And run the following command in another terminal to run this new program:
 If you have set up everything well, you should see the robot moving in Gazebo as below:
 
 ![publisher demo](assets/publisher_demo.gif)
+
+## Extra Resources
+
+If you want to learn more about ROS, you can check out the following resources:
+
+- [ROS Tutorials](http://wiki.ros.org/ROS/Tutorials){target=_blank}  - Official ROS tutorials
+- [ROS Tutorial YouTube Playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank}  - YouTube playlist of ROS tutorials. This is a good resource if you prefer to learn by watching videos.
