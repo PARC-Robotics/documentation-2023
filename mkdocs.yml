@@ -1,4 +1,5 @@
 site_name: Pan African Robotics Competition
+site_url: https://parc-robotics.github.io/documentation-2023/
 
 theme:
   language: en
