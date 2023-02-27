@@ -61,7 +61,7 @@ In another terminal:
 
 `roslaunch <your-package-name> task1_solution.launch`
 
-### Robot Sensor
+### Robot Sensors
 
 The robot is equipped with different sensors to help you achieve your goal. The sensors are:
 
@@ -80,6 +80,18 @@ The robot is equipped with different sensors to help you achieve your goal. The 
 ## Task Rules
 
 * The time limit to complete the task is 4 minutes (240 seconds), there will be bonus point if completed .
-* The robot must follow predifined path according to the route spawned.
-* The robot should not step on the crop, a penalty is given if it happens.
+
+* The robot must follow predifined path according to the route spawned as shown above.
+
+* The robot should not step on the crop, a penalty is given if this happens.
+
 * 
+
+Scoring for this task would be based on the following criteria:
+
+| S/N      | Criteria/Metric | Description |
+| ----------- | ----------- | ------- |
+| 1  | Predefined path | Robot must follow prededfined path.
+| 2  | Text            |  |
+| 3  | Collisions      | Number of times robot come in contact with crops and other objects in the environment |
+| 4  | Completion time | Time from launching the solution to task completion **(Smaller is better)** |
