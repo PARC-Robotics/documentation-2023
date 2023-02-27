@@ -22,7 +22,7 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 * The goal location can be obtained as a ROS parameter as follows:
 
 ```
-##Python
+## Python
 
 goal = rospy.get_param('/goal_location', 10)
 x, y, z = goal['x'], goal['y'], goal['z']
