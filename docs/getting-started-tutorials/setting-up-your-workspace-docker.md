@@ -34,7 +34,7 @@ Before starting with the steps below, ensure that you have the following:
 3. Next, create a `docker-compose.yml` file inside the main folder. This file will contain the configuration for our ROS Docker container. Open the file in your favorite editor and add the following lines:
 
     ```yaml
-    version: '3'
+    version: '3.8'
     services:
       ros:
         image: osrf/ros:noetic-desktop-full
