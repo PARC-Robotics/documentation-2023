@@ -92,6 +92,7 @@ nav:
     - Setting up your PC: getting-started-tutorials/setting-up-your-pc.md
     - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
     - Setting up your workspace: getting-started-tutorials/setting-up-your-workspace.md
+    - Setting up your workspace with Docker: getting-started-tutorials/setting-up-your-workspace-docker.md
     - Getting started with ROS: getting-started-tutorials/getting-started-with-ros.md
   - Competition Instructions:
     - "Phase 1: Simulation":
@@ -141,6 +142,7 @@ plugins:
           "Setting up your PC": "Configurer votre PC"
           "Getting started with MATLAB": "Commencer avec MATLAB"
           "Setting up your workspace": "Configurer votre espace de travail"
+          "Setting up your workspace with Docker": "Configurer votre espace de travail avec Docker"
           "Getting started with ROS": "Commencer avec ROS"
           "Team Naming Conventions": "Conventions de nommage des équipes"
           "What to submit": "Ce qu'il faut soumettre"
