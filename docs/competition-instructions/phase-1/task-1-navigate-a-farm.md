@@ -2,7 +2,7 @@
 
 ## General Description
 
-Agricultural robots must be able to navigate through crops and farmland, which includes autonomously moving through lettuce crop rows on rough terrain. This task involves reaching the end of a row, making a turn, and returning in adjacent rows until the goal location is reached. Teams must develop software to guide the robot through a predifined path within the crop rows, from its starting position to the goal location.
+Agricultural robots must be able to navigate through crops and farmland, which includes autonomously moving through lettuce crop rows on rough terrain. This task involves reaching the end of a row, making a turn, and returning in adjacent rows until the goal location is reached. Teams must develop software to guide the robot through a predefined path within the crop rows, from its starting position to the goal location.
 
 ## Task Guidelines
 ### Launching the Task
