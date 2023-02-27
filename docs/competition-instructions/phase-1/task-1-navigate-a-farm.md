@@ -12,8 +12,11 @@ In a new terminal, run the following launch file to bring up the robot in Gazebo
 
 You should see the display below in Gazebo and RViz respectively. To the right, there's the robot and to the left is the orange-red sphere which represents the goal location.
 
+<<<<<<< HEAD
 ![task1_world](../assets/task1_view.jpg)
 
+=======
+>>>>>>> 8f645dcaa004d6453725f41d7c01e058ecd6b89d
 ### Exploring Multiple Routes
 * We have prepared two pre-defined routes you can use as you develop your solution with each route having different goal location. The default route is `route1`, but you can select the second route option (`route2`) by passing the argument in the roslaunch command as follows:
 
