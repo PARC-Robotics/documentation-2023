@@ -55,7 +55,7 @@ Or
 
 `roslaunch parc_robot parc_task1.launch route:=route2`
 
-Note: Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
+> **_NOTE_:** Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
 
 In another terminal:
 
@@ -65,17 +65,17 @@ In another terminal:
 
 The robot is equipped with different sensors to help you achieve your goal. The sensors are:
 
-* YDLiDAR: A LiDAR sensor located at the top of the base of the robot. The YDLiDAR publishes the `/scan` topic.
+* **YDLiDAR:** A LiDAR sensor located at the top of the base of the robot. The YDLiDAR publishes the `/scan` topic.
 
-* RGB Camera (x2): Two downward-facing RGB cameras are provided at the left and right side of the robot. These cameras are suspended via an overhang and gives top-view of the farmland. The topics published by these cameras have group names called:
+* **RGB Camera (x2):** Two downward-facing RGB cameras are provided at the left and right side of the robot. These cameras are suspended via an overhang and gives top-view of the farmland. The topics published by these cameras have group names called:
 ```
 /left_camera/
 /right_camera/
 ```
 
-* ZED 2i Camera: This is a stereo camera at the front of the robot base. It publishes all the `/zed2/` topics including imu data(`/zed2/imu/data`) and point cloud data(`/zed2/point_cloud/cloud_registered`)
+* **ZED 2i Camera:** This is a stereo camera at the front of the robot base. It publishes all the `/zed2/` topics including imu data(`/zed2/imu/data`) and point cloud data(`/zed2/point_cloud/cloud_registered`)
 
-* GPS: For localization, we provided a GPS sensor which simulates a GNSS (Global Navigation Satellite System). It publishes the `/gps/` topics.
+* **GPS:** For localization, we provided a GPS sensor which simulates a GNSS (Global Navigation Satellite System). It publishes the `/gps/` topics.
 
 ## Task Rules
 
