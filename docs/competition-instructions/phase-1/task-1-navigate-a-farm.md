@@ -23,24 +23,50 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 
 * The goal location can be obtained as a ROS parameter as follows:
 
-```
-## Python
+=== "Matlab"
+    ```matlab
+    % Get the goal parameter
+    goal = rosparam('get', 'goal_location');
 
-goal = rospy.get_param('/goal_location', 10)
-x, y, z = goal['x'], goal['y'], goal['z']
-```
+    % Print the goal location
+    disp(['goal location: ' num2str(goal.x) ' ' num2str(goal.y) ' ' num2str(goal.z)])
 
-```
-// C++
+    ```
+=== "Python"
+    ```python
+    #!/usr/bin/env python
 
-ros::NodeHandle nh;
-std::vector<double> goal{3, 1, 7};
-nh.getParam("goal_location", goal)
+    import rospy
 
-// goal[0] is 3
-// goal[1] is 1
-// goal[2] is 7
-```
+    rospy.init_node('goal_parameter')
+
+    # Get goal parameter
+    goal = rospy.get_param('goal_location')
+    x, y, z = goal['x'], goal['y'], goal['z']
+
+    # Print goal location
+    rospy.loginfo("goal location: %f %f %f", x, y, z)
+
+    ```
+=== "C++"
+    ```cpp
+    #include <ros/ros.h>
+    #include "map"
+
+    int main(int argc, char** argv)
+    {
+      ros::init(argc, argv, "goal_parameter");
+
+      // Get goal parameter
+      std::map<std::string, double> goal;
+      ros::param::get("goal_location", goal);
+
+      // Print goal location
+      ROS_INFO("goal location: %f %f %f", goal["x"], goal["y"], goal["z"]);
+
+      return 0;
+    }
+    ```
 
 ### Preparing your Solution
 * Your solution should be prepared as ROS packages to be saved in your solution folder. Create a launch file in your ROS package which runs ALL the code you need in your solution. Name this launch file: `task1_solution.launch`.
@@ -55,7 +81,8 @@ Or
 
 `roslaunch parc_robot parc_task1.launch route:=route2`
 
-> **_NOTE_:** Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
+!!! note "Note"
+    Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
 
 In another terminal:
 
