@@ -15,8 +15,19 @@ Each task is designed as stand-alone, not depending on other task functionalitie
 Teams are provided with the robot's ROS packages and Gazebo environment models (see description below) to enable them develop and test their solutions (see [GitHub Repository](https://github.com/PARC-Robotics/PARC-Engineers-League)).
 
 
-### Agrobot Robot
-The agrobot robot is an unmanned ground vehicle (UGV) fitted with 2D LiDAR (light detection and ranging or laser scanner) and an RGB-Depth camera. The figure below shows the delivey robot with sensors labelled.
+### The Robot
+The AgRobot(Agricultural Robot) is an unmanned ground vehicle (UGV) equipped with different sensors to help you achieve your goal. The sensors are:
+
+* **YDLiDAR:** A LiDAR sensor located at the top of the base of the robot. The YDLiDAR publishes the `/scan` topic.
+
+* **RGB Camera (x2):** Two downward-facing RGB cameras are provided at the left and right side of the robot. These cameras are suspended via an overhang and gives top-view of the farmland. The topics published by these cameras have group names which are `/left_camera` and `right_camera`.
+
+* **ZED 2i Camera:** This is a stereo camera at the front of the robot base. It publishes all the `/zed2/` topics including imu data(`/zed2/imu/data`) and point cloud data(`/zed2/point_cloud/cloud_registered`)
+
+* **GPS:** For localization, we provided a GPS sensor which simulates a GNSS (Global Navigation Satellite System). It publishes the `/gps/` topics.
+
+
+The figure below shows the delivey robot with sensors labelled.
 
 ![robot](../assets/robot_description.png)
 

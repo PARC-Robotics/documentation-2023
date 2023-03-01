@@ -1,4 +1,4 @@
-# Task 1: Navigate Farm
+# Task 1: Autonomous Field Navigation
 
 ## General Description
 
@@ -8,7 +8,9 @@ Agricultural robots must be able to navigate through crops and farmland, which i
 ### Launching the Task
 In a new terminal, run the following launch file to bring up the robot in Gazebo and RViz:
 
-`roslaunch parc_robot parc_task1.launch`
+```sh
+roslaunch parc_robot parc_task1.launch
+```
 
 You should see the display below in Gazebo and RViz respectively. To the right, there's the robot and to the left is the orange-red sphere which represents the goal location.
 
@@ -17,7 +19,9 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 ### Exploring Multiple Routes
 * We have prepared two pre-defined routes you can use as you develop your solution with each route having different goal location. The default route is `route1`, but you can select the second route option (`route2`) by passing the argument in the roslaunch command as follows:
 
-`roslaunch parc_robot parc_task1.launch route:=route2`
+```sh
+roslaunch parc_robot parc_task1.launch route:=route2
+```
 
 * We recommend you play around with at least these two routes to ensure your solution is robust to different start locations.
 
@@ -25,6 +29,9 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 
 === "Matlab"
     ```matlab
+    % Initialize the ROS node
+    rosinit
+
     % Get the goal parameter
     goal = rosparam('get', 'goal_location');
 
@@ -75,34 +82,24 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 
 In one terminal:
 
-`roslaunch parc_robot parc_task1.launch`
+```sh
+roslaunch parc_robot parc_task1.launch
+```
 
 Or 
 
-`roslaunch parc_robot parc_task1.launch route:=route2`
+```sh
+roslaunch parc_robot parc_task1.launch route:=route2
+```
 
 !!! note "Note"
     Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
 
 In another terminal:
 
-`roslaunch <your-package-name> task1_solution.launch`
-
-### Robot Sensors
-
-The robot is equipped with different sensors to help you achieve your goal. The sensors are:
-
-* **YDLiDAR:** A LiDAR sensor located at the top of the base of the robot. The YDLiDAR publishes the `/scan` topic.
-
-* **RGB Camera (x2):** Two downward-facing RGB cameras are provided at the left and right side of the robot. These cameras are suspended via an overhang and gives top-view of the farmland. The topics published by these cameras have group names called:
+```sh
+roslaunch <your-package-name> task1_solution.launch`
 ```
-/left_camera/
-/right_camera/
-```
-
-* **ZED 2i Camera:** This is a stereo camera at the front of the robot base. It publishes all the `/zed2/` topics including imu data(`/zed2/imu/data`) and point cloud data(`/zed2/point_cloud/cloud_registered`)
-
-* **GPS:** For localization, we provided a GPS sensor which simulates a GNSS (Global Navigation Satellite System). It publishes the `/gps/` topics.
 
 ## Task Rules
 
