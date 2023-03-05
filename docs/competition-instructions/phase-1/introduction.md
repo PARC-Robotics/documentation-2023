@@ -20,14 +20,14 @@ The AgRobot(Agricultural Robot) is an unmanned ground vehicle (UGV) equipped wit
 
 * **YDLiDAR:** A LiDAR sensor located at the top of the base of the robot. The YDLiDAR publishes the `/scan` topic.
 
-* **RGB Camera (x2):** Two downward-facing RGB cameras are provided at the left and right side of the robot. These cameras are suspended via an overhang and gives top-view of the farmland. The topics published by these cameras have group names which are `/left_camera` and `right_camera`.
+* **RGB Camera (x2):** Two downward-facing RGB cameras are provided at the left and right side of the robot. These cameras are suspended via an overhang and gives top-view of the farmland. The topics published by these cameras have group names which are `/left_camera/` and `/right_camera/`.
 
 * **ZED 2i Camera:** This is a stereo camera at the front of the robot base. It publishes all the `/zed2/` topics including imu data(`/zed2/imu/data`) and point cloud data(`/zed2/point_cloud/cloud_registered`)
 
 * **GPS:** For localization, we provided a GPS sensor which simulates a GNSS (Global Navigation Satellite System). It publishes the `/gps/` topics.
 
 
-The figure below shows the delivey robot with sensors labelled.
+The figure below shows the AgRobot with sensors labelled.
 
 ![robot](../assets/robot_description.png)
 

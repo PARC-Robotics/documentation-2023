@@ -92,6 +92,12 @@ Or
 roslaunch parc_robot parc_task1.launch route:=route2
 ```
 
+Or
+
+```sh
+roslaunch parc_robot parc_task1.launch route:=route3
+```
+
 !!! note "Note"
     Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
 
@@ -101,21 +107,29 @@ In another terminal:
 roslaunch <your-package-name> task1_solution.launch`
 ```
 
+=== "Route 1"
+    ![task1_world](../assets/Task1Route1.png)
+
+=== "Route 2"
+    ![task1_world](../assets/Task1Route2.png)
+
+=== "Route 3"
+    ![task1_world](../assets/Task1Route3.png)
+
 ## Task Rules
 
 * The time limit to complete the task is 4 minutes (240 seconds), there will be bonus point if completed .
 
-* The robot must follow predifined path according to the route spawned as shown above.
+* The task is ONLY complete when ANY part of the robot is inside the orange-red sphere (goal location marker) after following the predefined path as shown above.
 
-* The robot should not step on the crop, a penalty is given if this happens.
-
-* 
+!!! note "Note"
+    Ensure you DO NOT provide a solution with hard-coded positions for the robot to move to because in evaluation, the robot initial position would be randomized. 
 
 Scoring for this task would be based on the following criteria:
 
 | S/N      | Criteria/Metric | Description |
 | ----------- | ----------- | ------- |
-| 1  | Predefined path | Robot must follow prededfined path.
-| 2  | Text            |  |
-| 3  | Collisions      | Number of times robot come in contact with crops and other objects in the environment |
+| 1  | Predefined path | Every route launched has a predifined path that must be followed as explained in the images above. |
+| 2  | Crop avoidance  | The robot should avoid going over or having contact with the crops. **(Less contact is better)** |
+| 3 | Final travel distance to goal | Shortest travel distance from robot (measured from robot center) through the crop rows to the goal which is calculated at the time limit [4 minutes] **(Smaller is better)**
 | 4  | Completion time | Time from launching the solution to task completion **(Smaller is better)** |
