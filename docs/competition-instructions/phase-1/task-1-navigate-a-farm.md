@@ -106,7 +106,7 @@ In another terminal:
 ```sh
 roslaunch <your-package-name> task1_solution.launch`
 ```
-
+### Route Description
 === "Route 1"
     ![task1_world](../assets/Task1Route1.png)
 
@@ -115,6 +115,8 @@ roslaunch <your-package-name> task1_solution.launch`
 
 === "Route 3"
     ![task1_world](../assets/Task1Route3.png)
+
+The red line is the farmland while the green lines specify the path that **MUST** be followed by each route.
 
 ## Task Rules
 
