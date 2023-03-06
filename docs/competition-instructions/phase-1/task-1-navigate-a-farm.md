@@ -27,9 +27,9 @@ roslaunch parc_robot parc_task1.launch route:=route2
 roslaunch parc_robot parc_task1.launch route:=route3
 ```
 
-* We recommend you play around with at least these two routes to ensure your solution is robust to different start locations.
+* We recommend you play around with at least these three routes to ensure your solution is robust to different start locations.
 
-* The goal location can be obtained as a ROS parameter as follows:
+* The goal location for this task regardless of the route option can be obtained as a ROS parameter as follows:
 
 === "Matlab"
     ```matlab
