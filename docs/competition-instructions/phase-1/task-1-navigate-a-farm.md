@@ -103,7 +103,7 @@ roslaunch parc_robot parc_task1.launch route:=route3
 ```
 
 !!! note "Note"
-    Please wait until the world and robot models finish spawning. This may take longer when running for the first time.
+    Please wait until both the world and robot models have finished spawning. This process may take longer than usual, especially when running the program for the first time.
 
 In another terminal:
 
