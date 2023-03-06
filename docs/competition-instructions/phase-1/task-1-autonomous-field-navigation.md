@@ -2,7 +2,7 @@
 
 ## General Description
 
-Agricultural robots must be able to navigate through crops and farmland, which includes autonomously moving through lettuce crop rows on rough terrain. This task involves reaching the end of a row, making a turn, and returning in adjacent rows until the goal location is reached. Teams must develop software to guide the robot through a [predefined path](#route-description) within the crop rows, from its starting position to the goal location.
+Agricultural robots must be able to navigate through crops and farmland, which includes autonomously moving through lettuce crop rows on rough terrain. This task involves reaching the end of a row, making a turn, and returning in adjacent rows until the goal location is reached. Teams must develop software to guide the robot through a [pre-defined path](#route-description) within the crop rows, from its starting position to the goal location.
 
 ## Task Guidelines
 ### Launching the Task
@@ -128,7 +128,7 @@ The red line is the farmland while the green lines specify the path within the c
 
 * The time limit to complete the task is 4 minutes (240 seconds).
 
-* The task is ONLY complete when ANY part of the robot is inside the orange-red sphere (goal location marker) after following the predefined path as shown above.
+* The task is ONLY complete when ANY part of the robot is inside the orange-red sphere (goal location marker) after following the pre-defined path as shown above.
 
 !!! note "Note"
     Ensure you DO NOT provide a solution with hard-coded positions for the robot to move to because in evaluation, the robot initial position would be randomized. 
@@ -137,7 +137,7 @@ Scoring for this task would be based on the following criteria:
 
 | S/N      | Criteria/Metric | Description |
 | ----------- | ----------- | ------- |
-| 1  | **Predefined path** | Every route launched has a predefined path that **must** be followed as explained at [Route Description](#route-description). |
+| 1  | **Pre-defined path** | Every route launched has a pre-defined path that **must** be followed as explained at [Route Description](#route-description). |
 | 2  | **Crop avoidance**  | The robot should avoid going over or having contact with the crops. **(Less contact is better)** |
 | 3 | **Final travel distance to goal** | Shortest travel distance from robot (measured from robot center) through the crop rows to the goal which is calculated at the time limit [4 minutes] **(Smaller is better)**
 | 4  | **Completion time** | Time from launching the solution to task completion **(Smaller is better)** |
