@@ -29,7 +29,7 @@ The AgRobot(Agricultural Robot) is an unmanned ground vehicle (UGV) equipped wit
 
 The figure below shows the AgRobot with sensors labelled.
 
-![robot](../assets/robot_description.png)
+![robot](../assets/robot_sensor_label.png)
 
 
 ### Simulation Environment
