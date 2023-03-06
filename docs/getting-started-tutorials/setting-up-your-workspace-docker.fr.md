@@ -5,8 +5,9 @@ Ce guide vous guidera tout au long du processus de mise en place d'un espace de 
 ## Conditions préalables
 Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui suit:
 
-* Docker Desktop pour Windows installé et exécuté
+* [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows){target=_blank} pour Windows installé et exécuté
 * Code Visual Studio (Code vs) installé
+* [Git](https://github.com/git-guides/install-git#install-git-on-linux){target=_blank} installé
 
 ## Étape 1: Installer VcXsrv
 

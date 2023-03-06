@@ -5,8 +5,9 @@ This guide will walk you through the process of setting up a ROS workspace with 
 ## Prerequisites
 Before starting with the steps below, ensure that you have the following:
 
-* Docker Desktop for Windows installed and running
+* [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows){target=_blank} for Windows installed and running
 * Visual Studio Code (VS Code) installed
+* [Git](https://github.com/git-guides/install-git#install-git-on-linux){target=_blank} installed
 
 ## Step 1: Install VcXsrv
 
