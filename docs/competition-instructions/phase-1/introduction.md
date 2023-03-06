@@ -33,7 +33,7 @@ The figure below shows the AgRobot with sensors labelled.
 
 
 ### Simulation Environment
-The simulation environment used in this phase is modeled as a realistic street with roads, sidewalk, crosswalk, traffic signals and buildings. The sidewalk is fitted with lane markings to ease the task of sidewalk following. The goal of the competition is to pick up a parcel from the store (side of the building) and deliver it to the person in the park. The figure below shows the simulation environment with labels of significant objects.
+The simulation environment used in this phase is modeled as a realistic farmland with rough terrain, lettuce crops, trees, barns, and pickup truck. The sidewalk is fitted with lane markings to ease the task of sidewalk following. The goal of the competition is to pick up a parcel from the store (side of the building) and deliver it to the person in the park. The figure below shows the simulation environment with labels of significant objects.
 
-![simulation](../assets/sim_description.png)
+![simulation](../assets/world_description.png)
 
