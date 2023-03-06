@@ -122,7 +122,7 @@ The red line is the farmland while the green lines specify the path within the c
 
 ## Task Rules
 
-* The time limit to complete the task is 4 minutes (240 seconds), there will be bonus point if completed .
+* The time limit to complete the task is 4 minutes (240 seconds).
 
 * The task is ONLY complete when ANY part of the robot is inside the orange-red sphere (goal location marker) after following the predefined path as shown above.
 
