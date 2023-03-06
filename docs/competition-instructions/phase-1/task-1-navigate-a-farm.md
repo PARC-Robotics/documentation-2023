@@ -29,7 +29,7 @@ roslaunch parc_robot parc_task1.launch route:=route3
 
 * We recommend you play around with at least these three routes to ensure your solution is robust to different start locations.
 
-* The goal location for this task regardless of the route option can be obtained as a ROS parameter as follows:
+* To obtain the goal location for this task, regardless of the route option, you can use a ROS parameter. Here is an example of how to obtain the goal location as a ROS parameter:
 
 === "Matlab"
     ```matlab
