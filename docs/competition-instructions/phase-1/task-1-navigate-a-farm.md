@@ -17,10 +17,14 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 ![task1_world](../assets/task1_view.jpg)
 
 ### Exploring Multiple Routes
-* We have prepared two pre-defined routes you can use as you develop your solution with each route having different goal location. The default route is `route1`, but you can select the second route option (`route2`) by passing the argument in the roslaunch command as follows:
+* We have prepared three pre-defined routes you can use as you develop your solution with each route having different goal location. The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows:
 
 ```sh
+## route2
 roslaunch parc_robot parc_task1.launch route:=route2
+
+## route3
+roslaunch parc_robot parc_task1.launch route:=route3
 ```
 
 * We recommend you play around with at least these two routes to ensure your solution is robust to different start locations.
