@@ -8,7 +8,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
 * Docker Desktop pour Windows installé et exécuté
 * Code Visual Studio (Code vs) installé
 
-## Installer VcXsrv
+## Étape 1: Installer VcXsrv
 
 1. Téléchargez et installez [VcXSrv](https://sourceforge.net/projects/vcxsrv/){:target=_blank} sur votre ordinateur.
 2. Installez VcXSrv en exécutant l'installateur et en suivant les invites.
@@ -22,7 +22,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
 7. Dans la fenêtre suivante, cliquez sur `Finish`.
     ![XLaunch step 4](assets/vcxsrv-install-4.png)
 
-## Création du dossier principal et `docker-compose.yml`
+## Étape 2: Création du dossier principal et `docker-compose.yml`
 
 1. Créez un nouveau dossier dans votre emplacement préféré et nommez-le comme vous le souhaitez.
 2. À l'intérieur du dossier nouvellement créé, créez un espace de travail ROS en exécutant la commande suivante dans PowerShell:
@@ -52,7 +52,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
 
 4. Enregistrez le fichier `docker-compose.yml` et fermez votre éditeur.
 
-## Construire le conteneur Docker
+## Étape 3: Construire le conteneur Docker
 
 1. Ouvrez une nouvelle fenêtre de terminal et accédez au dossier principal que vous avez créé plus tôt.
 
@@ -75,7 +75,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
     db7df0798d9b   osrf/ros:noetic-desktop-full   "/ros_entrypoint.sh …"   20 seconds ago   Up 19 seconds    0.0.0.0:11311->11311/tcp   parc-ros-docker-ros-1
     ```
 
-## Ouverture d'un terminal dans le conteneur Docker
+## Étape 4: Ouverture d'un terminal dans le conteneur Docker
 
 1. Pour ouvrir un terminal dans le conteneur Docker, exécutez la commande suivante:
 
@@ -96,7 +96,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
     noetic
     ```
 
-## Configuration de l'espace de travail ROS
+## Étape 5: Configuration de l'espace de travail ROS
 
 1. Source l'environnement ROS:
 
@@ -133,7 +133,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
     echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
     ```
 
-## Cloner le référentiel
+## Étape 6: Cloner le référentiel
 
 Dans le même terminal (ou dans un nouveau), copiez et collez ce qui suit:
 ```sh
@@ -142,7 +142,7 @@ git clone --recurse-submodules https://github.com/PARC-Robotics/PARC-Engineers-L
 ```
 Ou si vous avez déjà cloné le référentiel sans sous-modules, exécutez la commande `git submodule update --init --recursive` pour les mettre à jour.
 
-## Installer des dépendances
+## Étape 7: Installer des dépendances
 
 Dans le même terminal (ou dans un nouveau), copiez et collez ce qui suit:
 ```sh
@@ -151,7 +151,7 @@ sudo apt update
 rosdep install --from-paths ./src --ignore-src -y
 ```
 
-## Compiler les forfaits
+## Étape 8: Compiler les forfaits
 ```sh
 cd ~/catkin_ws
 catkin_make
@@ -163,7 +163,7 @@ source ~/catkin_ws/devel/setup.bash
 Pour résoudre, mettez à jour le fichier `realsense-ros/realsense_camera/CMakeLists.txt`, ligne: 43 à `find_package(realsense2 2.36.0) `
 c'est-à-dire rétrograder la version requise de `realsense2` à` 2.36.0`
 
-## Configurer l'environnement ROS
+## Étape 9: Configurer l'environnement ROS
 Sournez votre environnement ROS une fois de plus en exécutant cette commande:
 
 ```sh
@@ -171,7 +171,7 @@ source ~/.bashrc
 ```
 
 
-## Installation de test
+## Étape 10: Installation de test
 
 Si vous avez terminé les tâches précédentes avec succès, vous devriez être en mesure d'exécuter cette commande de lancement ROS et de voir le simulateur de gazebo et le simulateur RViz ouvert avec l'écran suivant:
 ```sh
@@ -198,7 +198,7 @@ The following guide will help you control the robot using keyboard. Once you hav
 Vous devez `publier`/ écrire sur le `sujet` `/cmd_vel` pour déplacer le robot.
 Le guide suivant vous aidera à contrôler le robot à l'aide du clavier. Une fois que vous avez testé cela, vous pouvez suivre le guide [understanding-ros](../getting-started-with-ros) pour écrire un programme Python pour contrôler le robot.
 
-## Contrôlant le robot à l'aide du clavier
+## Étape 11: Contrôlant le robot à l'aide du clavier
 Exécutez la commande suivante dans un nouveau terminal
 ```sh
 source ~/catkin_ws/devel/setup.bash
@@ -214,7 +214,7 @@ Se déplacer:
    m    ,    .
 ```
 
-## Développer à l'intérieur du conteneur avec VS Code
+## Étape 12: Développer à l'intérieur du conteneur avec VS Code
 
 1. Installez les [Conteneurs Dev](https://marketplace.visualstudio.com/items?itemname=ms-vscode-remote.remote-contrainers){:target=_blank} Extension dans vscode.
 

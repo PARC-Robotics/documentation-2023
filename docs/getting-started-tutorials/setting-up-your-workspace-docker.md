@@ -8,7 +8,7 @@ Before starting with the steps below, ensure that you have the following:
 * Docker Desktop for Windows installed and running
 * Visual Studio Code (VS Code) installed
 
-## Install VcXsrv
+## Step 1: Install VcXsrv
 
 1. Download and install [VcXsrv](https://sourceforge.net/projects/vcxsrv/){:target=_blank} on your computer.
 2. Install VcXsrv by running the installer and following the prompts.
@@ -22,7 +22,7 @@ Before starting with the steps below, ensure that you have the following:
 7. In the next window, click `Finish`.
     ![XLaunch step 4](assets/vcxsrv-install-4.png)
 
-## Creating the main folder and `docker-compose.yml`
+## Step 2: Creating the main folder and `docker-compose.yml`
 
 1. Create a new folder in your preferred location and name it whatever you like.
 2. Inside the newly created folder, create a ROS workspace by running the following command in powershell:
@@ -52,7 +52,7 @@ Before starting with the steps below, ensure that you have the following:
 
 4. Save the `docker-compose.yml` file and close your editor.
 
-## Building the Docker container
+## Step 4: Building the Docker container
 
 1. Open a new terminal window and navigate to the main folder you created earlier.
 
@@ -75,7 +75,7 @@ Before starting with the steps below, ensure that you have the following:
     db7df0798d9b   osrf/ros:noetic-desktop-full   "/ros_entrypoint.sh …"   20 seconds ago   Up 19 seconds    0.0.0.0:11311->11311/tcp   parc-ros-docker-ros-1
     ```
 
-## Opening a terminal in the Docker container
+## Step 5: Opening a terminal in the Docker container
 
 1. To open a terminal in the Docker container, run the following command:
 
@@ -96,7 +96,7 @@ Before starting with the steps below, ensure that you have the following:
     noetic
     ```
 
-## Setting up the ROS workspace
+## Step 6: Setting up the ROS workspace
 
 1. Source the ROS environment:
 
@@ -133,7 +133,7 @@ Before starting with the steps below, ensure that you have the following:
     echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
     ```
 
-## Clone the repository
+## Step 7: Clone the repository
 
 In the same terminal (or in a new one), copy and paste the following:
 ```sh
@@ -142,7 +142,7 @@ git clone --recurse-submodules https://github.com/PARC-Robotics/PARC-Engineers-L
 ```
 Or if you already have cloned the repo without submodules, run command `git submodule update --init --recursive` to update them.
 
-## Install dependencies
+## Step 8: Install dependencies
 
 In the same terminal (or in a new one), copy and paste the following:
 ```sh
@@ -151,7 +151,7 @@ sudo apt update
 rosdep install --from-paths ./src --ignore-src -y
 ```
 
-## Compile packages
+## Step 8: Compile packages
 ```sh
 cd ~/catkin_ws
 catkin_make
@@ -164,7 +164,7 @@ To solve, update the file `realsense-ros/realsense_camera/CMakeLists.txt`,line: 
 i.e. downgrade the required version of `realsense2` to `2.36.0`
 
 
-## Set up ROS environment
+## Step 9: Set up ROS environment
 Source your ROS environment one more time by running this command:
 
 ```sh
@@ -172,7 +172,7 @@ source ~/.bashrc
 ```
 
 
-## Test installation
+## Step 10: Test installation
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
@@ -197,7 +197,7 @@ You will see a screen like this:
 You need to `publish`/write to the `topic` `/cmd_vel` to move the robot.
 The following guide will help you control the robot using keyboard. Once you have tested that, you can follow the [understanding-ros](../getting-started-with-ros) guide to write a python program to control the robot.
 
-## Controlling the robot using keyboard
+## Step 11: Controlling the robot using keyboard
 Run the following command in a new terminal
 ```sh
 source ~/catkin_ws/devel/setup.bash
@@ -213,7 +213,7 @@ Moving around:
    m    ,    .
 ```
 
-## Developing inside the container with VSCode
+## Step 12: Developing inside the container with VSCode
 
 1. Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in VSCode.
 
