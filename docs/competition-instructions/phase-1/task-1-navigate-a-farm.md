@@ -133,7 +133,7 @@ Scoring for this task would be based on the following criteria:
 
 | S/N      | Criteria/Metric | Description |
 | ----------- | ----------- | ------- |
-| 1  | **Predefined path** | Every route launched has a predifined path that must be followed as explained at [Route Description](#route-description). |
+| 1  | **Predefined path** | Every route launched has a predifined path that **must** be followed as explained at [Route Description](#route-description). |
 | 2  | **Crop avoidance**  | The robot should avoid going over or having contact with the crops. **(Less contact is better)** |
 | 3 | **Final travel distance to goal** | Shortest travel distance from robot (measured from robot center) through the crop rows to the goal which is calculated at the time limit [4 minutes] **(Smaller is better)**
 | 4  | **Completion time** | Time from launching the solution to task completion **(Smaller is better)** |
