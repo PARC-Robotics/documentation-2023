@@ -118,7 +118,7 @@ roslaunch <your-package-name> task1_solution.launch`
 === "Route 3"
     ![task1_world](../assets/Task1Route3.png)
 
-The red line is the farmland while the green lines specify the path that **MUST** be followed by each route.
+The red line is the farmland while the green lines specify the path within the crop rows that **MUST** be followed by the robot for each route.
 
 ## Task Rules
 
