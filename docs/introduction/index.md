@@ -1,6 +1,6 @@
 # Introduction
 
-![Motivating image](../assets/overview.PNG)
+![Motivating image](./assets/overview.PNG)
 
 Robotics and AI is revolutionizing the what and how we work today and will continue in the future. Today, robots are augmenting the capability of human workers in various industries: logistics, healthcare, agriculture, etc.
 

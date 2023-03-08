@@ -1,6 +1,6 @@
 # Introduction
 
-![Motivating image](../assets/overview.PNG)
+![Motivating image](./assets/overview.PNG)
 
 
 La robotique et l'IA révolutionnent le quoi et comment nous travaillons aujourd'hui et continuerons à l'avenir. Aujourd'hui, les robots augmentent la capacité des travailleurs humains dans diverses industries: logistique, soins de santé, agriculture, etc.
