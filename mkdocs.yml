@@ -83,12 +83,6 @@ markdown_extensions:
 nav:
   - Introduction:
     - Introduction: introduction/index.md
-    # - Competition Overview:
-    #   # - competition-overview/index.md/
-    #   - Objectives and goals: competition-overview/objectives-and-goals.md
-    #   - Prizes and rewards: competition-overview/prizes-and-rewards.md
-      # - How to register: competition-overview/how-to-register.md
-      # - Important dates: competition-overview/important-dates.md
       - How to register: introduction/how-to-register.md
       - Important dates: introduction/important-dates.md
   - Getting Started Tutorials:
