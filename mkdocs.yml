@@ -106,8 +106,8 @@ nav:
         - "Task 3: Seed Planting": competition-instructions/phase-1/task-3-seed-planting.md
         - How to Submit: competition-instructions/phase-1/how-to-submit.md
       - "Phase 2: Physical Robot": competition-instructions/phase-2/introduction.md
-      - Team Naming Conventions: competition-instructions/team-naming-conventions.md
-      - What to submit: competition-instructions/what-to-submit.md
+      # - Team Naming Conventions: competition-instructions/team-naming-conventions.md
+      # - What to submit: competition-instructions/what-to-submit.md
   - Frequently Asked Questions: faq.md
   - Rules and Regulations: rules-and-regulations.md
   - Resources and Support:
