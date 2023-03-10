@@ -17,7 +17,19 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 ![task1_world](../assets/task1_view.jpg)
 
 ### Exploring Multiple Routes
-* We have prepared three pre-defined routes you can use as you develop your solution with each route having different goal location. The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows:
+* We have prepared three pre-defined routes you can use as you develop your solution with each route having different goal location.
+
+=== "Route 1"
+    ![task1_world](../assets/Task1Route1.png)
+
+=== "Route 2"
+    ![task1_world](../assets/Task1Route2.png)
+
+=== "Route 3"
+    ![task1_world](../assets/Task1Route3.png)
+
+
+The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows:
 
 ```sh
 ## route2
@@ -29,7 +41,7 @@ roslaunch parc_robot parc_task1.launch route:=route3
 
 * We recommend you play around with at least these three routes to ensure your solution is robust to different start locations.
 
-* To obtain the goal location for this task, regardless of the route option, you can use a ROS parameter. Here is an example of how to obtain the goal location as a ROS parameter:
+* To obtain the GPS goal location for this task, regardless of the route option, you can use a ROS parameter. Here is an example of how to obtain the goal location as a ROS parameter:
 
 === "Matlab"
     ```matlab
@@ -40,7 +52,7 @@ roslaunch parc_robot parc_task1.launch route:=route3
     goal = rosparam('get', 'goal_location');
 
     % Print the goal location
-    disp(['goal location: ' num2str(goal.x) ' ' num2str(goal.y) ' ' num2str(goal.z)])
+    disp(['goal location: ' num2str(goal.latitude) ' ' num2str(goal.longitude)])
 
     ```
 === "Python"
@@ -53,10 +65,10 @@ roslaunch parc_robot parc_task1.launch route:=route3
 
     # Get goal parameter
     goal = rospy.get_param('goal_location')
-    x, y, z = goal['x'], goal['y'], goal['z']
+    lat, lon = goal['latitude'], goal['longitude']
 
     # Print goal location
-    rospy.loginfo("goal location: %f %f %f", x, y, z)
+    rospy.loginfo("goal location: %f %f %f", lat, lon)
 
     ```
 === "C++"
@@ -73,11 +85,64 @@ roslaunch parc_robot parc_task1.launch route:=route3
       ros::param::get("goal_location", goal);
 
       // Print goal location
-      ROS_INFO("goal location: %f %f %f", goal["x"], goal["y"], goal["z"]);
+      ROS_INFO("goal location: %f %f %f", goal["latitude"], goal["longitude"]);
 
       return 0;
     }
     ```
+
+Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a parameter if you need it for localization. Here is an example of how to obtain the GPS coordinate of **peg 01**:
+
+=== "Matlab"
+    ```matlab
+    % Initialize the ROS node
+    rosinit
+
+    % Get the peg parameter
+    peg01 = rosparam('get', 'peg_01');
+
+    % Print the goal location
+    disp(['peg01 coordinate: ' num2str(peg01.latitude) ' ' num2str(peg01.longitude)])
+
+    ```
+=== "Python"
+    ```python
+    #!/usr/bin/env python
+
+    import rospy
+
+    rospy.init_node('peg01_coordinate')
+
+    # Get goal parameter
+    peg01 = rospy.get_param('peg_01')
+    lat, lon = peg01['latitude'], peg01['longitude']
+
+    # Print goal location
+    rospy.loginfo("peg01 coordinate: %f %f %f", lat, lon)
+
+    ```
+=== "C++"
+    ```cpp
+    #include <ros/ros.h>
+    #include "map"
+
+    int main(int argc, char** argv)
+    {
+      ros::init(argc, argv, "peg01_coordinate");
+
+      // Get goal parameter
+      std::map<std::string, double> peg01;
+      ros::param::get("peg_01", peg01);
+
+      // Print goal location
+      ROS_INFO("peg01 coordinate: %f %f %f", peg01["latitude"], peg01["longitude"]);
+
+      return 0;
+    }
+    ```
+
+!!! note "Note"
+    **DO NOT** use the cartesian coordinates of the goal location and pegs provided by Gazebo or the world file in any way. You will be disqualified if you do.
 
 ### Preparing your Solution
 * Your solution should be prepared as ROS packages to be saved in your solution folder. Create a launch file in your ROS package which runs ALL the code you need in your solution. Name this launch file: `task1_solution.launch`.
@@ -110,19 +175,6 @@ In another terminal:
 ```sh
 roslaunch <your-package-name> task1_solution.launch`
 ```
-
-### Route Description
-
-=== "Route 1"
-    ![task1_world](../assets/Task1Route1.png)
-
-=== "Route 2"
-    ![task1_world](../assets/Task1Route2.png)
-
-=== "Route 3"
-    ![task1_world](../assets/Task1Route3.png)
-
-The red line is the farmland while the green lines specify the path within the crop rows that **MUST** be followed by the robot for each route to the goal location represented as **G**.
 
 ## Task Rules
 
