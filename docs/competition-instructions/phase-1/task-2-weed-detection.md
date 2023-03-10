@@ -16,9 +16,9 @@ roslaunch parc_robot parc_task2.launch
 
 Upon selection of the route, the robot will promptly commence movement. Notably, the robot is equipped with a camera, which serves the purpose of detecting weeds in the field.
 
-An additional topic has been created under the name `/parc/weed_detection`, responsible for publishing the location of weeds in the field. The message type for this topic is `/parc_msgs/WeedDetection`. Within the WeedDetection message, a list of Weed messages can be found, with each containing the GPS coordinates of the weed in the field. The Weed message also comprises a confidence field, indicating the level of certainty the robot has that the weed is indeed a weed. This field ranges from 0 to 1, with a value of 1 indicating absolute confidence and a value of 0 denoting absolute uncertainty.
+An additional topic has been created under the name `/parc_robot/weed_detection`, responsible for publishing the location of weeds in the field. The message type for this topic is `/parc_robot/WeedDetection`. Within the WeedDetection message, a list of Weed messages can be found, with each containing the GPS coordinates of the weed in the field. The Weed message also comprises a confidence field, indicating the level of certainty the robot has that the weed is indeed a weed. This field ranges from 0 to 1, with a value of 1 indicating absolute confidence and a value of 0 denoting absolute uncertainty.
 
-Furthermore, a new topic has been introduced as `/parc/robot_status`, which serves the purpose of publishing the status of the robot. The message type for this topic is `parc_msgs/RobotStatus`. The RobotStatus message contains a status field, represented as a string that informs of the robot's current status. The possible values for this field are `started` and `finished`, where `started` indicates that the robot has begun moving along the route, and `finished` indicates that it has completed the designated route.
+Furthermore, a new topic has been introduced as `/parc_robot/robot_status`, which serves the purpose of publishing the status of the robot. The message type for this topic is `parc_robot/RobotStatus`. The RobotStatus message contains a status field, represented as a string that informs of the robot's current status. The possible values for this field are `started` and `finished`, where `started` indicates that the robot has begun moving along the route, and `finished` indicates that it has completed the designated route.
 
 ### Exploring multiple routes
 
@@ -65,11 +65,11 @@ We recommend you play around with differnt speeds to ensure your solution is rob
 
 ### Task Expectations
 
-The task at hand involves driving the robot through a row of crops with the objective of identifying and communicating the location of any weeds present in the field. Once the robot reaches the end of the row, it will come to a stop. At this point, you should publish the locations of the weeds to the `/parc/weed_detection` topic.
+The task at hand involves driving the robot through a row of crops with the objective of identifying and communicating the location of any weeds present in the field. Once the robot reaches the end of the row, it will come to a stop. At this point, you should publish the locations of the weeds to the `/parc_robot/weed_detection` topic.
 
-It is worth noting that real-time publication of weed locations is not required. You can publish the locations of the weeds in the field after the robot has stopped moving. You can determine when the robot has stopped moving by monitoring the `/parc/robot_status` topic.
+It is worth noting that real-time publication of weed locations is not required. You can publish the locations of the weeds in the field after the robot has stopped moving. You can determine when the robot has stopped moving by monitoring the `/parc_robot/robot_status` topic.
 
-Upon detecting that the robot has stopped moving, it is then necessary to publish the locations of the weeds to the `/parc/weed_detection` topic. Within the WeedDetection message, you can find a list of Weed messages, with each message containing the GPS coordinates of the weed in the field. Additionally, the Weed message includes a confidence field, indicating the robot's level of certainty that the identified weed is indeed a weed. The confidence value ranges from 0 to 1, where a value of 1 indicates absolute confidence, and a value of 0 denotes absolute uncertainty.
+Upon detecting that the robot has stopped moving, it is then necessary to publish the locations of the weeds to the `/parc_robot/weed_detection` topic. Within the WeedDetection message, you can find a list of Weed messages, with each message containing the GPS coordinates of the weed in the field. Additionally, the Weed message includes a confidence field, indicating the robot's level of certainty that the identified weed is indeed a weed. The confidence value ranges from 0 to 1, where a value of 1 indicates absolute confidence, and a value of 0 denotes absolute uncertainty.
 
 ### Preparing your submission
 
@@ -83,8 +83,8 @@ roslaunch <your_solution_package> task2_solution.launch
 
 ## Task Rules
 
-* You are not allowed to publish to the `/cmd_vel` topic. The robot will be driven through the field by the simulation. You are only allowed to publish to the `/parc/weed_detection` topic.
-* You should publish the locations of the weeds in the field to the `/parc/weed_detection` topic not more than 5 seconds after the robot has stopped moving.
+* You are not allowed to publish to the `/cmd_vel` topic. The robot will be driven through the field by the simulation. You are only allowed to publish to the `/parc_robot/weed_detection` topic.
+* You should publish the locations of the weeds in the field to the `/parc_robot/weed_detection` topic not more than 5 seconds after the robot has stopped moving.
 
 ## Task Evaluation
 

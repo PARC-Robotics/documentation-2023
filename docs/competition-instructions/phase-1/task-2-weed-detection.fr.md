@@ -16,9 +16,9 @@ roslaunch parc_robot parc_task2.launch
 
 Lors de la sélection de l'itinéraire, le robot commencera rapidement le mouvement. Notamment, le robot est équipé d'une caméra, qui sert à détecter les mauvaises herbes sur le terrain.
 
-Un sujet supplémentaire a été créé sous le nom `/parc/weed_detection`, responsable de la publication de l'emplacement des mauvaises herbes sur le terrain. Le type de message pour ce sujet est `/parc_msgs/WeedDetection`. Dans le message de latection des mauvaises herbes, une liste de messages de mauvaises herbes peut être trouvée, chacune contenant les coordonnées GPS de l'herbe sur le terrain. Le message des mauvaises herbes comprend également un champ de confiance, indiquant le niveau de certitude que le robot a que l'herbe est en effet une mauvaise herbe. Ce champ varie de 0 à 1, avec une valeur de 1 indiquant une confiance absolue et une valeur de 0 dénotant une incertitude absolue.
+Un sujet supplémentaire a été créé sous le nom `/parc_robot/weed_detection`, responsable de la publication de l'emplacement des mauvaises herbes sur le terrain. Le type de message pour ce sujet est `/parc_robot/WeedDetection`. Dans le message de latection des mauvaises herbes, une liste de messages de mauvaises herbes peut être trouvée, chacune contenant les coordonnées GPS de l'herbe sur le terrain. Le message des mauvaises herbes comprend également un champ de confiance, indiquant le niveau de certitude que le robot a que l'herbe est en effet une mauvaise herbe. Ce champ varie de 0 à 1, avec une valeur de 1 indiquant une confiance absolue et une valeur de 0 dénotant une incertitude absolue.
 
-En outre, un nouveau sujet a été introduit comme `/parc/robot_status`, qui sert à publier le statut du robot. Le type de message pour ce sujet est `parc_msgs/ robotstatus`. Le message Robotstatus contient un champ d'état, représenté comme une chaîne qui informe de l'état actuel du robot. Les valeurs possibles pour ce champ sont `started` et `finished`, où `started` indique que le robot a commencé à se déplacer le long de l'itinéraire, et `finished` indique qu'il a achevé l'itinéraire désigné.
+En outre, un nouveau sujet a été introduit comme `/parc/robot_status`, qui sert à publier le statut du robot. Le type de message pour ce sujet est `parc_robot/robotstatus`. Le message Robotstatus contient un champ d'état, représenté comme une chaîne qui informe de l'état actuel du robot. Les valeurs possibles pour ce champ sont `started` et `finished`, où `started` indique que le robot a commencé à se déplacer le long de l'itinéraire, et `finished` indique qu'il a achevé l'itinéraire désigné.
 
 ### Explorer plusieurs itinéraires
 
@@ -65,11 +65,11 @@ Nous vous recommandons de jouer avec différentes vitesses pour vous assurer que
 
 ### Attentes des tâches
 
-La tâche à accomplir consiste à conduire le robot à travers une rangée de cultures dans le but d'identifier et de communiquer l'emplacement des mauvaises herbes présentes sur le terrain. Une fois que le robot atteint la fin de la rangée, il s'arrêtera. À ce stade, vous devez publier les emplacements des mauvaises herbes au sujet `/parc/weed_detection`.
+La tâche à accomplir consiste à conduire le robot à travers une rangée de cultures dans le but d'identifier et de communiquer l'emplacement des mauvaises herbes présentes sur le terrain. Une fois que le robot atteint la fin de la rangée, il s'arrêtera. À ce stade, vous devez publier les emplacements des mauvaises herbes au sujet `/parc_robot/weed_detection`.
 
-Il convient de noter que la publication en temps réel des emplacements des mauvaises herbes n'est pas requise. Vous pouvez publier les emplacements des mauvaises herbes sur le terrain après que le robot a cessé de bouger. Vous pouvez déterminer quand le robot a cessé de bouger en surveillant le sujet `/parc/robot_status`.
+Il convient de noter que la publication en temps réel des emplacements des mauvaises herbes n'est pas requise. Vous pouvez publier les emplacements des mauvaises herbes sur le terrain après que le robot a cessé de bouger. Vous pouvez déterminer quand le robot a cessé de bouger en surveillant le sujet `/parc_robot/robot_status`.
 
-En détectant que le robot a cessé de bouger, il est alors nécessaire de publier les emplacements des mauvaises herbes au sujet `/parc/weed_detection`. Dans le message Weeddection, vous pouvez trouver une liste de messages de mauvaises herbes, chaque message contenant les coordonnées GPS de l'herbe dans le domaine. De plus, le message des mauvaises herbes comprend un champ de confiance, indiquant le niveau de certitude du robot que l'herbe identifiée est en effet une mauvaise herbe. La valeur de confiance varie de 0 à 1, où une valeur de 1 indique une confiance absolue, et une valeur de 0 indique une incertitude absolue.
+En détectant que le robot a cessé de bouger, il est alors nécessaire de publier les emplacements des mauvaises herbes au sujet `/parc_robot/weed_detection`. Dans le message Weeddection, vous pouvez trouver une liste de messages de mauvaises herbes, chaque message contenant les coordonnées GPS de l'herbe dans le domaine. De plus, le message des mauvaises herbes comprend un champ de confiance, indiquant le niveau de certitude du robot que l'herbe identifiée est en effet une mauvaise herbe. La valeur de confiance varie de 0 à 1, où une valeur de 1 indique une confiance absolue, et une valeur de 0 indique une incertitude absolue.
 
 ### Préparer votre soumission
 
@@ -83,8 +83,8 @@ roslaunch <your_solution_package> task2_solution.launch
 
 ## Règles de tâche
 
-* Vous n'êtes pas autorisé à publier sur le sujet `/cmd_vel`. Le robot sera conduit sur le terrain par la simulation. Vous n'êtes autorisé à publier que sur le sujet `/parc/ weed_dection`.
-* Vous devriez publier les emplacements des mauvaises herbes sur le terrain au sujet `/parc/weed_detection` pas plus de 5 secondes après que le robot a cessé de bouger.
+* Vous n'êtes pas autorisé à publier sur le sujet `/cmd_vel`. Le robot sera conduit sur le terrain par la simulation. Vous n'êtes autorisé à publier que sur le sujet `/parc_robot/ weed_dection`.
+* Vous devriez publier les emplacements des mauvaises herbes sur le terrain au sujet `/parc_robot/weed_detection` pas plus de 5 secondes après que le robot a cessé de bouger.
 
 ## Évaluation des tâches
 
