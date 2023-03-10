@@ -289,14 +289,15 @@ This code will make the robot move straight for 4 seconds, rotate counterclockwi
 
 ## Compile and Run
 
-For C++, we need to update the `CMakeLists.txt` file to include our new program. Add the following line to the `CMakeLists.txt` file:
+!!! Note 
+    For C++, we need to update the `CMakeLists.txt` file to include our new program. Add the following line to the `CMakeLists.txt` file:
 
-```cmake
-add_executable(robot_publisher src/robot_publisher.cpp)
-target_link_libraries(robot_publisher ${catkin_LIBRARIES})
-```
+    ```cmake
+    add_executable(robot_publisher src/robot_publisher.cpp)
+    target_link_libraries(robot_publisher ${catkin_LIBRARIES})
+    ```
 
-And then run the following command to compile the code:
+Run the following command to compile the code:
 
 ```shell
 cd ~/catkin_ws

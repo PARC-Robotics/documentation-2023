@@ -81,29 +81,28 @@ markdown_extensions:
   # - content.tabs.link
 
 nav:
-  - Introduction: index.md
-  - Competition Overview:
-    # - competition-overview/index.md/
-    - Objectives and goals: competition-overview/objectives-and-goals.md
-    - Prizes and rewards: competition-overview/prizes-and-rewards.md
-    - How to register: competition-overview/how-to-register.md
-    - Important dates: competition-overview/important-dates.md
-  - Getting Started:
-    - Setting up your PC: getting-started-tutorials/setting-up-your-pc.md
-    - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
-    - Setting up your workspace: getting-started-tutorials/setting-up-your-workspace.md
-    - Setting up your workspace with Docker: getting-started-tutorials/setting-up-your-workspace-docker.md
-    - Getting started with ROS: getting-started-tutorials/getting-started-with-ros.md
-  - Competition Instructions:
-    - "Phase 1: Simulation":
-      - Introduction: competition-instructions/phase-1/introduction.md
-      - "Task 1: Autonomous Field Navigation": competition-instructions/phase-1/task-1-autonomous-field-navigation.md
-      - "Task 2: Weed Detection": competition-instructions/phase-1/task-2-weed-detection.md
-      - "Task 3: Seed Planting": competition-instructions/phase-1/task-3-seed-planting.md
-      - How to Submit: competition-instructions/phase-1/how-to-submit.md
-    - "Phase 2: Physical Robot": competition-instructions/phase-2/introduction.md
-    - Team Naming Conventions: competition-instructions/team-naming-conventions.md
-    - What to submit: competition-instructions/what-to-submit.md
+  - Introduction:
+    - Introduction: introduction/index.md
+    - Competition Overview:
+      - How to register: introduction/how-to-register.md
+      - Important dates: introduction/important-dates.md
+  - Getting Started Tutorials:
+    - Getting Started:
+      - Setting up your PC: getting-started-tutorials/setting-up-your-pc.md
+      - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
+      - Setting up your workspace: getting-started-tutorials/setting-up-your-workspace.md
+      - Setting up your workspace with Docker: getting-started-tutorials/setting-up-your-workspace-docker.md
+      - Getting started with ROS: getting-started-tutorials/getting-started-with-ros.md
+    - Competition Instructions:
+      - "Phase 1: Simulation":
+        - Introduction: competition-instructions/phase-1/introduction.md
+        - "Task 1: Autonomous Field Navigation": competition-instructions/phase-1/task-1-autonomous-field-navigation.md
+        - "Task 2: Weed Detection": competition-instructions/phase-1/task-2-weed-detection.md
+        - "Task 3: Seed Planting": competition-instructions/phase-1/task-3-seed-planting.md
+        - How to Submit: competition-instructions/phase-1/how-to-submit.md
+      - "Phase 2: Physical Robot": competition-instructions/phase-2/introduction.md
+      # - Team Naming Conventions: competition-instructions/team-naming-conventions.md
+      # - What to submit: competition-instructions/what-to-submit.md
   - Frequently Asked Questions: faq.md
   - Rules and Regulations: rules-and-regulations.md
   - Resources and Support:
@@ -125,6 +124,7 @@ plugins:
         fr:
           Introduction: Introduction
           Competition Overview: Aperçu de la compétition
+          "Getting Started Tutorials": Tutoriels pour commencer
           Getting Started: Commencer
           Competition Instructions: Instructions de la compétition
           Frequently Asked Questions: Questions fréquemment posées
