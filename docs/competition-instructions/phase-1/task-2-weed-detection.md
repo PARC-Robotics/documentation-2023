@@ -22,7 +22,7 @@ Furthermore, a new topic has been introduced as `/parc/robot_status`, which serv
 
 ### Exploring multiple routes
 
-We have prepared three pre-defined routes you can use as you develop your solution with each route having different goal location.
+We have prepared three pre-defined routes you can use as you develop your solution with each route having a different starting location.
 
 === "Route 1"
     ![task1_world](../assets/Task1Route1.png)
@@ -83,7 +83,7 @@ roslaunch <your_solution_package> task2_solution.launch
 
 ## Task Rules
 
-* You are not allowed to publish to the `/parc/cmd_vel` topic. The robot will be driven through the field by the simulation. You are only allowed to publish to the `/parc/weed_detection` topic.
+* You are not allowed to publish to the `/cmd_vel` topic. The robot will be driven through the field by the simulation. You are only allowed to publish to the `/parc/weed_detection` topic.
 * You should publish the locations of the weeds in the field to the `/parc/weed_detection` topic not more than 5 seconds after the robot has stopped moving.
 
 ## Task Evaluation
@@ -93,5 +93,5 @@ Your solution will be evaluated based on the following criteria:
 | S/N      | Criteria/Metric | Description |
 | ----------- | ----------- | ------- |
 | 1      | Accuracy       | The accuracy of your solution is measured by the number of weeds that your solution detects. The more weeds your solution detects, the higher your accuracy score. |
-| 2   | Speed        | The speed of your solution is measured by the time it takes for your solution to detect all the weeds in the field. The faster your solution detects all the weeds in the field, the higher your speed score. |
+| 2   | Robustness        | The robustness of your solution is measured by the accuracy of your solution across different routes and speeds. The more routes and speeds your solution is able to detect weeds in, the higher your robustness score. |
 
