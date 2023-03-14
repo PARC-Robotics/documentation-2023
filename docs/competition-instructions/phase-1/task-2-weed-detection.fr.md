@@ -4,6 +4,8 @@
 
 Les robots agricoles jouent un rôle crucial dans la détection des mauvaises herbes dans les champs, car ils peuvent entraver la croissance des cultures en concurrençant des ressources essentielles telles que l'eau, la lumière du soleil et les nutriments, et servir également de terrain de reproduction pour les ravageurs et les maladies. Le robot naviguera à travers des rangées de cultures, et l'objectif est d'identifier et de communiquer l'emplacement des mauvaises herbes présentes sur le terrain.
 
+Vous devez effectuer cette tâche à l'aide de MATLAB. Vous pouvez trouver des instructions sur la façon d'installer MATLAB sur votre ordinateur [ici](https://www.mathworks.com/help/install/ug/install-matlab.html).
+
 ## Lignes directrices de tâche
 
 ### Lancement de la tâche
@@ -25,13 +27,13 @@ En outre, un nouveau sujet a été introduit comme `/parc/robot_status`, qui ser
 Nous avons préparé trois itinéraires prédéfinis que vous pouvez utiliser lorsque vous développez votre solution avec chaque itinéraire ayant un emplacement de départ différent.
 
 === "Route 1"
-    ![task1_world](../assets/Task1Route1.png)
+    ![task1_world](../assets/Task2Route1.png)
 
 === "Route 2"
-    ![task1_world](../assets/Task1Route2.png)
+    ![task1_world](../assets/Task2Route2.png)
 
 === "Route 3"
-    ![task1_world](../assets/Task1Route3.png)
+    ![task1_world](../assets/Task2Route3.png)
 
 
 L'itinéraire par défaut est `route1`, mais vous pouvez sélectionner l'option de deuxième et troisième route (`route2` et `route3`) en passant l'argument dans la commande Roslaunch comme suit:

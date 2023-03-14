@@ -4,6 +4,8 @@
 
 Agricultural robots have a crucial role in detecting weeds in fields, as they can impede the growth of crops by competing for essential resources such as water, sunlight, and nutrients, and also serve as breeding grounds for pests and diseases. The robot will navigate through rows of crops, and the objective is to identify and communicate the location of any weeds present in the field.
 
+You are expected to complete this task using MATLAB. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started).
+
 ## Task Guidelines
 
 ### Launching the Task
@@ -25,13 +27,13 @@ Furthermore, a new topic has been introduced as `/parc_robot/robot_status`, whic
 We have prepared three pre-defined routes you can use as you develop your solution with each route having a different starting location.
 
 === "Route 1"
-    ![task1_world](../assets/Task1Route1.png)
+    ![task1_world](../assets/Task2Route1.png)
 
 === "Route 2"
-    ![task1_world](../assets/Task1Route2.png)
+    ![task1_world](../assets/Task2Route2.png)
 
 === "Route 3"
-    ![task1_world](../assets/Task1Route3.png)
+    ![task1_world](../assets/Task2Route3.png)
 
 
 The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows: 
