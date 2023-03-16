@@ -2,9 +2,10 @@
 
 ## General Description
 
-Agricultural robots have a crucial role in detecting weeds in fields, as they can impede the growth of crops by competing for essential resources such as water, sunlight, and nutrients, and also serve as breeding grounds for pests and diseases. The robot will navigate through rows of crops, and the objective is to identify and communicate the location of any weeds present in the field.
+The detection of weeds in fields is crucial for the growth of crops, as weeds can compete for essential resources like water, sunlight, and nutrients, and also act as breeding grounds for pests and diseases. Agricultural robots play a vital role in this regard by navigating through rows of crops to identify and communicate the locations of any weeds present in the field.
 
-You are expected to complete this task using MATLAB. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started).
+!!! warning
+    You are expected to complete this task using MATLAB exclusively. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started).
 
 ## Task Guidelines
 
@@ -16,11 +17,11 @@ In a new terminal, run the following launch file to bring up the robot in Gazebo
 roslaunch parc_robot parc_task2.launch
 ```
 
-Upon selection of the route, the robot will promptly commence movement. Notably, the robot is equipped with a camera, which serves the purpose of detecting weeds in the field.
+Once the route is selected, the robot will promptly start moving. It's worth noting that the robot is equipped with a camera that detects weeds in the field.
 
-An additional topic has been created under the name `/parc_robot/weed_detection`, responsible for publishing the location of weeds in the field. The message type for this topic is `/parc_robot/WeedDetection`. Within the WeedDetection message, a list of Weed messages can be found, with each containing the GPS coordinates of the weed in the field. The Weed message also comprises a confidence field, indicating the level of certainty the robot has that the weed is indeed a weed. This field ranges from 0 to 1, with a value of 1 indicating absolute confidence and a value of 0 denoting absolute uncertainty.
+A new topic called `/parc_robot/weed_detection` has been created to publish the weed locations in the field. The message type for this topic is `/parc_robot/WeedDetection`, which includes a list of Weed messages containing the GPS coordinates of each weed. Additionally, each Weed message has a confidence field that indicates the level of certainty that the weed is indeed a weed, with values ranging from 0 to 1. A confidence value of 1 represents absolute certainty, while a value of 0 represents absolute uncertainty.
 
-Furthermore, a new topic has been introduced as `/parc_robot/robot_status`, which serves the purpose of publishing the status of the robot. The message type for this topic is `parc_robot/RobotStatus`. The RobotStatus message contains a status field, represented as a string that informs of the robot's current status. The possible values for this field are `started` and `finished`, where `started` indicates that the robot has begun moving along the route, and `finished` indicates that it has completed the designated route.
+Moreover, a new topic has been introduced as `/parc_robot/robot_status` to publish the robot's status. The message type for this topic is `/parc_robot/RobotStatus`, and the RobotStatus message contains a status field represented as a string that informs the robot's current status. The status field can have two possible values: started, indicating that the robot has started moving along the route, and finished, indicating that it has completed the designated route.
 
 ### Exploring multiple routes
 
@@ -67,11 +68,11 @@ We recommend you play around with differnt speeds to ensure your solution is rob
 
 ### Task Expectations
 
-The task at hand involves driving the robot through a row of crops with the objective of identifying and communicating the location of any weeds present in the field. Once the robot reaches the end of the row, it will come to a stop. At this point, you should publish the locations of the weeds to the `/parc_robot/weed_detection` topic.
+The objective of the task is to drive the robot through a row of crops to identify and communicate the locations of any weeds in the field. When the robot reaches the end of the row, it will come to a stop, and you should publish the weed locations to the `/parc_robot/weed_detection` topic.
 
-It is worth noting that real-time publication of weed locations is not required. You can publish the locations of the weeds in the field after the robot has stopped moving. You can determine when the robot has stopped moving by monitoring the `/parc_robot/robot_status` topic.
+It's important to note that real-time publication of weed locations is not necessary. You can publish the locations of the weeds after the robot has stopped moving, which you can monitor through the `/parc_robot/robot_status` topic.
 
-Upon detecting that the robot has stopped moving, it is then necessary to publish the locations of the weeds to the `/parc_robot/weed_detection` topic. Within the WeedDetection message, you can find a list of Weed messages, with each message containing the GPS coordinates of the weed in the field. Additionally, the Weed message includes a confidence field, indicating the robot's level of certainty that the identified weed is indeed a weed. The confidence value ranges from 0 to 1, where a value of 1 indicates absolute confidence, and a value of 0 denotes absolute uncertainty.
+Once you detect that the robot has stopped moving, you must publish the weed locations to the `/parc_robot/weed_detection` topic. The WeedDetection message contains a list of Weed messages, each with the GPS coordinates of a weed in the field. The Weed message also includes a confidence field, which shows the robot's certainty that the identified weed is a weed. The confidence value ranges from 0 to 1, where 1 represents absolute confidence, and 0 denotes absolute uncertainty.
 
 ### Preparing your submission
 

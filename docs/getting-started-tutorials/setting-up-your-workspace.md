@@ -6,6 +6,9 @@ In this tutorial, you will set your set up a directory on your ROS-enabled PC as
 !!! note
     This can ONLY be completed after you have set up your PC (by following the tutorial here: [Setting up your PC](../getting-started-tutorials/setting-up-your-pc.md)).
 
+!!! note
+    If you are using a Docker container, you can skip this tutorial and follow the instructions in [Setting up your workspace (Docker)](../getting-started-tutorials/setting-up-your-workspace-docker.md) instead.
+
 ### Setup ROS workspace
 
 <!-- First, we create a new directory in your home directory called `catkin_ws` with a subdirectory `src`. Then we initialize the directory as a catkin workspace. -->

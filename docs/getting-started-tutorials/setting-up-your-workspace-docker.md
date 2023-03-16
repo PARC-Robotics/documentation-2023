@@ -2,6 +2,9 @@
 
 This guide will walk you through the process of setting up a ROS workspace with Docker, which will allow you to easily develop and test your ROS projects in a containerized environment. We will also cover how to connect VS Code to the Docker container and how to use X11 to run GUI Docker apps.
 
+!!! warning "Note"
+    This guide is designed for individuals who plan to use the Docker image. If you want to set up your workspace on a host machine, please consult the instructions provided in [Setting up your workspace](../getting-started-tutorials/setting-up-your-workspace.md).
+
 ## Prerequisites
 Before starting with the steps below, ensure that you have the following:
 
