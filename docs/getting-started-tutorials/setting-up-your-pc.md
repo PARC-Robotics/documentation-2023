@@ -27,3 +27,7 @@ If you prefer video instructions, you can follow these videos:
 
 - [Installing Ubuntu 20.04 on VirtualBox](https://www.youtube.com/watch?v=x5MhydijWmc){target=_blank}
 - [Installing ROS Noetic on Ubuntu 20.04](https://www.youtube.com/watch?v=ZEfh7NxLMxA){target=_blank}
+
+## Next Steps
+
+To set up your workspace, there are two available options. You can either use Docker or manually configure your workspace. If you prefer to configure your workspace manually, follow the instructions provided [here](../getting-started-tutorials/setting-up-your-workspace.md). Alternatively, if you would like to set up your workspace using Docker, follow the instructions provided [here](../getting-started-tutorials/setting-up-your-workspace-using-docker.md).

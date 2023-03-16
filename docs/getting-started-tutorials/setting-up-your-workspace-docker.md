@@ -102,7 +102,7 @@ Before starting with the steps below, ensure that you have the following:
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
-roslaunch parc-robot task1.launch
+roslaunch parc-robot parc_task1.launch
 ```
 ![Gazebo Simulator window](assets/gazebo.png)
 Gazebo Simulator window
