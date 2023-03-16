@@ -38,7 +38,7 @@ Avant de commencer par les étapes ci-dessous, assurez-vous que vous avez ce qui
     version: '3.8'
     services:
       ros:
-        image: osrf/ros:noetic-desktop-full
+        image: parcengineersleague/parc-2023
         environment:
           - DISPLAY=host.docker.internal:0.0
           - ROS_HOSTNAME=ros

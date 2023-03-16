@@ -92,8 +92,9 @@ roslaunch <your_solution_package> task2_solution.launch
 
 Your solution will be evaluated based on the following criteria:
 
-| S/N      | Criteria/Metric | Description |
+| S/N | Criteria/Metric | Description |
 | ----------- | ----------- | ------- |
-| 1      | Accuracy       | The accuracy of your solution is measured by the number of weeds that your solution detects. The more weeds your solution detects, the higher your accuracy score. |
-| 2   | Robustness        | The robustness of your solution is measured by the accuracy of your solution across different routes and speeds. The more routes and speeds your solution is able to detect weeds in, the higher your robustness score. |
+| 1 | Accuracy | Accuracy is based on how many weeds are correctly detected, within 0.1m of their actual location. Incorrect detections or missed weeds reduce accuracy. Multiple detections within 0.1m of the same actual location count as one accurate detection. |
+| 2 | Robustness | We measure the robustness of your solution by evaluating its accuracy across various routes and speeds. The accuracy is given a weight and averaged across different speeds and all three routes to determine the overall robustness of your solution. |
+| 3 | Precision | Precision is evaluated based on the number of weeds detected within 0.1m of their actual location by your solution. False negatives incur higher penalties in this evaluation, indicating that missing weeds is considered more detrimental than detecting weeds that are not actually present. |
 

@@ -94,6 +94,6 @@ Votre solution sera évaluée en fonction des critères suivants:
 
 | S/N      | Criteria/Metric | Description |
 | ----------- | ----------- | ------- |
-| 1      | Précision       | La précision de votre solution est mesurée par le nombre de mauvaises herbes que votre solution détecte. Plus votre solution détecte, plus votre score de précision est élevé. |
-| 2   | Robustesse        | La robustesse de votre solution est mesurée par la précision de votre solution sur différents itinéraires et vitesses. Plus vos routes et accélèrent votre solution sont capables de détecter les mauvaises herbes, plus votre score de robustesse est élevé. |
-
+| 1      | Précision       | La précision est basée sur le nombre de mauvaises herbes correctement détectées, à moins de 0,1 m de leur emplacement réel. Des détections incorrectes ou des mauvaises herbes manquées réduisent la précision. Détections multiples à moins de 0,1 m du même comptage réel de localisation qu'une détection précise. |
+| 2   | Robustesse        | Nous mesurons la robustesse de votre solution en évaluant sa précision sur divers itinéraires et vitesses. La précision reçoit un poids et en moyenne sur différentes vitesses et les trois itinéraires pour déterminer la robustesse globale de votre solution. |
+| 3   | Précision        | La précision est évaluée en fonction du nombre de mauvaises herbes détectées à moins de 0,1 m de leur emplacement réel par votre solution. Les faux négatifs entraînent des sanctions plus élevées dans cette évaluation, indiquant que les mauvaises herbes manquantes sont considérées comme plus préjudiciables que la détection des mauvaises herbes qui ne sont pas réellement présentes. |
