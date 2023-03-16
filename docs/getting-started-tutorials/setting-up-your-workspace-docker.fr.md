@@ -176,7 +176,7 @@ source ~/.bashrc
 
 Si vous avez terminé les tâches précédentes avec succès, vous devriez être en mesure d'exécuter cette commande de lancement ROS et de voir le simulateur de gazebo et le simulateur RViz ouvert avec l'écran suivant:
 ```sh
-roslaunch parc-robot task1.launch
+roslaunch parc-robot parc_task2.launch
 ```
 ![Gazebo Simulator window](assets/gazebo.png)
 Gazebo Simulator window
