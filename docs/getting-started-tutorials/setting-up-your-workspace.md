@@ -4,7 +4,10 @@
 In this tutorial, you will set your set up a directory on your ROS-enabled PC as your workspace for development and install the competition ROS packages. Please follow the instructions below carefully.
 
 !!! note
-    This can ONLY be completed after you have set up your PC (by following the previous tutorial)
+    This can ONLY be completed after you have set up your PC (by following the tutorial here: [Setting up your PC](../getting-started-tutorials/setting-up-your-pc.md)).
+
+!!! note
+    If you are using a Docker container, you can skip this tutorial and follow the instructions in [Setting up your workspace (Docker)](../getting-started-tutorials/setting-up-your-workspace-docker.md) instead.
 
 ### Setup ROS workspace
 
@@ -44,11 +47,6 @@ source ~/catkin_ws/devel/setup.bash
 ```
 
 
-**NOTE:** There is a known issue while compiling, ` Intel RealSense SDK 2.0 is missing`  
-To solve, update the file `realsense-ros/realsense_camera/CMakeLists.txt`,line: 43 to `find_package(realsense2 2.36.0)`
-i.e. downgrade the required version of `realsense2` to `2.36.0`
-
-
 ### Set up ROS environment
 To set the environment every time you launch a new terminal, following this command:
 
@@ -67,7 +65,7 @@ source ~/catkin_ws/devel/setup.bash
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
-roslaunch parc-robot task1.launch
+roslaunch parc-robot parc_task2.launch
 ```
 ![Gazebo Simulator window](assets/gazebo.png)
 Gazebo Simulator window

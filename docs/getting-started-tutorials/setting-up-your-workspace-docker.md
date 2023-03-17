@@ -2,6 +2,9 @@
 
 This guide will walk you through the process of setting up a ROS workspace with Docker, which will allow you to easily develop and test your ROS projects in a containerized environment. We will also cover how to connect VS Code to the Docker container and how to use X11 to run GUI Docker apps.
 
+!!! warning "Note"
+    This guide is designed for individuals who plan to use the Docker image. If you want to set up your workspace on a host machine, please consult the instructions provided in [Setting up your workspace](../getting-started-tutorials/setting-up-your-workspace.md).
+
 ## Prerequisites
 Before starting with the steps below, ensure that you have the following:
 
@@ -38,7 +41,7 @@ Before starting with the steps below, ensure that you have the following:
     version: '3.8'
     services:
       ros:
-        image: osrf/ros:noetic-desktop-full
+        image: parcengineersleague/parc-2023
         environment:
           - DISPLAY=host.docker.internal:0.0
           - ROS_HOSTNAME=ros
@@ -49,7 +52,7 @@ Before starting with the steps below, ensure that you have the following:
           - "11311:11311"
         command: roscore
     ```
-    This configuration will pull the ROS Noetic Desktop Full image, if it does not already exist and configure it for X11 server support. It will also mount the `catkin_ws` folder inside the container and start the `roscore` command when the container starts.
+    This configuration will pull the official image for PARC 2023, if it does not already exist and configure it for X11 server support. It will also mount the `catkin_ws` folder inside the container and start the `roscore` command when the container starts. The image already 
 
 4. Save the `docker-compose.yml` file and close your editor.
 
@@ -96,88 +99,13 @@ Before starting with the steps below, ensure that you have the following:
     ```shell
     noetic
     ```
+    This means that you are in the container and that the ROS distribution is set to Noetic.
 
-## Step 6: Setting up the ROS workspace
-
-1. Source the ROS environment:
-
-    ```shell
-    source /opt/ros/noetic/setup.bash
-    ```
-
-2. Navigate to the `catkin_ws` folder:
-
-    ```shell
-    cd /catkin_ws
-    mkdir src
-    cd src
-    catkin_init_workspace
-    ```
-
-3. Initialize the workspace:
-
-    ```shell
-    cd ..
-    catkin_make
-    ```
-
-4. Source the workspace:
-
-    ```shell
-    source devel/setup.bash
-    ```
-
-5. Configure bash to automatically source the workspace:
-
-    ```shell
-    echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
-    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-    ```
-
-## Step 7: Clone the repository
-
-In the same terminal (or in a new one), copy and paste the following:
-```sh
-cd ~/catkin_ws/src
-git clone --recurse-submodules https://github.com/PARC-Robotics/PARC-Engineers-League.git
-```
-Or if you already have cloned the repo without submodules, run command `git submodule update --init --recursive` to update them.
-
-## Step 8: Install dependencies
-
-In the same terminal (or in a new one), copy and paste the following:
-```sh
-cd ~/catkin_ws
-sudo apt update
-rosdep install --from-paths ./src --ignore-src -y
-```
-
-## Step 8: Compile packages
-```sh
-cd ~/catkin_ws
-catkin_make
-source ~/catkin_ws/devel/setup.bash
-```
-
-
-**NOTE:** There is a known issue while compiling, ` Intel RealSense SDK 2.0 is missing`  
-To solve, update the file `realsense-ros/realsense_camera/CMakeLists.txt`,line: 43 to `find_package(realsense2 2.36.0)`
-i.e. downgrade the required version of `realsense2` to `2.36.0`
-
-
-## Step 9: Set up ROS environment
-Source your ROS environment one more time by running this command:
-
-```sh
-source ~/.bashrc
-```
-
-
-## Step 10: Test installation
+## Step 6: Test installation
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
-roslaunch parc-robot task1.launch
+roslaunch parc-robot parc_task2.launch
 ```
 ![Gazebo Simulator window](assets/gazebo.png)
 Gazebo Simulator window
@@ -198,7 +126,7 @@ You will see a screen like this:
 You need to `publish`/write to the `topic` `/cmd_vel` to move the robot.
 The following guide will help you control the robot using keyboard. Once you have tested that, you can follow the [understanding-ros](../getting-started-with-ros) guide to write a python program to control the robot.
 
-## Step 11: Controlling the robot using keyboard
+## Step 7: Controlling the robot using keyboard
 Run the following command in a new terminal
 ```sh
 source ~/catkin_ws/devel/setup.bash
@@ -214,7 +142,7 @@ Moving around:
    m    ,    .
 ```
 
-## Step 12: Developing inside the container with VSCode
+## Step 8: Developing inside the container with VSCode
 
 1. Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in VSCode.
 

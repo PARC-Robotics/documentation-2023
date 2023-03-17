@@ -89,9 +89,9 @@ nav:
   - Getting Started Tutorials:
     - Getting Started:
       - Setting up your PC: getting-started-tutorials/setting-up-your-pc.md
-      - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
       - Setting up your workspace: getting-started-tutorials/setting-up-your-workspace.md
       - Setting up your workspace with Docker: getting-started-tutorials/setting-up-your-workspace-docker.md
+      - Getting started with MATLAB: getting-started-tutorials/introduction-to-matlab.md
       - Getting started with ROS: getting-started-tutorials/getting-started-with-ros.md
     - Competition Instructions:
       - "Phase 1: Simulation":

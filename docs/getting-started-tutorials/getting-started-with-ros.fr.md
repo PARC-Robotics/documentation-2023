@@ -307,7 +307,7 @@ Pour le voir fonctionner, exécutez d'abord le robot en simulation en exécutant
 
 ```shell
 source ~/catkin_ws/devel/setup.bash
-roslaunch parc-robot task1.launch
+roslaunch parc-robot parc_task2.launch
 ```
 
 Et exécutez la commande suivante dans un autre terminal pour exécuter ce nouveau programme:
