@@ -77,7 +77,52 @@ The objective of the task is to drive the robot through a row of crops to identi
 
 It's important to note that real-time publication of weed locations is not necessary. You can publish the locations of the weeds after the robot has stopped moving, which you can monitor through the `/parc_robot/robot_status` topic.
 
-Once you detect that the robot has stopped moving, you must publish the weed locations to the `/parc_robot/weed_detection` topic. The WeedDetection message contains a list of Weed messages, each with the GPS coordinates of a weed in the field. The Weed message also includes a confidence field, which shows the robot's certainty that the identified weed is a weed. The confidence value ranges from 0 to 1, where 1 represents absolute confidence, and 0 denotes absolute uncertainty.
+Here is an example MATLAB script to subscribe to the /parc_robot/robot_status topic:
+
+```matlab
+% Create a ROS node
+rosinit
+
+% Create a subscriber to the /parc_robot/robot_status topic. The callback function is called when a message is received.
+sub = rossubscriber('/parc_robot/robot_status', @callbackFcn, 'DataFormat', 'struct');
+
+% Wait for the robot to stop moving
+msg = receive(sub, 10);
+
+% Stop the ROS node
+rosshutdown
+```
+
+Once you detect that the robot has stopped moving, you must publish the weed locations to the `/parc_robot/weed_detection` topic. The WeedDetection message contains a list of Weed messages, each with the GPS coordinates of a weed in the field.
+
+Here is an example MATLAB script to publish to the /parc_robot/weed_detection:
+
+```matlab
+% Create a ROS node
+rosinit
+
+% Create a publisher to the /parc_robot/weed_detection topic
+pub = rospublisher('/parc_robot/weed_detection', 'parc_robot/WeedDetection');
+
+% Create a WeedDetection message
+msg = rosmessage(pub);
+
+% Create a Weed message
+weed = rosmessage('parc_robot/Weed');
+
+% Set the latitude and longitude of the weed
+weed.Latitude = 0.0;
+weed.Longitude = 0.0;
+
+% Add the weed to the WeedDetection message
+msg.Weeds = [weed];
+
+% Publish the WeedDetection message
+send(pub, msg);
+
+% Stop the ROS node
+rosshutdown
+```
 
 ### Preparing your submission
 
