@@ -143,7 +143,7 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
     }
     ```
 
-!!! note "Note"
+!!! warning
     **DO NOT** use the cartesian coordinates of the goal location and pegs provided by Gazebo or the world file in any way. You will be disqualified if you do.
 
 ### Preparing your Solution
