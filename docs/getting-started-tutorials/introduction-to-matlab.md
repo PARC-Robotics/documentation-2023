@@ -20,8 +20,18 @@ For ROS, MATLAB provides a set of tools for working with ROS topics, services, a
 
 ## Getting Started
 
+### MATLAB Installation
+
 !!! note "MATLAB Installation"
     See Kene for MATLAB installation instructions.
+
+### Starting MATLAB
+
+To start MATLAB, open a terminal and type `matlab`. This will open the MATLAB desktop application. You can also start MATLAB by clicking the MATLAB icon on your desktop or in your start menu.
+
+### MATLAB Command Window
+
+The MATLAB command window is where you can enter commands and see the results. You can also use the command window to display the value of variables and to view the results of computations.
 
 ## Basic syntax and Data Types
 
@@ -116,14 +126,29 @@ imshow(J);               % display the resized image
 
 ### 4. ROS Integration
 
-MATLAB provides a set of functions and tools for integrating with ROS. You can use the rossubscriber function to create a ROS subscriber, rospublisher function to create a ROS publisher, and many others. Here is an example of how to use the rossubscriber function to create a ROS subscriber:
+MATLAB provides a set of functions and tools for integrating with ROS. You can use the rossubscriber function to create a ROS subscriber, rospublisher function to create a ROS publisher, and many others. Here is an example of how to use the rossubscriber function to create a ROS subscriber and a ROS publisher:
+
+=== "ROS Publisher Example"
+
+    ``` matlab
+    % Example code for ROS integration
+    rosinit;                                    % initialize ROS.
+    pub = rospublisher('/chatter', 'std_msgs/String'); % create a ROS publisher
+    msg = rosmessage(pub);                      % create a ROS message
+    msg.Data = 'Hello, world!';                 % assign a value to the message data
+    send(pub, msg);                             % send the message
+    ```
+=== "ROS Subscriber Example"
+    ``` matlab
+    % Example code for ROS integration
+    rosinit;                                    % initialize ROS
+    sub = rossubscriber('/chatter');            % create a ROS subscriber
+    msg = receive(sub, 3);                      % receive a message from the subscriber
+    disp(msg.Data);                             % display the message data
+    ```
 
 ``` matlab
-% Example code for ROS integration
-rosinit;                                    % initialize ROS
-sub = rossubscriber('/chatter');            % create a ROS subscriber
-msg = receive(sub, 3);                      % receive a message from the subscriber
-disp(msg.Data);                             % display the message data
+Hello, world!
 ```
 
 ## Additional Learning Resources

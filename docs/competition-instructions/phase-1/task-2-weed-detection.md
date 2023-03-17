@@ -5,7 +5,7 @@
 The detection of weeds in fields is crucial for the growth of crops, as weeds can compete for essential resources like water, sunlight, and nutrients, and also act as breeding grounds for pests and diseases. Agricultural robots play a vital role in this regard by navigating through rows of crops to identify and communicate the locations of any weeds present in the field.
 
 !!! warning
-    You are expected to complete this task using MATLAB exclusively. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started).
+    You are expected to complete this task using MATLAB exclusively. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started). If you need help with creating a ROS node in MATLAB, you can find instructions [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#4-ros-integration).
 
 ## Task Guidelines
 
@@ -16,6 +16,11 @@ In a new terminal, run the following launch file to bring up the robot in Gazebo
 ```bash
 roslaunch parc_robot parc_task2.launch
 ```
+
+You should see the display below in Gazebo and RViz respectively.
+
+![task2_world](../assets/gazebo_on_start.png)
+![task2_rviz](../assets/task2rviz.png)
 
 Once the route is selected, the robot will promptly start moving. It's worth noting that the robot is equipped with a camera that detects weeds in the field.
 
@@ -64,7 +69,7 @@ roslaunch parc_robot parc_task2.launch speed:=0.5
 roslaunch parc_robot parc_task2.launch speed:=1.0
 ```
 
-We recommend you play around with differnt speeds to ensure your solution is robust to different speeds.
+We recommend you play around with different speeds to ensure your solution is robust to different speeds.
 
 ### Task Expectations
 
@@ -76,18 +81,19 @@ Once you detect that the robot has stopped moving, you must publish the weed loc
 
 ### Preparing your submission
 
-Your solution should be prepared as ROS packages to be saved in your solution folder. Create a launch file in your ROS package which runs ALL the code you need in your solution. Name this launch file: task2_solution.launch.
+Your solution should be prepared as ROS packages to be saved in your solution folder. Create a `scripts` folder in your ROS package which contains ALL the code you need in your solution. Name this MATLAB file: `task2_solution.m`.
 
 Hence, your solution to Task 2 should be run by calling the following commands:
 
-```bash
-roslaunch <your_solution_package> task2_solution.launch
+```matlab
+matlab -nodesktop -nosplash -r "run('~/catkin_ws/scripts/<your solution folder>/task2_solution.m')"
 ```
 
 ## Task Rules
 
 * You are not allowed to publish to the `/cmd_vel` topic. The robot will be driven through the field by the simulation. You are only allowed to publish to the `/parc_robot/weed_detection` topic.
 * You should publish the locations of the weeds in the field to the `/parc_robot/weed_detection` topic not more than 5 seconds after the robot has stopped moving.
+* You are only allowed to use MATLAB for this task. You are not allowed to use any other programming language.
 
 ## Task Evaluation
 
