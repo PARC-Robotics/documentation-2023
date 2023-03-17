@@ -20,13 +20,13 @@ You should see the display below in Gazebo and RViz respectively. To the right, 
 * We have prepared three pre-defined routes you can use as you develop your solution with each route having different goal location.
 
 === "Route 1"
-    ![task1_world](../assets/Task1Route1.png)
+    ![task1_route1](../assets/Task1Route1.png)
 
 === "Route 2"
-    ![task1_world](../assets/Task1Route2.png)
+    ![task1_route2](../assets/Task1Route2.png)
 
 === "Route 3"
-    ![task1_world](../assets/Task1Route3.png)
+    ![task1_route3](../assets/Task1Route3.png)
 
 
 The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows:
