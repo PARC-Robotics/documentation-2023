@@ -16,7 +16,11 @@ roslaunch parc_robot parc_task1.launch
 
 You should see the display below in Gazebo and RViz respectively. To the right, there's the robot and to the left is the orange-red sphere which represents the goal location.
 
-![task1_world](../assets/task1_view.jpg)
+=== "Gazebo"
+    ![task1_gazebo](../assets/task1_gazebo.jpg)
+
+=== "RViz"
+    ![task1_rviz](../assets/task1_rviz.png)
 
 ### Exploring Multiple Routes
 * We have prepared three pre-defined routes you can use as you develop your solution with each route having different goal location.
