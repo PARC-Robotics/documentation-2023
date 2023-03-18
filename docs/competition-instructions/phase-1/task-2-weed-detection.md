@@ -1,5 +1,7 @@
 # Task 2: Weed Detection
 
+![Task 2 Demo](../assets/task2_demo.gif)
+
 ## General Description
 
 The detection of weeds in fields is crucial for the growth of crops, as weeds can compete for essential resources like water, sunlight, and nutrients, and also act as breeding grounds for pests and diseases. Agricultural robots play a vital role in this regard by navigating through rows of crops to identify and communicate the locations of any weeds present in the field.
