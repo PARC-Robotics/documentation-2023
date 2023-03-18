@@ -39,6 +39,12 @@ sudo apt update
 rosdep install --from-paths ./src --ignore-src -y
 ```
 
+!!! Warning
+    There is a known issue with one of our dependencies that might cause the `rosdep` command to fail. If you encounter this issue, manually install the dependency by running the following command:
+    ```sh
+    sudo apt install ros-noetic-teleop-twist-keyboard libasio-dev
+    ```
+
 ### Compile packages
 ```sh
 cd ~/catkin_ws

@@ -1,5 +1,7 @@
 # Task 2: Weed Detection
 
+![Task 2 Demo](../assets/task2_demo.gif)
+
 ## General Description
 
 The detection of weeds in fields is crucial for the growth of crops, as weeds can compete for essential resources like water, sunlight, and nutrients, and also act as breeding grounds for pests and diseases. Agricultural robots play a vital role in this regard by navigating through rows of crops to identify and communicate the locations of any weeds present in the field.
@@ -24,7 +26,7 @@ You should see the display below in Gazebo and RViz respectively.
 
 Once the route is selected, the robot will promptly start moving. It's worth noting that the robot is equipped with a camera that detects weeds in the field.
 
-A new topic called `/parc_robot/weed_detection` has been created to publish the weed locations in the field. The message type for this topic is `/parc_robot/WeedDetection`, which includes a list of Weed messages containing the GPS coordinates of each weed. Additionally, each Weed message has a confidence field that indicates the level of certainty that the weed is indeed a weed, with values ranging from 0 to 1. A confidence value of 1 represents absolute certainty, while a value of 0 represents absolute uncertainty.
+A new topic called `/parc_robot/weed_detection` has been created to publish the weed locations in the field. The message type for this topic is `/parc_robot/WeedDetection`, which includes a list of Weed messages containing the GPS coordinates of each weed.
 
 Moreover, a new topic has been introduced as `/parc_robot/robot_status` to publish the robot's status. The message type for this topic is `/parc_robot/RobotStatus`, and the RobotStatus message contains a status field represented as a string that informs the robot's current status. The status field can have two possible values: started, indicating that the robot has started moving along the route, and finished, indicating that it has completed the designated route.
 
