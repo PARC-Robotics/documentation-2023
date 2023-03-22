@@ -17,11 +17,10 @@ The competition consists of two phases: the **Simulation Phase** and the **Real 
 
 ## Simulation Phase
 <!-- In this phase, teams would interact with the **PARC AgRobot** in simulation (using the Gazebo Robot Simulator). Participants are required to write software to complete three fundamental tasks for agricultural robots: -->
-In this phase, teams will work with the **PARC AgRobot** in simulation (using the Gazebo Robot Simulator) and use state-of-the-art tools (e.g., ROS, MATLAB, OpenCV, etc.) to develop solutions to complete three fundamental tasks for agricultural robots:
+In this phase, teams will work with the **PARC AgRobot** in simulation (using the Gazebo Robot Simulator) and use state-of-the-art tools (e.g., ROS, MATLAB, OpenCV, etc.) to develop solutions to complete two fundamental tasks for agricultural robots:
 
 * Autonomous field navigation
 * Weed detection
-* Autonomous seed planting
 
 This phase is fully virtual. Participating teams will follow the instructions in this documentation to set up their PCs and download the complete simulation packages required to complete the tasks. 
 Teams are required to complete and upload their solutions on or before the Phase 1 deadline. Following team evaluations, best performing teams will qualify to compete in Phase 2: **Real World Phase**.

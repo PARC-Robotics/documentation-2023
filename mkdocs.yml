@@ -82,8 +82,7 @@ markdown_extensions:
 
 nav:
   - Introduction:
-    - Introduction: introduction/index.md
-    - Competition Overview:
+    - Competition Overview: introduction/index.md
       - How to register: introduction/how-to-register.md
       - Important dates: introduction/important-dates.md
   - Getting Started Tutorials:
