@@ -1,10 +1,11 @@
 # Getting started with MATLAB
 
-MATLAB is a programming language and numerical computing environment used by millions of engineers and scientists worldwide. It provides a powerful set of tools for analyzing data, developing algorithms, and creating models and simulations. Participants can choose to use MATLAB, or any of the other officially supported programming language for this competition.
+MATLAB is a programming language and numerical computing environment used by millions of engineers and scientists worldwide. It provides a powerful set of tools for analyzing data, developing algorithms, and creating models and simulations. 
+Participants will need to use MATLAB to complete Task 2 of the competition.
 
 ## Overview of MATLAB and its Features
 
-MATLAB is a high-level language and interactive environment that enables you to perform computationally intensive tasks faster than with traditional programming languages such as C, C++, and Fortran. It includes a programming, visualization, and numerical computing environment that has become the standard for technical computing at leading engineering and science companies and the standard language for mathematics, computing, and data science.
+MATLAB is a high-level language and interactive environment that enables you to perform computationally intensive tasks. It includes a programming, visualization, and numerical computing environment that has become the standard for technical computing at leading engineering and science companies and the standard language for mathematics, computing, and data science.
 
 MATLAB offers a number of benefits for engineers and scientists, including:
 
@@ -23,7 +24,7 @@ For ROS, MATLAB provides a set of tools for working with ROS topics, services, a
 ### MATLAB Installation
 
 !!! note "MATLAB Installation"
-    See Kene for MATLAB installation instructions.
+    As an official sponsor of PARC, MathWorks has provided a free, complimentary licence to all participating teams. To request the software, please visit the [MathWorks PARC page](https://www.mathworks.com/academia/student-competitions/PARC.html){:target="_blank"}.
 
 ### Starting MATLAB
 
@@ -151,11 +152,12 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
 Hello, world!
 ```
 
-## Additional Learning Resources
+## Important MATLAB Resources
 There are many resources available for learning MATLAB, including tutorials, online courses, and documentation. The MathWorks website provides a comprehensive set of resources, including:
 
-* [Getting Started with MATLAB tutorial](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html){:target="_blank"}
-* [MATLAB documentation and help files](https://www.mathworks.com/help/matlab/){:target="_blank"}
+<!-- * [Getting Started with MATLAB tutorial](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html){:target="_blank"} -->
+* [MATLAB OnRamp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted) (Strongly Recommended)
 * [MATLAB Answers](https://www.mathworks.com/matlabcentral/answers/){:target="_blank"} - a community of MATLAB users who can help you with your questions
+* [MATLAB and Simulink ROS Tutorials](https://github.com/mathworks-robotics/matlab-and-simulink-ros-tutorials)
 
 With these resources, you can quickly get up to speed with MATLAB and start using it for this competition and your own engineering and scientific projects.

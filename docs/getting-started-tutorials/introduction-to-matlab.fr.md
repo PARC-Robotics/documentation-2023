@@ -1,136 +1,163 @@
-# En passant avec Matlab
+# Premiers pas avec MATLAB
 
-MATLAB est un langage de programmation et un environnement informatique numérique utilisé par des millions d'ingénieurs et scientifiques dans le monde. Il fournit un ensemble puissant d'outils pour analyser les données, développer des algorithmes et créer des modèles et des simulations. Les participants peuvent choisir d'utiliser MATLAB, ou l'un des autres langage de programmation officiellement pris en charge pour ce concours.
+MATLAB est un langage de programmation et un environnement de calcul numérique utilisé par des millions d'ingénieurs et de scientifiques dans le monde. Il fournit un ensemble d'outils puissants pour analyser les données, développer des algorithmes et créer des modèles et des simulations.
+Les participants devront utiliser MATLAB pour effectuer la tâche 2 du concours.
 
-## Aperçu de Matlab et de ses fonctionnalités
+## Présentation de MATLAB et de ses fonctionnalités
 
-MATLAB est un langage de haut niveau et un environnement interactif qui vous permet d'effectuer des tâches intensives en calcul plus rapidement qu'avec des langages de programmation traditionnels tels que C, C ++ et FORTRAN. Il comprend un environnement de programmation, de visualisation et de calcul numérique qui est devenu la norme pour l'informatique technique dans les principales sociétés d'ingénierie et de science et le langage standard pour les mathématiques, l'informatique et la science des données.
+MATLAB est un langage de haut niveau et un environnement interactif qui vous permet d'effectuer des tâches de calcul intensives. Il comprend un environnement de programmation, de visualisation et de calcul numérique qui est devenu la norme pour le calcul technique dans les principales entreprises d'ingénierie et de science et le langage standard pour les mathématiques, l'informatique et la science des données.
 
-MATLAB offre un certain nombre d'avantages pour les ingénieurs et les scientifiques, notamment:
+MATLAB offre un certain nombre d'avantages aux ingénieurs et aux scientifiques, notamment :
 
 * Outils d'analyse numérique complets
-* Capacités graphiques et visualisation faciles à utiliser
-* Une grande communauté d'utilisateurs et des ressources de support
+* Capacités graphiques et de visualisation faciles à utiliser
+* Une grande communauté d'utilisateurs et de ressources d'assistance
 * Compatibilité avec d'autres langages de programmation et outils logiciels
 
-Pour ROS, MATLAB fournit un ensemble d'outils pour travailler avec des sujets, des services et des actions ROS. Ces outils vous permettent de publier et de vous abonner aux sujets ROS, d'appeler les services ROS et d'envoyer et de recevoir des actions ROS. Vous pouvez également utiliser MATLAB pour créer et exécuter des nœuds ROS, et pour créer et exécuter des fichiers de lancement de ROS.
+Pour ROS, MATLAB fournit un ensemble d'outils permettant de travailler avec des sujets, des services et des actions ROS. Ces outils vous permettent de publier et de vous abonner à des rubriques ROS, d'appeler des services ROS et d'envoyer et de recevoir des actions ROS. Vous pouvez également utiliser MATLAB pour créer et exécuter des nœuds ROS, et pour créer et exécuter des fichiers de lancement ROS.
 
-!!! note "Concepts ROS"
-    Pour plus d'informations sur les nœuds ROS, les sujets, les services et les actions, consultez [le démarrage avec ROS](/getting-started-tutorials/getting-started-with-ros/){:target="_blank"} Documentation.
+!!! remarque "Concepts ROS"
+     Pour plus d'informations sur les nœuds, les rubriques, les services et les actions ROS, consultez la documentation [Getting Started with ROS](/getting-started-tutorials/getting-started-with-ros/){:target="_blank"}.
 
-## Getting Started
+## Commencer
 
-!!! note "Installation de Matlab"
-    Voir Kene pour les instructions d'installation de MATLAB.
+### Installation de MATLAB
+
+!!! note "Installation MATLAB"
+     En tant que sponsor officiel de PARC, MathWorks a fourni une licence gratuite et complémentaire à toutes les équipes participantes. Pour demander le logiciel, veuillez visiter la [page MathWorks PARC](https://www.mathworks.com/academia/student-competitions/PARC.html){:target="_blank"}.
+
+### Démarrage de MATLAB
+
+Pour démarrer MATLAB, ouvrez un terminal et tapez "matlab". Cela ouvrira l'application de bureau MATLAB. Vous pouvez également démarrer MATLAB en cliquant sur l'icône MATLAB sur votre bureau ou dans votre menu Démarrer.
+
+### Fenêtre de commande MATLAB
+
+La fenêtre de commande MATLAB est l'endroit où vous pouvez entrer des commandes et voir les résultats. Vous pouvez également utiliser la fenêtre de commande pour afficher la valeur des variables et afficher les résultats des calculs.
 
 ## Syntaxe de base et types de données
 
-### Syntaxe de base MATLAB
+### Syntaxe MATLAB de base
 
-MATLAB a une syntaxe simple et intuitive facile à apprendre et à utiliser. Voici quelques-unes des règles de syntaxe de base:
+MATLAB a une syntaxe simple et intuitive, facile à apprendre et à utiliser. Voici quelques règles de syntaxe de base :
 
 * Les instructions sont exécutées ligne par ligne.
 * Un point-virgule (;) à la fin d'une instruction supprime la sortie vers la fenêtre de commande.
 * Les variables sont créées en leur attribuant une valeur.
-* L'espace blanc est ignoré par Matlab, donc l'indentation n'est pas nécessaire.
+* Les espaces blancs sont ignorés par MATLAB, l'indentation n'est donc pas nécessaire.
 
-Voici un exemple de syntaxe de base MATLAB:
+Voici un exemple de syntaxe MATLAB de base :
 
-``` Matlab
-% C'est un commentaire
-a = 5; % Attribuez la valeur 5 à la variable A
-b = 2 * a; % Attribuer la valeur 10 à la variable b
-disp (b); % Afficher la valeur de B à la fenêtre de commande
+``` matlab
+% Ceci est un commentaire
+a = 5;   % Attribuez la valeur 5 à la variable a
+b = 2*a; % Affecter la valeur 10 à la variable b
+disp(b); % Affiche la valeur de b dans la fenêtre de commande
 ```
 
 ### Types de données
-MATLAB prend en charge une variété de types de données, notamment:
+MATLAB prend en charge une variété de types de données, notamment :
 
 * Types de données numériques (entiers, nombres à virgule flottante et nombres complexes)
 * Types de données de caractère et de chaîne
-* Types de données logiques (valeurs vraies / fausses)
+* Types de données logiques (valeurs vrai/faux)
 
-Voici quelques exemples de la façon de créer et d'utiliser ces types de données dans MATLAB:
+Voici quelques exemples de création et d'utilisation de ces types de données dans MATLAB :
 
-``` Matlab
+``` matlab
 % Types de données numériques
-x = 5; % entier
-y = 3.14159; % Numéro de point flottant
-z = 2 + 3i; % nombre complexe
+x = 5;         % entier
+y = 3.14159;   % nombre à virgule flottante
+z = 2+3i;      % nombre complexe
 
-% Types de données de caractères et de chaînes
-c = 'a'; % personnage
-S = 'Bonjour, monde!'; % chaîne
+% Types de données caractère et chaîne
+c = 'a';                % personnage
+s = 'Hello, world!';    % chaîne
 
 % Types de données logiques
-p = true; % vraie valeur
-q = false; % de fausse valeur
-r = (x > y); % Expression logique (renvoie vrai ou faux)
+p = true;   % vraie valeur
+q = false;  % fausse valeur
+r = (x > y);% expression logique (renvoie vrai ou faux)
 
-% Afficher et manipuler les données
-disp(x); % Afficher la valeur de x
-fprintf('la valeur de y est%f\n', y); % String formaté d'impression
-s2 = strcat(s, 'matlab est génial!'); % de cordes de concaténate
+% Affichage et manipulation des données
+disp(x); % valeur d'affichage de x
+fprintf('La valeur de y est %f\n', y); % impression chaîne formatée
+s2 = strcat(s, ' MATLAB est génial !'); % chaînes de concaténation
 ```
 
 ## Fonctions et outils communs
 
-MATLAB offre une riche collection de fonctions et d'outils intégrés qui vous permettent d'effectuer diverses tâches mathématiques et ingénieurs. Voici quelques-unes des fonctions et outils MATLAB courants que vous pourriez trouver utiles:
+MATLAB fournit une riche collection de fonctions et d'outils intégrés qui vous permettent d'effectuer diverses tâches mathématiques et d'ingénierie. Voici quelques-unes des fonctions et outils MATLAB courants qui pourraient vous être utiles :
 
-### 1. traçage et visualisation
+### 1. Tracé et visualisation
 
-MATLAB fournit des outils puissants pour créer différents types de parcelles, graphiques et graphiques. Vous pouvez utiliser la fonction de tracé pour créer des tracés de ligne 2D, une fonction de surf pour créer des tracés de surface 3D, une fonction ImagesC pour créer des images codées en couleur et bien d'autres. Voici un exemple de la façon d'utiliser la fonction de tracé pour créer un tracé de ligne 2D:
+MATLAB fournit des outils puissants pour créer différents types de tracés, de graphiques et de tableaux. Vous pouvez utiliser la fonction plot pour créer des tracés linéaires 2D, la fonction surf pour créer des tracés de surface 3D, la fonction imagesc pour créer des images codées par couleur, et bien d'autres. Voici un exemple d'utilisation de la fonction plot pour créer un tracé linéaire 2D :
 
-`` Matlab
-% Exemple de code pour créer un tracé de ligne simple
-x = linspace (0, 10, 100);
+``` matlab
+% Exemple de code pour créer un tracé linéaire simple
+x = linspace(0, 10, 100);
 y = sin(x);
 plot(x, y)
-``
+```
 
 ### 2. Opérations matricielles
 
-MATLAB a une prise en charge intégrée pour les opérations matricielles et vectorielles. Vous pouvez effectuer des opérations d'élément, une multiplication matricielle, une inversion matricielle et bien d'autres. Voici quelques exemples:
+MATLAB a un support intégré pour les opérations matricielles et vectorielles. Vous pouvez effectuer des opérations élémentaires, la multiplication de matrices, l'inversion de matrices et bien d'autres. Voici quelques exemples:
 
-`` Matlab
+``` matlab
 % Exemple de code pour les opérations matricielles
 A = [1 2; 3 4];
-B = [5 6; 7 8];
-C = a + b;         % ajout par élément
-D = a * b;         % multiplication matricielle
-E = inv(a);        % d'inversion matricielle
-F = a .* B;        % Multiplication par élément
-G = a .^ 2;        % Exponentiation par élément
-``
+B = [5 6 ; 7 8];
+C = A + B;      % d'ajout élément par élément
+D = A * B;      % multiplication matricielle
+E = inv(A);     % d'inversion de matrice
+F = A .* B;     % multiplicat élément par élément
+G = A .^ 2;     % exponentiation élément par élément
+```
 
-### 3. Traitement d'images
+### 3. Traitement des images
 
-MATLAB fournit un ensemble de fonctions et d'outils pour le traitement d'image. Vous pouvez utiliser la fonction IMRÉSIZE pour redimensionner une image, imrotate la fonction pour faire pivoter une image et bien d'autres. Voici un exemple de la façon d'utiliser la fonction IMRÉSIZE pour redimensionner une image:
+MATLAB fournit un ensemble de fonctions et d'outils pour le traitement d'images. Vous pouvez utiliser la fonction imresize pour redimensionner une image, la fonction imrotate pour faire pivoter une image, et bien d'autres. Voici un exemple d'utilisation de la fonction imresize pour redimensionner une image :
 
-`` Matlab
-% Exemple de code pour le traitement d'image
-I = imread ('image.jpg'); % Lire une image à partir d'un fichier
-J = iMrésize (i, 0,5); % redimensionner l'image par un facteur 0,5
-imshow(j); % Afficher l'image redimensionnée
-``
+``` matlab
+% Exemple de code pour le traitement d'images
+I = imread('image.jpg');    % lire une image à partir d'un fichier
+J = imresize(I, 0.5);       % redimensionne l'image par un facteur de 0.5
+imshow(J);                  % affiche l'image redimensionnée
+```
 
 ### 4. Intégration ROS
 
-MATLAB fournit un ensemble de fonctions et d'outils pour l'intégration avec ROS. Vous pouvez utiliser la fonction Rossubscriber pour créer un abonné ROS, une fonction Rospublisher pour créer un éditeur ROS et bien d'autres. Voici un exemple de la façon d'utiliser la fonction RossubScriber pour créer un abonné ROS:
+MATLAB fournit un ensemble de fonctions et d'outils pour l'intégration avec ROS. Vous pouvez utiliser la fonction rossubscriber pour créer un abonné ROS, la fonction rospublisher pour créer un éditeur ROS, et bien d'autres. Voici un exemple d'utilisation de la fonction rossubscriber pour créer un abonné ROS et un éditeur ROS :
 
-`` Matlab
-% Exemple de code pour l'intégration des ROS
-Rosinit; % Initialiser les ROS
-sub = rossubscriber ('/ bavardage'); % Créer un abonné ROS
-msg = recevoir (sub, 3); % Recevoir un message de l'abonné
-DIST (msg.data); % Afficher les données du message
-``
+=== "Exemple d'éditeur ROS"
 
-## Ressources d'apprentissage supplémentaires
-Il existe de nombreuses ressources disponibles pour apprendre MATLAB, y compris les tutoriels, les cours en ligne et la documentation. Le site Web de MathWorks fournit un ensemble complet de ressources, notamment:
+     ``` matlab
+     % Exemple de code pour l'intégration ROS
+     rosinit;                                           % initialise ROS.
+     pub = rospublisher('/chatter', 'std_msgs/String'); % créer un éditeur ROS
+     msg = rosmessage(pub);                             % créer un message ROS
+     msg.Data = 'Bonjour, monde!';                     % attribue une valeur aux données du message
+     send(pub, msg);                                    % envoie le message
+     ```
+=== "Exemple d'abonné ROS"
+     ``` matlab
+     % Exemple de code pour l'intégration ROS
+     rosinit;                                           % initialise ROS
+     sub = rossubscriber('/chatter');                   % créer un abonné ROS
+     msg = recevoir(sub, 3);                            % reçoivent un message de l'abonné
+     disp(msg.Data);                                    % afficher les données du message
+     ```
 
-* [Débutant avec le tutoriel MATLAB](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html){target = "_blank"}
-* [Matlab Documentation and Help Files](https://www.mathworks.com/help/matlab/){target="_blank"}
-* [Matlab Answers](https://www.mathworks.com/matlabcentral/answers/){target="_blank"} - une communauté d'utilisateurs de Matlab qui peuvent vous aider avec vos questions
+``` matlab
+Bonjour le monde!
+```
 
-Avec ces ressources, vous pouvez rapidement vous mettre au courant avec MATLAB et commencer à l'utiliser pour cette compétition et vos propres projets d'ingénierie et scientifiques.
+## Ressources MATLAB importantes
+De nombreuses ressources sont disponibles pour apprendre MATLAB, notamment des didacticiels, des cours en ligne et de la documentation. Le site Web MathWorks fournit un ensemble complet de ressources, notamment :
+
+<!-- * [Tutoriel Premiers pas avec MATLAB](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html){:target="_blank"} -->
+* [MATLAB OnRamp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted) (Fortement recommandé)
+* [MATLAB Answers](https://www.mathworks.com/matlabcentral/answers/){:target="_blank"} : une communauté d'utilisateurs MATLAB qui peuvent vous aider à répondre à vos questions
+* [Tutoriels MATLAB et Simulink ROS](https://github.com/mathworks-robotics/matlab-and-simulink-ros-tutorials)
+
+Grâce à ces ressources, vous pouvez vous familiariser rapidement avec MATLAB et commencer à l'utiliser pour ce concours et vos propres projets d'ingénierie et scientifiques.
