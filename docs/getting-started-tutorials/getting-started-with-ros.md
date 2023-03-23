@@ -1,15 +1,38 @@
 # Getting started with ROS
 
+
+
 The [Robot Operating System](https://www.ros.org/about-ros/) (ROS) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms.
 
 We have planned this competition around ROS because of its features as well as its widespread use in robotics research and industry.
 
+![ROS and APIs](assets/ros-apis.PNG)
+
 To get started with ROS (if you are a beginner), we recommend you follow the "Beginner Level" tutorials in the official [ROS Tutorials](http://wiki.ros.org/ROS/Tutorials). Ensure you complete at least the following:
+
+
+## ROS OnRamp!
+
+Whether you are a beginner or a more advanced ROS developer, we recommend you take some time to review the following ROS tutorials.
+
+* [ROS Official Tutorials](http://wiki.ros.org/ROS/Tutorials){target=_blank} - Ensure you complete at least chapters 5, 6, and 12.
+* [ROS Tutorial Youtube Playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank}  (**Strongly recommended for beginners**) - Alternatively, we recommend you cover at least parts 1-9. The content is excellent!
+
+!!! note
+    Your overall learning experience in this competition is **strongly dependent** on how much of the fundamental concepts of ROS you can grasp early on. Hence, we **strongly recommend** that you put in the time to use these resources.
+
+<!-- - [ROS Tutorials](http://wiki.ros.org/ROS/Tutorials){target=_blank}  - Official ROS tutorials
+- [ROS Tutorial YouTube Playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank}  - YouTube playlist of ROS tutorials. This is a good resource if you prefer to learn by watching videos
+
+
 
 * [Chapter 5](http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes) (ROS Nodes): *"This tutorial introduces ROS graph concepts and discusses the use of roscore, rosnode, and rosrun commandline tools"*
 * [Chapter 6](http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics) (ROS Topics): *"This tutorial introduces ROS topics as well as using the rostopic and rqt_plot commandline tools."*
 * [Chapter 12](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29) (Writing simple publisher and subscriber in Python)
-* Understand the [core tools provided by ROS](https://www.ros.org/core-components/), including RViz, rqt_graph, Gazebo, etc.
+* Understand the [core tools provided by ROS](https://www.ros.org/core-components/), including RViz, rqt_graph, Gazebo, etc. -->
+
+
+## Writing your First ROS Package
 
 After you complete the required tutorials listed above, you can start [setting up the workspace](../setting-up-your-workspace).
 
@@ -50,11 +73,11 @@ And here you can create a new ROS package called `test_publisher` (for example) 
 catkin_create_pkg test_publisher roscpp rospy std_msgs geometry_msgs
 ```
 
-## Moving the Robot Programmatically
+### Moving the Robot Programmatically
 
 [Setting up your workspace](../setting-up-your-workspace) guide has already shown how to control the robot with keyboard using `teleoperation`
 
-But this guide will help you to move the robot by publishing commands to `/cmd_vel` topic programmically using a Python script.
+But this guide will help you to move the robot by publishing commands to `/cmd_vel` topic programmically using Python, MATLAB and C++. In the competition, you would have to choose one of these languages/platforms to interact with ROS.
 
 
 To do this, create a file, `robot_publisher.py` inside `scripts` folder in your ROS package (for example `test_publisher`) and make it executable.
@@ -287,7 +310,7 @@ Now open the file and copy and paste the following code inside:
 
 This code will make the robot move straight for 4 seconds, rotate counterclockwise for 3 seconds and then stop.
 
-## Compile and Run
+### Compile and Run
 
 !!! Note 
     For C++, we need to update the `CMakeLists.txt` file to include our new program. Add the following line to the `CMakeLists.txt` file:
@@ -308,14 +331,13 @@ To see it working, first run the robot in simulation by running the following co
 
 ```shell
 source ~/catkin_ws/devel/setup.bash
-roslaunch parc-robot parc_task2.launch
+roslaunch parc-robot task1.launch
 ```
 
 And run the following command in another terminal to run this new program:
 === "MATLAB"
     From the MATLAB command window, run the following command:
     ```matlab
-    rosinit
     robot_publisher
     ```
 
@@ -334,9 +356,9 @@ If you have set up everything well, you should see the robot moving in Gazebo as
 
 ![publisher demo](assets/publisher_demo.gif)
 
-## Extra Resources
+<!-- ## Extra Resources
 
 If you want to learn more about ROS, you can check out the following resources:
 
 - [ROS Tutorials](http://wiki.ros.org/ROS/Tutorials){target=_blank}  - Official ROS tutorials
-- [ROS Tutorial YouTube Playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank}  - YouTube playlist of ROS tutorials. This is a good resource if you prefer to learn by watching videos.
+- [ROS Tutorial YouTube Playlist](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank}  - YouTube playlist of ROS tutorials. This is a good resource if you prefer to learn by watching videos. -->

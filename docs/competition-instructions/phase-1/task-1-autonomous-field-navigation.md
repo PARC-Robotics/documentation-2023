@@ -11,7 +11,7 @@ Agricultural robots must be able to navigate through crops and farmland, which i
 In a new terminal, run the following launch file to bring up the robot in Gazebo and RViz:
 
 ```sh
-roslaunch parc_robot parc_task1.launch
+roslaunch parc_robot task1.launch
 ```
 
 You should see the display below in Gazebo and RViz respectively. To the right, there's the robot and to the left is the orange-red sphere which represents the goal location.
@@ -39,17 +39,17 @@ The default route is `route1`, but you can select the second and third route opt
 
 ```sh
 ## route2
-roslaunch parc_robot parc_task1.launch route:=route2
+roslaunch parc_robot task1.launch route:=route2
 
 ## route3
-roslaunch parc_robot parc_task1.launch route:=route3
+roslaunch parc_robot task1.launch route:=route3
 ```
 
 * We recommend you play around with at least these three routes to ensure your solution is robust to different start locations.
 
 * To obtain the GPS goal location for this task, regardless of the route option, you can use a ROS parameter. Here is an example of how to obtain the goal location as a ROS parameter:
 
-=== "Matlab"
+=== "MATLAB"
     ```matlab
     % Initialize the ROS node
     rosinit
@@ -99,7 +99,7 @@ roslaunch parc_robot parc_task1.launch route:=route3
 
 Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a parameter if you need it for localization. Here is an example of how to obtain the GPS coordinate of **peg 01**:
 
-=== "Matlab"
+=== "MATLAB"
     ```matlab
     % Initialize the ROS node
     rosinit
@@ -148,7 +148,7 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
     ```
 
 !!! warning
-    **DO NOT** use the cartesian coordinates of the goal location and pegs provided by Gazebo or the world file in any way. You will be disqualified if you do.
+    Please **DO NOT** use the cartesian coordinates of the goal location and pegs provided by Gazebo or the world file in any way. You will be penalized if you do.
 
 ### Preparing your Solution
 * Your solution should be prepared as ROS packages to be saved in your solution folder. Create a launch file in your ROS package which runs ALL the code you need in your solution. Name this launch file: `task1_solution.launch`.
@@ -158,19 +158,19 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
 In one terminal:
 
 ```sh
-roslaunch parc_robot parc_task1.launch
+roslaunch parc_robot task1.launch
 ```
 
 Or 
 
 ```sh
-roslaunch parc_robot parc_task1.launch route:=route2
+roslaunch parc_robot task1.launch route:=route2
 ```
 
 Or
 
 ```sh
-roslaunch parc_robot parc_task1.launch route:=route3
+roslaunch parc_robot task1.launch route:=route3
 ```
 
 !!! note "Note"
@@ -179,12 +179,12 @@ roslaunch parc_robot parc_task1.launch route:=route3
 In another terminal:
 
 ```sh
-roslaunch <your-package-name> task1_solution.launch`
+roslaunch <your-package-name> task1_solution.launch
 ```
 
 ## Task Rules
 
-* The time limit to complete the task is 4 minutes (240 seconds).
+* The time limit to complete the task is **4 minutes (240 seconds)**.
 
 * The task is ONLY complete when ANY part of the robot is inside the orange-red sphere (goal location marker) after following the pre-defined path as shown above.
 

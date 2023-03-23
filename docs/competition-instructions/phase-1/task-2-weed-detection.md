@@ -7,7 +7,7 @@
 The detection of weeds in fields is crucial for the growth of crops, as weeds can compete for essential resources like water, sunlight, and nutrients, and also act as breeding grounds for pests and diseases. Agricultural robots play a vital role in this regard by navigating through rows of crops to identify and communicate the locations of any weeds present in the field.
 
 !!! warning
-    You are expected to complete this task using MATLAB exclusively. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started). If you need help with creating a ROS node in MATLAB, you can find instructions [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#4-ros-integration).
+    You are expected to complete this task using **MATLAB exclusively**. You can find instructions on how to install MATLAB on your computer [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#getting-started). If you need help with creating a ROS node in MATLAB, you can find instructions [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#4-ros-integration).
 
 ## Task Guidelines
 
@@ -16,7 +16,7 @@ The detection of weeds in fields is crucial for the growth of crops, as weeds ca
 In a new terminal, run the following launch file to bring up the robot in Gazebo and RViz:
 
 ```bash
-roslaunch parc_robot parc_task2.launch
+roslaunch parc_robot task2.launch
 ```
 
 You should see the display below in Gazebo and RViz respectively.
@@ -48,10 +48,10 @@ The default route is `route1`, but you can select the second and third route opt
 
 ```bash
 ## route2
-roslaunch parc_robot parc_task2.launch route:=route2
+roslaunch parc_robot task2.launch route:=route2
 
 ## route3
-roslaunch parc_robot parc_task2.launch route:=route3
+roslaunch parc_robot task2.launch route:=route3
 ```
 
 We recommend you play around with at least these three routes to ensure your solution is robust to different start locations.
@@ -62,13 +62,13 @@ The robot can move at different speeds. The default speed is 0.1 m/s, but you ca
 
 ```bash
 ## 0.1 m/s
-roslaunch parc_robot parc_task2.launch
+roslaunch parc_robot task2.launch
 
 ## 0.5 m/s
-roslaunch parc_robot parc_task2.launch speed:=0.5
+roslaunch parc_robot task2.launch speed:=0.5
 
 ## 1.0 m/s
-roslaunch parc_robot parc_task2.launch speed:=1.0
+roslaunch parc_robot task2.launch speed:=1.0
 ```
 
 We recommend you play around with different speeds to ensure your solution is robust to different speeds.

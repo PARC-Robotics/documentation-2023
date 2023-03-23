@@ -2,11 +2,10 @@
 
 ## Phase 1: Simulation
 
-Dans cette phase de simulation uniquement, les équipes travailleraient à fournir des solutions à trois (3) tâches fondamentales d'un robot de livraison qui sont:
+Dans cette phase de simulation uniquement, les équipes travailleraient à fournir des solutions à deux (2) tâches fondamentales d'un robot de livraison qui sont:
 
 * Navigation sur le terrain autonome
 * Détection des mauvaises herbes
-* Plantation de graines autonomes
 
 La plate-forme de simulation à utiliser dans cette phase est le [simulateur de gazebo](http://gazebosim.org/). Les équipes doivent développer, tester et soumettre des logiciels pour accomplir avec succès ces tâches de manière autonome. Cette phase évaluera les capacités des équipes pour accomplir avec succès ces tâches fondamentales requises pour rivaliser dans la phase 2 (sur le robot physique).
 

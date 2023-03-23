@@ -28,20 +28,21 @@ Before starting with the steps below, ensure that you have the following:
 
 ## Step 2: Creating the main folder and `docker-compose.yml`
 
-1. Create a new folder in your preferred location and name it whatever you like.
-2. Inside the newly created folder, create a ROS workspace by running the following command in powershell:
+1. Create a new folder in your preferred location and name it `PARC_docker`
+2. Inside `PARC_docker` folder, create a ROS workspace by running the following command in Powershell:
 
     ```shell
     mkdir catkin_ws/src
     ```
 
-3. Next, create a `docker-compose.yml` file inside the main folder. This file will contain the configuration for our ROS Docker container. Open the file in your favorite editor and add the following lines:
+3. Next, create a `docker-compose.yml` file inside `PARC_docker` folder. This file will contain the configuration for our ROS Docker container. Open the file in your favorite editor and add the following lines:
 
     ```yaml
     version: '3.8'
     services:
       ros:
         image: parcengineersleague/parc-2023
+        container_name: parc-ros-docker-1
         environment:
           - DISPLAY=host.docker.internal:0.0
           - ROS_HOSTNAME=ros
@@ -58,11 +59,9 @@ Before starting with the steps below, ensure that you have the following:
 
 ## Step 4: Building the Docker container
 
-1. Open a new terminal window and navigate to the main folder you created earlier.
-
-2. Run the following command to build the Docker container:
-
+1. In a new Powershell window, navigate to the `PARC_docker` and run the command to build the Docker container:
     ```shell
+    cd PARC_docker
     docker compose up -d
     ```
 
@@ -76,7 +75,7 @@ Before starting with the steps below, ensure that you have the following:
 
     ```shell
     CONTAINER ID   IMAGE                          COMMAND                  CREATED          STATUS          PORTS                    NAMES
-    db7df0798d9b   osrf/ros:noetic-desktop-full   "/ros_entrypoint.sh …"   20 seconds ago   Up 19 seconds    0.0.0.0:11311->11311/tcp   parc-ros-docker-ros-1
+    db7df0798d9b   parcengineersleague/parc-2023   "/bin/bash -c 'sourc…"   20 seconds ago   Up 19 seconds    0.0.0.0:11311->11311/tcp   parc-ros-docker-1
     ```
 
 ## Step 5: Opening a terminal in the Docker container
@@ -84,9 +83,9 @@ Before starting with the steps below, ensure that you have the following:
 1. To open a terminal in the Docker container, run the following command:
 
     ```shell
-    docker exec -it parc-ros-docker-ros-1 bash
+    docker exec -it parc-ros-docker-1 bash
     ```
-    where `parc-ros-docker-ros-1` is the name of the container. You can find the name of the container by running the `docker ps` command.
+    where `parc-ros-docker-1` is the name of the container. You can find the name of the container by running the `docker ps` command.
 
 2. Once the terminal is open, you can verify that you are in the container by running the following command:
 
@@ -102,6 +101,11 @@ Before starting with the steps below, ensure that you have the following:
     This means that you are in the container and that the ROS distribution is set to Noetic.
 
 ## Step 6: Test installation
+
+!!! note
+    You might need to source the environment variables first using this command:
+    
+    `source /home/parc/catkin_ws/devel/setup.bash`
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
@@ -127,11 +131,16 @@ You need to `publish`/write to the `topic` `/cmd_vel` to move the robot.
 In the following step, you will learn how to control the robot manually using your keyboard. Once you have tested that, you can follow the [Getting Started with ROS](../getting-started-with-ros) guide to learn how to write a program to control the robot.
 
 ## Step 7: Controlling the robot using keyboard
-Run the following command in a new terminal
-```sh
-source ~/catkin_ws/devel/setup.bash
-roslaunch parc-robot teleop.launch
-```
+1. Open a new Powershell terminal and execute the Docker container as done above:
+    ```shell
+    docker exec -it parc-ros-docker-1 bash
+    ```
+
+2. Run the following command in the terminal:
+    ```sh
+    source /home/parc/catkin_ws/devel/setup.bash
+    roslaunch parc-robot teleop.launch
+    ```
 
 Now keeping the second terminal on top (teleop.launch) press `i` to move the robot forward, you can see the robot moving in "RViz" and "Gazebo" windows.
 you can use the keys shown below to move the robot and `k` key to stop the movement.

@@ -2,11 +2,10 @@
 
 ## Phase 1: Simulation
 
-In this simulation-only phase, teams would work on providing solutions to three (3) fundamental tasks of a delivery robot which are: 
+In this simulation-only phase, teams would work on providing solutions to two (2) fundamental tasks of a delivery robot which are: 
 
 * Autonomous field navigation
 * Weed detection
-* Autonomous seed planting
 
 The simulation platform to be used in this phase is the [Gazebo Simulator](http://gazebosim.org/). Teams are required to develop, test and submit software to successfully complete these tasks autonomously. This phase will evaluate the teams' capabilities to successfully complete these fundamental tasks required to compete in phase 2 (on the physical robot).
 

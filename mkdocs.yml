@@ -97,7 +97,7 @@ nav:
         - Introduction: competition-instructions/phase-1/introduction.md
         - "Task 1: Autonomous Field Navigation": competition-instructions/phase-1/task-1-autonomous-field-navigation.md
         - "Task 2: Weed Detection": competition-instructions/phase-1/task-2-weed-detection.md
-        - "Task 3: Seed Planting": competition-instructions/phase-1/task-3-seed-planting.md
+        # - "Task 3: Seed Planting": competition-instructions/phase-1/task-3-seed-planting.md
         - How to Submit: competition-instructions/phase-1/how-to-submit.md
       - "Phase 2: Physical Robot": competition-instructions/phase-2/introduction.md
       # - Team Naming Conventions: competition-instructions/team-naming-conventions.md
