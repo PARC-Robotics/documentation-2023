@@ -1,16 +1,16 @@
-# Setting up your workspace with Docker on Windows
+# Setting up your PC with Docker on Windows
 
-This guide will walk you through the process of setting up a ROS workspace with Docker, which will allow you to easily develop and test your ROS projects in a containerized environment. We will also cover how to connect VS Code to the Docker container and how to use X11 to run GUI Docker apps.
+This guide will walk you through the process of setting up an Ubuntu environment and ROS workspace on your Windows PC using Docker, which will allow you to easily develop and test your ROS projects in a containerized environment. We will also cover how to connect VS Code to the Docker container and how to use X11 to run GUI Docker apps.
 
 !!! warning "Note"
-    This guide is designed for individuals who plan to use the Docker image. If you want to set up your workspace on a host machine, please consult the instructions provided in [Setting up your workspace](../getting-started-tutorials/setting-up-your-workspace.md).
+    This guide is designed for individuals who plan to use the Docker image. If you want to set up your PC and workspace on a host machine, please consult the instructions provided in [Setting up your workspace](../getting-started-tutorials/setting-up-your-workspace.md).
 
 ## Prerequisites
 Before starting with the steps below, ensure that you have the following:
 
 * [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows){target=_blank} for Windows installed and running
-* Visual Studio Code (VS Code) installed
-* [Git](https://github.com/git-guides/install-git#install-git-on-linux){target=_blank} installed
+* [Visual Studio Code](https://code.visualstudio.com/download){target=_blank} (VS Code) installed
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){target=_blank} installed
 
 ## Step 1: Install VcXsrv
 
@@ -52,7 +52,7 @@ Before starting with the steps below, ensure that you have the following:
           - "11311:11311"
         command: roscore
     ```
-    This configuration will pull the official image for PARC 2023, if it does not already exist and configure it for X11 server support. It will also mount the `catkin_ws` folder inside the container and start the `roscore` command when the container starts. The image already 
+    This configuration will pull the official image for PARC 2023, if it does not already exist, and configure it for X11 server support. It will also mount the `catkin_ws` folder inside the container and start the `roscore` command when the container starts. 
 
 4. Save the `docker-compose.yml` file and close your editor.
 
@@ -105,7 +105,7 @@ Before starting with the steps below, ensure that you have the following:
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
-roslaunch parc-robot parc_task2.launch
+roslaunch parc-robot task2.launch
 ```
 ![Gazebo Simulator window](assets/gazebo.png)
 Gazebo Simulator window
@@ -124,7 +124,7 @@ You will see a screen like this:
 ![RQT Graph](assets/rosgraph.png)
 
 You need to `publish`/write to the `topic` `/cmd_vel` to move the robot.
-The following guide will help you control the robot using keyboard. Once you have tested that, you can follow the [understanding-ros](../getting-started-with-ros) guide to write a python program to control the robot.
+In the following step, you will learn how to control the robot manually using your keyboard. Once you have tested that, you can follow the [Getting Started with ROS](../getting-started-with-ros) guide to learn how to write a program to control the robot.
 
 ## Step 7: Controlling the robot using keyboard
 Run the following command in a new terminal
