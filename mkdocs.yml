@@ -105,8 +105,8 @@ nav:
   - Frequently Asked Questions: faq.md
   - Rules and Regulations: rules-and-regulations.md
   - Resources and Support:
-    - Joining the Slack Channel: resources-and-support/joining-slack.md
-    - Additional Resources: resources-and-support/additional-resources.md
+    # - Joining the Slack Channel: resources-and-support/joining-slack.md
+    - Resources: resources-and-support/additional-resources.md
 
 plugins:
   - i18n:
