@@ -3,6 +3,9 @@
 MATLAB is a programming language and numerical computing environment used by millions of engineers and scientists worldwide. It provides a powerful set of tools for analyzing data, developing algorithms, and creating models and simulations. 
 Participants will need to use MATLAB to complete Task 2 of the competition.
 
+!!! note "MATLAB For Docker Users"
+    It's important to note that if you are using the Docker image provided by PARC, you can run MATLAB normally on your local machine. You do not need to install MATLAB inside the Docker container. For the purposes of this competition, you can use MATLAB on your local machine to complete the tasks.
+
 ## Overview of MATLAB and its Features
 
 MATLAB is a high-level language and interactive environment that enables you to perform computationally intensive tasks. It includes a programming, visualization, and numerical computing environment that has become the standard for technical computing at leading engineering and science companies and the standard language for mathematics, computing, and data science.
@@ -146,11 +149,12 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     sub = rossubscriber('/chatter');            % create a ROS subscriber
     msg = receive(sub, 3);                      % receive a message from the subscriber
     disp(msg.Data);                             % display the message data
+
+    >> Hello, world!                           % output from the command window
     ```
 
-``` matlab
-Hello, world!
-```
+!!! note "Multiple Nodes"
+    Kindly note that the MATLAB ROS integration is limited to a single node. This means that you can only create a single ROS publisher or a single ROS subscriber in MATLAB at a time. If you need to create multiple publishers and/or subscribers, you will need to start a separate MATLAB instance for each publisher and subscriber.
 
 ## Important MATLAB Resources
 There are many resources available for learning MATLAB, including tutorials, online courses, and documentation. The MathWorks website provides a comprehensive set of resources, including:
