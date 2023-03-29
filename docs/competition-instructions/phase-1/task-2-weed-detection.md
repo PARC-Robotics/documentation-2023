@@ -26,9 +26,12 @@ You should see the display below in Gazebo and RViz respectively.
 
 Once the route is selected, the robot will promptly start moving. It's worth noting that the robot is equipped with a camera that detects weeds in the field.
 
-A new topic called `/parc_robot/weed_detection` has been created to publish the weed locations in the field. The message type for this topic is `/parc_robot/WeedDetection`, which includes a list of Weed messages containing the GPS coordinates of each weed.
+To publish the locations of the weeds detected by the robot, you should use the topic `/parc_robot/weed_detection`. The message type for this topic should be `std_msgs/Strings`, which should be in the form of a JSON array string. The array should contain pairs of lon and lat values that represent the GPS coordinates of the weeds in the field. Here's an example of how the array should look like: `[[lon1, lat1], [lon2, lat2], [lon3, lat3], ...]`. You can do this in MATLAB by passing the array to the `jsonencode` function.
 
-Moreover, a new topic has been introduced as `/parc_robot/robot_status` to publish the robot's status. The message type for this topic is `/parc_robot/RobotStatus`, and the RobotStatus message contains a status field represented as a string that informs the robot's current status. The status field can have two possible values: started, indicating that the robot has started moving along the route, and finished, indicating that it has completed the designated route.
+!!! note "JSON Array String"
+    Spacing between the values in the array is not important and will not affect results. The following are all valid JSON array strings: `[[lon1,lat1],[lon2,lat2],[lon3,lat3],...]`, `[[lon1, lat1], [lon2, lat2], [lon3, lat3], ...]`, `[[lon1,lat1], [lon2,lat2], [lon3,lat3], ...]`, `[[lon1, lat1],[lon2, lat2],[lon3, lat3],...]`, etc.
+
+A new topic called `/parc_robot/robot_status` has been added to publish the current status of the robot. The message type for this topic is `/std_msgs/String`, which indicates whether the robot has started moving along the route or has finished the designated route. The robot status has two possible values: "started" and "finished".
 
 ### Exploring multiple routes
 
@@ -95,31 +98,34 @@ msg = receive(sub, 10);
 rosshutdown
 ```
 
-Once you detect that the robot has stopped moving, you must publish the weed locations to the `/parc_robot/weed_detection` topic. The WeedDetection message contains a list of Weed messages, each with the GPS coordinates of a weed in the field.
+After detecting that the robot has stopped moving, you need to publish the GPS coordinates of the weeds in the field to the `/parc_robot/weed_detection` topic. The message should contain a list of longitude and latitude coordinates for each weed location.
 
-Here is an example MATLAB script to publish to the /parc_robot/weed_detection:
+Here is an example MATLAB script to publish to the /parc_robot/weed_detection topic:
 
 ```matlab
 % Create a ROS node
 rosinit
 
 % Create a publisher to the /parc_robot/weed_detection topic
-pub = rospublisher('/parc_robot/weed_detection', 'parc_robot/WeedDetection');
+pub = rospublisher('/parc_robot/weed_detection', 'std_msgs/String');
 
-% Create a WeedDetection message
-msg = rosmessage(pub);
+% Define the weed locations as a nx2 array of longitude and latitude values
+weed_locations = [
+    -122.3088, 47.6597;
+    -122.3091, 47.6600;  % Note: These are just example values.
+    -122.3094, 47.6602   % Your actual code will need to detect the weeds in the field.
+    ];
 
-% Create a Weed message
-weed = rosmessage('parc_robot/Weed');
+% Convert the weed locations to a JSON array string
+json_str = jsonencode(weed_locations);
 
-% Set the latitude and longitude of the weed
-weed.Latitude = 0.0;
-weed.Longitude = 0.0;
+% Create a String message
+msg = rosmessage('std_msgs/String');
 
-% Add the weed to the WeedDetection message
-msg.Weeds = [weed];
+% Set the message data to the JSON array string
+msg.Data = json_str;
 
-% Publish the WeedDetection message
+% Publish the message
 send(pub, msg);
 
 % Stop the ROS node
