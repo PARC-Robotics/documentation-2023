@@ -27,7 +27,7 @@ Cela devrait être votre structure de dossier jusqu'à présent.
 └── src/
     ├── CMakeLists.txt
     └── parc-engineers-league/
-        ├── parc-robot/
+        ├── parc_robot/
         │   ├── .
         │   ├── .
         │   ├── CMakeLists.txt
@@ -307,7 +307,7 @@ Pour le voir fonctionner, exécutez d'abord le robot en simulation en exécutant
 
 ```shell
 source ~/catkin_ws/devel/setup.bash
-roslaunch parc-robot parc_task2.launch
+roslaunch parc_robot parc_task2.launch
 ```
 
 Et exécutez la commande suivante dans un autre terminal pour exécuter ce nouveau programme:

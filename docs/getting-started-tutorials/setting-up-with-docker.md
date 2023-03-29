@@ -109,7 +109,7 @@ Before starting with the steps below, ensure that you have the following:
 
 If you completed the preceding tasks successfully, you should be able to run this ROS launch command and see the Gazebo simulator and RViz simulator open with the following display:
 ```sh
-roslaunch parc-robot task2.launch
+roslaunch parc_robot task2.launch
 ```
 ![Gazebo Simulator window](assets/gazebo.png)
 Gazebo Simulator window
@@ -139,7 +139,7 @@ In the following step, you will learn how to control the robot manually using yo
 2. Run the following command in the terminal:
     ```sh
     source /home/parc/catkin_ws/devel/setup.bash
-    roslaunch parc-robot teleop.launch
+    roslaunch parc_robot teleop.launch
     ```
 
 Now keeping the second terminal on top (teleop.launch) press `i` to move the robot forward, you can see the robot moving in "RViz" and "Gazebo" windows.

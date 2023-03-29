@@ -73,7 +73,7 @@ source ~/.bashrc
 
 Si vous avez terminé les tâches précédentes avec succès, vous devriez pouvoir exécuter cette commande de lancement ROS et voir le simulateur Gazebo et le simulateur RViz s'ouvrir avec l'affichage suivant :
 ```sh
-roslaunch parc-robot task2.launch
+roslaunch parc_robot task2.launch
 ```
 ![Fenêtre Gazebo Simulator](assets/gazebo.png)
 Fenêtre du simulateur de belvédère
@@ -98,7 +98,7 @@ Le guide suivant vous aidera à contrôler le robot à l'aide du clavier. Une fo
 Exécutez la commande suivante dans un nouveau terminal
 ```sh
 source ~/catkin_ws/devel/setup.bash
-roslaunch parc-robot teleop.launch
+roslaunch parc_robot teleop.launch
 ```
 
 Maintenant, en gardant le deuxième terminal en haut (teleop.launch), appuyez sur `i` pour faire avancer le robot, vous pouvez voir le robot se déplacer dans les fenêtres "RViz" et "Gazebo".
