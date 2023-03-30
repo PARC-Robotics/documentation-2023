@@ -106,7 +106,7 @@ nav:
   - Rules and Regulations: rules-and-regulations.md
   - Resources and Support:
     - Resources: resources-and-support/additional-resources.md
-    # - Joining the Slack Channel: resources-and-support/joining-slack.md
+    - Additional MATLAB Resources: resources-and-support/additional-matlab-resources.md
 
 plugins:
   - i18n:
