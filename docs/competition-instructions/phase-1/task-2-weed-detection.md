@@ -64,14 +64,8 @@ We recommend you play around with at least these three routes to ensure your sol
 The robot can move at different speeds. The default speed is 0.1 m/s, but you can change the speed by passing the argument in the roslaunch command as follows:
 
 ```bash
-## 0.1 m/s
-roslaunch parc_robot task2.launch
-
 ## 0.5 m/s
 roslaunch parc_robot task2.launch speed:=0.5
-
-## 1.0 m/s
-roslaunch parc_robot task2.launch speed:=1.0
 ```
 
 We recommend you play around with different speeds to ensure your solution is robust to different speeds.
@@ -82,55 +76,10 @@ The objective of the task is to drive the robot through a row of crops to identi
 
 It's important to note that real-time publication of weed locations is not necessary. You can publish the locations of the weeds after the robot has stopped moving, which you can monitor through the `/parc_robot/robot_status` topic.
 
-Here is an example MATLAB script to subscribe to the /parc_robot/robot_status topic:
-
-```matlab
-% Create a ROS node
-rosinit
-
-% Create a subscriber to the /parc_robot/robot_status topic. The callback function is called when a message is received.
-sub = rossubscriber('/parc_robot/robot_status', @callbackFcn, 'DataFormat', 'struct');
-
-% Wait for the robot to stop moving
-msg = receive(sub, 10);
-
-% Stop the ROS node
-rosshutdown
-```
-
 After detecting that the robot has stopped moving, you need to publish the GPS coordinates of the weeds in the field to the `/parc_robot/weed_detection` topic. The message should contain a list of longitude and latitude coordinates for each weed location.
 
-Here is an example MATLAB script to publish to the /parc_robot/weed_detection topic:
-
-```matlab
-% Create a ROS node
-rosinit
-
-% Create a publisher to the /parc_robot/weed_detection topic
-pub = rospublisher('/parc_robot/weed_detection', 'std_msgs/String');
-
-% Define the weed locations as a nx2 array of longitude and latitude values
-weed_locations = [
-    -122.3088, 47.6597;
-    -122.3091, 47.6600;  % Note: These are just example values.
-    -122.3094, 47.6602   % Your actual code will need to detect the weeds in the field.
-    ];
-
-% Convert the weed locations to a JSON array string
-json_str = jsonencode(weed_locations);
-
-% Create a String message
-msg = rosmessage('std_msgs/String');
-
-% Set the message data to the JSON array string
-msg.Data = json_str;
-
-% Publish the message
-send(pub, msg);
-
-% Stop the ROS node
-rosshutdown
-```
+!!! info "Publishing and Subscribing to Topics in MATLAB"
+    To learn more about publishing and subscribing to topics in MATLAB, you can find instructions [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#4-ros-integration) and examples specific to this task [here](/documentation-2023/resources-and-support/additional-matlab-resources).
 
 ### Preparing your submission
 
