@@ -55,26 +55,26 @@ roslaunch parc_robot task1.launch route:=route3
     rosinit
 
     % Get the goal parameter
-    goal = rosparam('get', 'goal_location');
+    goal_longitude = rosparam('get', 'goal_longitude');
+    goal_latitude = rosparam('get', 'goal_latitude');
 
     % Print the goal location
-    disp(['goal location: ' num2str(goal.latitude) ' ' num2str(goal.longitude)])
+    disp(['goal location: ' num2str(goal_latitude) ' ' num2str(goal_longitude)])
 
     ```
 === "Python"
     ```python
-    #!/usr/bin/env python
+    #!/usr/bin/env python3
 
     import rospy
 
     rospy.init_node('goal_parameter')
 
     # Get goal parameter
-    goal = rospy.get_param('goal_location')
-    lat, lon = goal['latitude'], goal['longitude']
+    lat, lon = rospy.get_param('goal_latitude'), rospy.get_param('goal_longitude')
 
     # Print goal location
-    rospy.loginfo("goal location: %f %f %f", lat, lon)
+    rospy.loginfo("goal location: %f %f", lat, lon)
 
     ```
 === "C++"
@@ -86,12 +86,12 @@ roslaunch parc_robot task1.launch route:=route3
     {
       ros::init(argc, argv, "goal_parameter");
 
-      // Get goal parameter
-      std::map<std::string, double> goal;
-      ros::param::get("goal_location", goal);
+      double latitude, longitude;
+      ros::param::get("goal_longitude", longitude);
+      ros::param::get("goal_latitude", latitude);
 
       // Print goal location
-      ROS_INFO("goal location: %f %f %f", goal["latitude"], goal["longitude"]);
+      ROS_INFO("goal location: %f %f", latitude, longitude);
 
       return 0;
     }
@@ -113,7 +113,7 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
     ```
 === "Python"
     ```python
-    #!/usr/bin/env python
+    #!/usr/bin/env python3
 
     import rospy
 
@@ -124,7 +124,7 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
     lat, lon = peg01['latitude'], peg01['longitude']
 
     # Print goal location
-    rospy.loginfo("peg01 coordinate: %f %f %f", lat, lon)
+    rospy.loginfo("peg01 coordinate: %f %f", lat, lon)
 
     ```
 === "C++"
@@ -132,7 +132,7 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
     #include <ros/ros.h>
     #include "map"
 
-    int main(int argc, char** argv)
+    int main(int argc, char **argv)
     {
       ros::init(argc, argv, "peg01_coordinate");
 
@@ -141,7 +141,7 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
       ros::param::get("peg_01", peg01);
 
       // Print goal location
-      ROS_INFO("peg01 coordinate: %f %f %f", peg01["latitude"], peg01["longitude"]);
+      ROS_INFO("peg01 coordinate: %f %f", peg01["latitude"], peg01["longitude"]);
 
       return 0;
     }

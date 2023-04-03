@@ -141,6 +141,15 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     msg = rosmessage(pub);                      % create a ROS message
     msg.Data = 'Hello, world!';                 % assign a value to the message data
     send(pub, msg);                             % send the message
+    rosshutdown;                                % shutdown ROS
+    ```
+    To test this, run the MATLAB code and then run the following command in a terminal to subscribe to the topic: `rostopic echo /chatter`
+    
+    You should see the following output in the terminal:
+
+    ``` bash
+    data: 'Hello, world!'
+    ---
     ```
 === "ROS Subscriber Example"
     ``` matlab
@@ -149,8 +158,14 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     sub = rossubscriber('/chatter');            % create a ROS subscriber
     msg = receive(sub, 3);                      % receive a message from the subscriber
     disp(msg.Data);                             % display the message data
+    rosshutdown;                                % shutdown ROS
+    ```
+    To test this, run publish a message using the terminal command `rostopic pub /chatter std_msgs/String "data: 'Hello, world!'"` and then run the MATLAB code.
 
-    >> Hello, world!                           % output from the command window
+    You should see the following output in the MATLAB command window:
+
+    ``` matlab
+    Hello, world!
     ```
 
 !!! note "Multiple Nodes"
