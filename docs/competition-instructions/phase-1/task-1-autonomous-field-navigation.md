@@ -79,8 +79,8 @@ roslaunch parc_robot task1.launch route:=route3
     ```
 === "C++"
     ```cpp
-    # You have to configure the CMakeLists.txt for this C++ code to work.
-    # Visit http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29 and check section 3. Building your nodes to learn how to set up CMakeLists.txt
+    // You have to configure the CMakeLists.txt for this C++ code to work.
+    // Visit http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29 and check section 3. Building your nodes to learn how to set up CMakeLists.txt
 
     #include <ros/ros.h>
     #include "map"
@@ -132,8 +132,9 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
     ```
 === "C++"
     ```cpp
-    # You have to configure the CMakeLists.txt for this C++ code to work.
-    # Visit http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29 and check section 3. Building your nodes to learn how to set up CMakeLists.txt
+    // You have to configure the CMakeLists.txt for this C++ code to work.
+    // Visit http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29 and check section 3. Building your nodes to learn how to set up CMakeLists.txt
+    
     #include <ros/ros.h>
     #include "map"
 
