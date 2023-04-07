@@ -1,6 +1,6 @@
 # Task 2: Weed Detection
 
-![Task 2 Demo](../assets/task2_demo.gif)
+![Task 2 Demo](../assets/task2.gif)
 
 ## General Description
 

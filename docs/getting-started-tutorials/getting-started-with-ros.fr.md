@@ -103,12 +103,12 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
       
       %%%%%%%%%% Se déplacer tout droit %%%%%%%%%%
       disp("Se déplaçant tout droit");
-      move_cmd.Linear.X = 0.5;           % se déplacer en axe x à 0,5 m / s
+      move_cmd.Linear.X = 0.3;           % se déplacer en axe x à 0,3 m / s
       move_cmd.Angular.Z = 0.0;
       
-      % Pour les 4 secondes suivantes, publier les commandes cmd_vel MOVE
+      % Pour les 3 secondes suivantes, publier les commandes cmd_vel MOVE
       now = rostime('now');
-      while rostime('now') - now < rosduration(4)
+      while rostime('now') - now < rosduration(3)
           send(pub, move_cmd);          % publier sur robot
           waitfor(rate);
       end
@@ -116,7 +116,7 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
       %%%%%%%%%% Rotatif dans le sens intérieure %%%%%%%%%%
       disp("Tournante");
       move_cmd.Linear.X = 0.0;
-      move_cmd.Angular.Z = 0.3;         % tourner à 0,3 rad / sec
+      move_cmd.Angular.Z = 0.2;         % tourner à 0,2 rad / sec
       
       % Pour les 3 prochaines secondes, publiez les commandes cmd_vel move
       now = rostime('now');
@@ -167,19 +167,19 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
 
         ######## Se déplacer tout droit ########
         print("Se déplaçant tout droit")
-        move_cmd.linear.x = 0.5             # se déplacer en axe x à 0,5 m / s
+        move_cmd.linear.x = 0.3             # se déplacer en axe x à 0,3 m / s
         move_cmd.angular.z = 0.0
 
         now = time.time()
-        # Pour les 4 secondes suivantes, publier les commandes cmd_vel move
-        while time.time() - now < 4:
+        # Pour les 3 secondes suivantes, publier les commandes cmd_vel move
+        while time.time() - now < 3:
             pub.publish(move_cmd)           # publier sur robot
             rate.sleep()
 
         ######## Rotatif dans le sens intérieure ########
         print("Tournante")
         move_cmd.linear.x = 0.0
-        move_cmd.angular.z = 0.3            # tourner à 0,3 rad / sec
+        move_cmd.angular.z = 0.2            # tourner à 0,2 rad / sec
 
         now = time.time()
         # Pour les 3 prochaines secondes, publiez les commandes cmd_vel move
@@ -228,12 +228,12 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
 
         //////////// Se déplacer tout droit ////////////
         ROS_INFO("Se déplaçant tout droit");
-        move_cmd.linear.x = 0.5;            // se déplacer en axe x à 0,5 m / s
+        move_cmd.linear.x = 0.3;            // se déplacer en axe x à 0,3 m / s
         move_cmd.angular.z = 0.0;
 
         time_t now = time(0);
-        // Pour les 4 secondes suivantes, publier les commandes cmd_vel move
-        while (time(0) - now < 4)
+        // Pour les 3 secondes suivantes, publier les commandes cmd_vel move
+        while (time(0) - now < 3)
         {
             pub.publish(move_cmd);          // publier sur robot
             rate.sleep();
@@ -242,7 +242,7 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
         //////////// Rotatif dans le sens intérieure ////////////
         ROS_INFO("Tournante");
         move_cmd.linear.x = 0.0;
-        move_cmd.angular.z = 0.3;           // tourner à 0,3 rad / sec
+        move_cmd.angular.z = 0.2;           // tourner à 0,2 rad / sec
 
         now = time(0);
         // Pour les 3 prochaines secondes, publiez les commandes cmd_vel move
@@ -331,7 +331,7 @@ Et exécutez la commande suivante dans un autre terminal pour exécuter ce nouve
 
 Si vous avez bien configuré, vous devriez voir le robot se déplacer dans Gazebo comme ci-dessous:
 
-![publisher demo](assets/publisher_demo.gif)
+![publisher demo](assets/getting_started_demo.gif)
 
 ## Ressources supplémentaires
 
