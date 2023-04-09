@@ -6,7 +6,7 @@
 A: The competition is open to students from universities and technical institutes from all over the world.
 
 **Q: Can I participate as an individual, or do I need to be part of a team?**  
-A: You can only participate as a team. Each team must have at least 2 members and a maximum of 8 members.
+A: You can only participate as a team. Each team must have at least 2 members and a maximum of 5 members.
 
 **Q: Do I need to have prior experience in robotics or programming to participate?**  
 A: While experience with ROS might not be essential to get started, programming experience is necessary. You will need to be familiar with C++, MATLAB or Python programming languages.
