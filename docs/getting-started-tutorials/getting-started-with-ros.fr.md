@@ -1,20 +1,31 @@
 # En passant avec ROS
 
-Le [Robot Operating System](https://www.ros.org/about-ros/) (ROS) est un framework flexible pour écrire un logiciel robot. Il s'agit d'une collection d'outils, de bibliothèques et de conventions qui visent à simplifier la tâche de créer un comportement de robot complexe et robuste sur une grande variété de plateformes robotiques.
+Le [Robot Operating System](https://www.ros.org/about-ros/) (ROS) est un cadre flexible pour l'écriture de logiciels de robot. Il s'agit d'un ensemble d'outils, de bibliothèques et de conventions qui visent à simplifier la tâche de création d'un comportement de robot complexe et robuste sur une grande variété de plates-formes robotiques.
 
-Nous avons prévu cette concurrence autour de ROS en raison de ses fonctionnalités ainsi que de son utilisation généralisée dans la recherche et l'industrie en robotique.
+Nous avons planifié ce concours autour de ROS en raison de ses fonctionnalités ainsi que de son utilisation répandue dans la recherche et l'industrie en robotique.
 
-Pour commencer avec ROS (si vous êtes un débutant), nous vous recommandons de suivre les didacticiels du "niveau débutant" dans les [tutoriels ROS officiels](http://wiki.ros.org/ros/tutorials). Assurez-vous de terminer au moins ce qui suit:
+![ROS et API](assets/ros-apis.PNG)
 
-* [Chapitre 5](http://wiki.ros.org/ros/tutorials/UnderstandingNodes) (ROS NODES): * "Ce didacticiel présente les concepts de graphiques ROS et discute de l'utilisation des outils de ligne de commande Roscore, Rosnode et Rosrun" *
-* [Chapitre 6](http://wiki.ros.org/ros/tutorials/UnderstandingTopics) (ROS TRICMES): * "Ce didacticiel présente des sujets ROS ainsi que l'utilisation des outils de commande Rostopic et RQT_PLOT." *
-* [Chapitre 12](http://wiki.ros.org/ros/tutorials/writingpublishersubscriber%28python%29) (écrivant un éditeur simple et abonné en python)
-* Comprendre les [outils de base fournis par ROS](https://www.ros.org/core-components/), y compris Rviz, RQT_Graph, Gazebo, etc.
+Pour démarrer avec ROS (si vous êtes débutant), nous vous recommandons de suivre les tutoriels "Niveau Débutant" dans les [Tutoriels ROS] officiels (http://wiki.ros.org/ROS/Tutorials). Assurez-vous de remplir au moins les éléments suivants :
 
-Après avoir terminé les tutoriels requis répertoriés ci-dessus, vous pouvez démarrer [Configuration de l'espace de travail](../setting-up-your-workspace).
 
-En supposant l'espace de travail à `~/catkin_ws/` tel que complété à partir des étapes effectuées dans [Configuration de votre espace de travail](../setting-up-your-workspace),
-Cela devrait être votre structure de dossier jusqu'à présent.
+## ROS OnRamp !
+
+Que vous soyez un débutant ou un développeur ROS plus avancé, nous vous recommandons de prendre le temps de consulter les didacticiels ROS suivants.
+
+* [Tutoriels officiels ROS](http://wiki.ros.org/ROS/Tutorials){target=_blank} - Assurez-vous de terminer au moins les chapitres 5, 6 et 12.
+* [Liste de lecture Youtube du tutoriel ROS](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank} (**Fortement recommandé pour les débutants**) - Sinon, nous vous recommandons de couvrir au moins parties 1-9. Le contenu est excellent !
+
+!!! note
+     Votre expérience d'apprentissage globale dans ce concours dépend ** fortement ** de la quantité de concepts fondamentaux de ROS que vous pouvez saisir dès le début. Par conséquent, nous **recommandons fortement** que vous preniez le temps d'utiliser ces ressources.
+
+
+## Écrire votre premier package ROS
+
+Une fois que vous avez terminé les didacticiels requis répertoriés ci-dessus, vous pouvez commencer à [configurer l'espace de travail](../setting-up-your-workspace).
+
+En supposant que l'espace de travail à `~/catkin_ws/` est terminé à partir des étapes effectuées dans [configuration de votre espace de travail](../setting-up-your-workspace),
+Cela devrait être votre structure de dossiers jusqu'à présent.
 
 ```
 ~/catkin_ws/
@@ -103,12 +114,12 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
       
       %%%%%%%%%% Se déplacer tout droit %%%%%%%%%%
       disp("Se déplaçant tout droit");
-      move_cmd.Linear.X = 0.5;           % se déplacer en axe x à 0,5 m / s
+      move_cmd.Linear.X = 0.3;           % se déplacer en axe x à 0,3 m / s
       move_cmd.Angular.Z = 0.0;
       
-      % Pour les 4 secondes suivantes, publier les commandes cmd_vel MOVE
+      % Pour les 3 secondes suivantes, publier les commandes cmd_vel MOVE
       now = rostime('now');
-      while rostime('now') - now < rosduration(4)
+      while rostime('now') - now < rosduration(3)
           send(pub, move_cmd);          % publier sur robot
           waitfor(rate);
       end
@@ -116,7 +127,7 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
       %%%%%%%%%% Rotatif dans le sens intérieure %%%%%%%%%%
       disp("Tournante");
       move_cmd.Linear.X = 0.0;
-      move_cmd.Angular.Z = 0.3;         % tourner à 0,3 rad / sec
+      move_cmd.Angular.Z = 0.2;         % tourner à 0,2 rad / sec
       
       % Pour les 3 prochaines secondes, publiez les commandes cmd_vel move
       now = rostime('now');
@@ -167,19 +178,19 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
 
         ######## Se déplacer tout droit ########
         print("Se déplaçant tout droit")
-        move_cmd.linear.x = 0.5             # se déplacer en axe x à 0,5 m / s
+        move_cmd.linear.x = 0.3             # se déplacer en axe x à 0,3 m / s
         move_cmd.angular.z = 0.0
 
         now = time.time()
-        # Pour les 4 secondes suivantes, publier les commandes cmd_vel move
-        while time.time() - now < 4:
+        # Pour les 3 secondes suivantes, publier les commandes cmd_vel move
+        while time.time() - now < 3:
             pub.publish(move_cmd)           # publier sur robot
             rate.sleep()
 
         ######## Rotatif dans le sens intérieure ########
         print("Tournante")
         move_cmd.linear.x = 0.0
-        move_cmd.angular.z = 0.3            # tourner à 0,3 rad / sec
+        move_cmd.angular.z = 0.2            # tourner à 0,2 rad / sec
 
         now = time.time()
         # Pour les 3 prochaines secondes, publiez les commandes cmd_vel move
@@ -228,12 +239,12 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
 
         //////////// Se déplacer tout droit ////////////
         ROS_INFO("Se déplaçant tout droit");
-        move_cmd.linear.x = 0.5;            // se déplacer en axe x à 0,5 m / s
+        move_cmd.linear.x = 0.3;            // se déplacer en axe x à 0,3 m / s
         move_cmd.angular.z = 0.0;
 
         time_t now = time(0);
-        // Pour les 4 secondes suivantes, publier les commandes cmd_vel move
-        while (time(0) - now < 4)
+        // Pour les 3 secondes suivantes, publier les commandes cmd_vel move
+        while (time(0) - now < 3)
         {
             pub.publish(move_cmd);          // publier sur robot
             rate.sleep();
@@ -242,7 +253,7 @@ Ouvrez maintenant le fichier et copiez et collez le code suivant à l'intérieur
         //////////// Rotatif dans le sens intérieure ////////////
         ROS_INFO("Tournante");
         move_cmd.linear.x = 0.0;
-        move_cmd.angular.z = 0.3;           // tourner à 0,3 rad / sec
+        move_cmd.angular.z = 0.2;           // tourner à 0,2 rad / sec
 
         now = time(0);
         // Pour les 3 prochaines secondes, publiez les commandes cmd_vel move
@@ -331,11 +342,11 @@ Et exécutez la commande suivante dans un autre terminal pour exécuter ce nouve
 
 Si vous avez bien configuré, vous devriez voir le robot se déplacer dans Gazebo comme ci-dessous:
 
-![publisher demo](assets/publisher_demo.gif)
+![publisher demo](assets/getting_started_demo.gif)
 
-## Ressources supplémentaires
+<!-- ## Ressources supplémentaires
 
 Si vous souhaitez en savoir plus sur ROS, vous pouvez consulter les ressources suivantes:
 
 - [Tutoriels ROS](http://wiki.ros.org/ROS/Tutorials){target=_blank} - Tutoriels officiels ROS
-- [Liste de lecture YouTube ROS Tutorial YouTube](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank} - Liste de lecture YouTube des tutoriels ROS. C'est une bonne ressource si vous préférez apprendre en regardant des vidéos.
+- [Liste de lecture YouTube ROS Tutorial YouTube](https://www.youtube.com/playlist?list=PLLSegLrePWgIbIrA4iehUQ-impvIXdd9Q){target=_blank} - Liste de lecture YouTube des tutoriels ROS. C'est une bonne ressource si vous préférez apprendre en regardant des vidéos. -->

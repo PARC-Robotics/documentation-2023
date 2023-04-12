@@ -1,5 +1,7 @@
 # Tâche 2: détection des mauvaises herbes
 
+![Task 2 Demo](../assets/task2.gif)
+
 ## Description générale
 
 Les robots agricoles jouent un rôle crucial dans la détection des mauvaises herbes dans les champs, car ils peuvent entraver la croissance des cultures en concurrençant des ressources essentielles telles que l'eau, la lumière du soleil et les nutriments, et servir également de terrain de reproduction pour les ravageurs et les maladies. Le robot naviguera à travers des rangées de cultures, et l'objectif est d'identifier et de communiquer l'emplacement des mauvaises herbes présentes sur le terrain.

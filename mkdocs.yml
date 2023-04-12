@@ -105,7 +105,7 @@ nav:
   - Frequently Asked Questions: faq.md
   - Rules and Regulations: rules-and-regulations.md
   - Resources and Support:
-    - Resources: resources-and-support/additional-resources.md
+    - Virtual Meeting Recordings: resources-and-support/additional-resources.md
     - Additional MATLAB Resources: resources-and-support/additional-matlab-resources.md
 
 plugins:
@@ -145,6 +145,6 @@ plugins:
           "Getting started with ROS": "Commencer avec ROS"
           "Team Naming Conventions": "Conventions de nommage des équipes"
           "What to submit": "Ce qu'il faut soumettre"
-          "Resources": "Ressources"
+          "Virtual Meeting Recordings": "Enregistrements de réunions virtuelles"
           "How to Submit": "Comment soumettre"
 

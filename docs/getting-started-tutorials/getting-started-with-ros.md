@@ -126,12 +126,12 @@ Now open the file and copy and paste the following code inside:
       
       %%%%%%%%%% Move Straight %%%%%%%%%%
       disp("Moving Straight");
-      move_cmd.Linear.X = 0.5;           % move in X axis at 0.5 m/s
+      move_cmd.Linear.X = 0.3;           % move in X axis at 0.3 m/s
       move_cmd.Angular.Z = 0.0;
       
-      % For the next 4 seconds publish cmd_vel move commands
+      % For the next 3 seconds publish cmd_vel move commands
       now = rostime('now');
-      while rostime('now') - now < rosduration(4)
+      while rostime('now') - now < rosduration(3)
           send(pub, move_cmd);          % publish to Robot
           waitfor(rate);
       end
@@ -139,7 +139,7 @@ Now open the file and copy and paste the following code inside:
       %%%%%%%%%% Rotating Counterclockwise %%%%%%%%%%
       disp("Rotating");
       move_cmd.Linear.X = 0.0;
-      move_cmd.Angular.Z = 0.3;         % rotate at 0.3 rad/sec
+      move_cmd.Angular.Z = 0.2;         % rotate at 0.2 rad/sec
       
       % For the next 3 seconds publish cmd_vel move commands
       now = rostime('now');
@@ -190,19 +190,19 @@ Now open the file and copy and paste the following code inside:
 
         ######## Move Straight ########
         print("Moving Straight")
-        move_cmd.linear.x = 0.5             # move in X axis at 0.5 m/s
+        move_cmd.linear.x = 0.3             # move in X axis at 0.3 m/s
         move_cmd.angular.z = 0.0
 
         now = time.time()
-        # For the next 4 seconds publish cmd_vel move commands
-        while time.time() - now < 4:
+        # For the next 3 seconds publish cmd_vel move commands
+        while time.time() - now < 3:
             pub.publish(move_cmd)           # publish to Robot
             rate.sleep()
 
         ######## Rotating Counterclockwise ########
         print("Rotating")
         move_cmd.linear.x = 0.0
-        move_cmd.angular.z = 0.3            # rotate at 0.3 rad/sec
+        move_cmd.angular.z = 0.2            # rotate at 0.2 rad/sec
 
         now = time.time()
         # For the next 3 seconds publish cmd_vel move commands
@@ -251,12 +251,12 @@ Now open the file and copy and paste the following code inside:
 
         //////////// Move Straight ////////////
         ROS_INFO("Moving Straight");
-        move_cmd.linear.x = 0.5;            // move in X axis at 0.5 m/s
+        move_cmd.linear.x = 0.3;            // move in X axis at 0.3 m/s
         move_cmd.angular.z = 0.0;
 
         time_t now = time(0);
-        // For the next 4 seconds publish cmd_vel move commands
-        while (time(0) - now < 4)
+        // For the next 3 seconds publish cmd_vel move commands
+        while (time(0) - now < 3)
         {
             pub.publish(move_cmd);          // publish to Robot
             rate.sleep();
@@ -265,7 +265,7 @@ Now open the file and copy and paste the following code inside:
         //////////// Rotating Counterclockwise ////////////
         ROS_INFO("Rotating");
         move_cmd.linear.x = 0.0;
-        move_cmd.angular.z = 0.3;           // rotate at 0.3 rad/sec
+        move_cmd.angular.z = 0.2;           // rotate at 0.2 rad/sec
 
         now = time(0);
         // For the next 3 seconds publish cmd_vel move commands
@@ -354,7 +354,7 @@ And run the following command in another terminal to run this new program:
 
 If you have set up everything well, you should see the robot moving in Gazebo as below:
 
-![publisher demo](assets/publisher_demo.gif)
+![publisher demo](assets/getting_started_demo.gif)
 
 <!-- ## Extra Resources
 
