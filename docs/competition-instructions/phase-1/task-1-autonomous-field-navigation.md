@@ -156,6 +156,58 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
 !!! warning
     Please **DO NOT** use the cartesian coordinates of the goal location and pegs provided by Gazebo or the world file in any way. You will be penalized if you do.
 
+Our module, **gps2cartesian**, provides a convenient way to convert GPS locations to x-y Cartesian coordinates. By using the GPS coordinate of the starting location of the robot as the reference origin (0, 0) in Cartesian coordinates, the **gps_to_cartesian()** function calculates the Cartesian coordinates of any desired GPS location passed as a parameter to the function. Here is an example of how to use the module to get the cartesian coordinate of the robot with respect to the reference origin (or start location):
+
+=== "MATLAB"
+    ```matlab
+    % Initialize the ROS node
+    rosinit
+
+    % Get the peg parameter
+    peg01 = rosparam('get', 'peg_01');
+
+    % Print the goal location
+    disp(['peg01 coordinate: ' num2str(peg01.latitude) ' ' num2str(peg01.longitude)])
+
+    ```
+=== "Python"
+    ```python
+    #!/usr/bin/env python3
+    # Any of the parc competition task must be running for this code to work.
+
+    import rospy
+    from sensor_msgs.msg import NavSatFix
+    from parc_robot.gps2cartesian import gps_to_cartesian
+
+    rospy.init_node('gps_goal')
+    msg = rospy.wait_for_message('gps/fix', NavSatFix) # subscribe to the gps topic once.
+    x, y = gps_to_cartesian(msg.latitude, msg.longitude) # get the cartesian coordinates from the GPS coordinates.
+    rospy.loginfo("The translation from the origin (0,0) to the gps location provided is {:.3f}, {:.3f} m.".format(x, y))
+
+    ```
+=== "C++"
+    ```cpp
+    // You have to configure the CMakeLists.txt for this C++ code to work.
+    // Visit http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29 and check section 3. Building your nodes to learn how to set up CMakeLists.txt
+    
+    #include <ros/ros.h>
+    #include "map"
+
+    int main(int argc, char **argv)
+    {
+      ros::init(argc, argv, "peg01_coordinate");
+
+      // Get goal parameter
+      std::map<std::string, double> peg01;
+      ros::param::get("peg_01", peg01);
+
+      // Print goal location
+      ROS_INFO("peg01 coordinate: %f %f", peg01["latitude"], peg01["longitude"]);
+
+      return 0;
+    }
+    ```
+
 ### Preparing your Solution
 * Your solution should be prepared as ROS packages to be saved in your solution folder. Create a launch file in your ROS package which runs ALL the code you need in your solution. Name this launch file: `task1_solution.launch`.
 
