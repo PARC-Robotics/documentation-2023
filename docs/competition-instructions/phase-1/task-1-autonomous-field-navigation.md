@@ -173,7 +173,10 @@ Our module, **gps2cartesian**, provides a convenient way to convert GPS location
 === "Python"
     ```python
     #!/usr/bin/env python3
-    # Any of the parc competition task must be running for this code to work.
+    ## Install the geographiclib 2.0 module for this code to work.
+    ## To install geographiclib 2.0, copy the line below on your terminal.
+    ## pip install geographiclib
+    ## Any of the PARC competition task must be running for this code to work.
 
     import rospy
     from sensor_msgs.msg import NavSatFix
