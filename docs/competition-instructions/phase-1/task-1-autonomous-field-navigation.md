@@ -160,14 +160,22 @@ Our module, **gps2cartesian**, provides a convenient way to convert GPS location
 
 === "MATLAB"
     ```matlab
-    % Initialize the ROS node
+    % This code requires that you install the geographiclib MATLAB Toolbox.
+    % Follow the steps below to install geographiclib on MATLAB
+    % 1. Click on the Add-Ons icon on MATLAB and search for geographiclib using the search bar.
+    % 2. Choose the geographiclib Add-On and click Add (Sign-in if you're prompted to).
+    % 3. Install/Save
+
+    rosshutdown
     rosinit
 
-    % Get the peg parameter
-    peg01 = rosparam('get', 'peg_01');
+    % Wait for a message on the "gps/fix" topic
+    gps_sub = rossubscriber('gps/fix', 'sensor_msgs/NavSatFix');
+    gps = receive(gps_sub);
 
-    % Print the goal location
-    disp(['peg01 coordinate: ' num2str(peg01.latitude) ' ' num2str(peg01.longitude)])
+    [x, y] = gps_to_cartesian(gps.Latitude, gps.Longitude);
+
+    disp(['The translation from the origin (0,0) to the gps location provided is ' num2str(x) ', ' num2str(y)])
 
     ```
 === "Python"
