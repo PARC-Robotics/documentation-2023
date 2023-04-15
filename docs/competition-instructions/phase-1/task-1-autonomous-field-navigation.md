@@ -211,11 +211,14 @@ Our module, **gps2cartesian**, provides a convenient way to convert GPS location
       6. Enter the build directory -> cd BUILD
       7. Run cmake (add the two dots) -> cmake ..
       8. Run make -> make
-      
-      Configure CMakeLists.txt for your own ros package (not parc_robot package).
+
+      /////////////////////////////////////////
+      Uncomment every line after the first find_package() of the CMakeLists.txt in the parc_robot package.
+      /////////////////////////////////////////
+      Configure CMakeLists.txt for your own ros package (not parc_robot package) this way:
       
       cmake_minimum_required(VERSION 3.0.2)
-      project(my_package)
+      project(my_package_name)
       
       find_package(catkin REQUIRED COMPONENTS
         roscpp
