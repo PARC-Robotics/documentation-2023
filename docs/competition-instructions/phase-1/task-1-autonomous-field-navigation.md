@@ -199,7 +199,64 @@ Our module, **gps2cartesian**, provides a convenient way to convert GPS location
     ```
 === "C++"
     ```cpp
-    // In development
+    /*
+      This code uses the geographiclib library. To install geographiclib for C++.
+      Follow the instructions below:
+      1. Download geographiclib via this link -> https://sourceforge.net/projects/geographiclib/files/distrib-C++/GeographicLib-2.2.zip
+         The steps below should be done on your terminal.
+      2. Go to where you downloaded the file -> cd ~/Downloads
+      3. Unzip the file -> unzip -q GeographicLib-2.2.zip
+      4. Enter the directory -> cd GeographicLib-2.2
+      5. Create a separate build directory -> mkdir BUILD
+      6. Enter the build directory -> cd BUILD
+      7. Run cmake (add the two dots) -> cmake ..
+      8. Run make -> make
+      
+      Configure CMakeLists.txt for your own ros package (not parc_robot package).
+      
+      cmake_minimum_required(VERSION 3.0.2)
+      project(my_package)
+      
+      find_package(catkin REQUIRED COMPONENTS
+        roscpp
+        rospy
+        std_msgs
+        sensor_msgs
+        parc_robot # Add parc_robot package to packages ROS should find
+      )
+      
+      catkin_package()
+      
+      include_directories(
+        ${catkin_INCLUDE_DIRS}
+        ${parc_robot_INCLUDE_DIRS}
+      )
+      
+      ## Change my_node to whatever your node name is
+      add_executable(my_node src/my_node.cpp)
+      target_link_libraries(my_node 
+        ${catkin_LIBRARIES}
+        ${parc_robot_LIBRARIES}
+      )
+
+    */
+
+    #include "ros/ros.h"
+    #include "sensor_msgs/NavSatFix.h"
+    #include "parc_robot/gps2cartesian.h" // Add the gps2cartesian api provided by PARC
+
+    int main(int argc, char **argv)
+    {
+      ros::init(argc, argv, "gps_to_cartesian");
+      ros::NodeHandle nh;
+      sensor_msgs::NavSatFixConstPtr msg = ros::topic::waitForMessage<sensor_msgs::NavSatFix>("gps/fix");
+      std::cout << msg->latitude << std::endl;
+      std::cout << msg->longitude << std::endl;
+      auto position = gps_to_cartesian(msg->latitude, msg->longitude);
+      ROS_INFO("The translation from the origin (0,0) to the gps location provided is: %f, %f", position.x, position.y);
+
+      return 0;
+    }
     
     ```
 
