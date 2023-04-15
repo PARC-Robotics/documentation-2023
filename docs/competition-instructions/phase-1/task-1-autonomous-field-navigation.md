@@ -213,8 +213,9 @@ Our module, **gps2cartesian**, provides a convenient way to convert GPS location
       8. Run make -> make
 
       /////////////////////////////////////////
-      Uncomment every line after the first find_package() of the CMakeLists.txt in the parc_robot package.
+      Uncomment every line after the first find_package() in the CMakeLists.txt of the parc_robot package.
       /////////////////////////////////////////
+      
       Configure CMakeLists.txt for your own ros package (not parc_robot package) this way:
       
       cmake_minimum_required(VERSION 3.0.2)
