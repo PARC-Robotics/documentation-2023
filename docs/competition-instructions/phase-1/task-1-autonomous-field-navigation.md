@@ -156,6 +156,114 @@ Similarly, the GPS coordinates of the pegs on the farmland can be obtained as a 
 !!! warning
     Please **DO NOT** use the cartesian coordinates of the goal location and pegs provided by Gazebo or the world file in any way. You will be penalized if you do.
 
+Our module, **gps2cartesian**, provides a convenient way to convert GPS locations to x-y Cartesian coordinates. By using the GPS coordinate of the starting location of the robot as the reference origin (0, 0) in Cartesian coordinates, the **gps_to_cartesian()** function calculates the Cartesian coordinates of any desired GPS location passed as a parameter to the function. Here is an example of how to use the module to get the cartesian coordinate of the robot with respect to the reference origin (or start location):
+
+=== "MATLAB"
+    ```matlab
+    % This code requires that you install the geographiclib MATLAB Toolbox.
+    % Follow the steps below to install geographiclib on MATLAB
+    % 1. Click on the Add-Ons icon on MATLAB and search for geographiclib using the search bar.
+    % 2. Choose the geographiclib Add-On and click Add (Sign-in if you're prompted to).
+    % 3. Install/Save
+
+    rosshutdown
+    rosinit
+
+    % Wait for a message on the "gps/fix" topic
+    gps_sub = rossubscriber('gps/fix', 'sensor_msgs/NavSatFix');
+    gps = receive(gps_sub);
+
+    % Convert GPS to cartesian coordinate.
+    [x, y] = gps_to_cartesian(gps.Latitude, gps.Longitude);
+
+    disp(['The translation from the origin (0,0) to the gps location provided is ' num2str(x) ', ' num2str(y)])
+
+    ```
+=== "Python"
+    ```python
+    #!/usr/bin/env python3
+    ## Install the geographiclib 2.0 module for this code to work.
+    ## To install geographiclib 2.0, copy the line below to your terminal.
+    ## pip install geographiclib
+    ## Any of the PARC competition task must be running for this code to work.
+
+    import rospy
+    from sensor_msgs.msg import NavSatFix
+    from parc_robot.gps2cartesian import gps_to_cartesian
+
+    rospy.init_node('gps_goal')
+    gps = rospy.wait_for_message('gps/fix', NavSatFix) # subscribe to the gps topic once.
+    x, y = gps_to_cartesian(gps.latitude, gps.longitude) # get the cartesian coordinates from the GPS coordinates.
+    rospy.loginfo("The translation from the origin (0,0) to the gps location provided is {:.3f}, {:.3f} m.".format(x, y))
+
+    ```
+=== "C++"
+    ```cpp
+    /*
+      This code uses the geographiclib library. To install geographiclib for C++.
+      Follow the instructions below:
+      1. Download geographiclib via this link -> https://sourceforge.net/projects/geographiclib/files/distrib-C++/GeographicLib-2.2.zip
+         The steps below should be done on your terminal.
+      2. Go to where you downloaded the file -> cd ~/Downloads
+      3. Unzip the file -> unzip -q GeographicLib-2.2.zip
+      4. Enter the directory -> cd GeographicLib-2.2
+      5. Create a separate build directory -> mkdir BUILD
+      6. Enter the build directory -> cd BUILD
+      7. Run cmake (add the two dots) -> cmake ..
+      8. Run make -> make
+
+      /////////////////////////////////////////
+      Uncomment every line after the first find_package() in the CMakeLists.txt of the parc_robot package.
+      /////////////////////////////////////////
+      
+      Configure CMakeLists.txt for your own ros package (not parc_robot package) this way:
+      
+      cmake_minimum_required(VERSION 3.0.2)
+      project(my_package_name)
+      
+      find_package(catkin REQUIRED COMPONENTS
+        roscpp
+        rospy
+        std_msgs
+        sensor_msgs
+        parc_robot # Add parc_robot package to packages ROS should find
+      )
+      
+      catkin_package()
+      
+      include_directories(
+        ${catkin_INCLUDE_DIRS}
+        ${parc_robot_INCLUDE_DIRS}
+      )
+      
+      ## Change my_node to whatever your node name is
+      add_executable(my_node src/my_node.cpp)
+      target_link_libraries(my_node 
+        ${catkin_LIBRARIES}
+        ${parc_robot_LIBRARIES}
+      )
+
+    */
+
+    #include "ros/ros.h"
+    #include "sensor_msgs/NavSatFix.h"
+    #include "parc_robot/gps2cartesian.h" // Add the gps2cartesian api provided by PARC
+
+    int main(int argc, char **argv)
+    {
+      ros::init(argc, argv, "gps_to_cartesian");
+      ros::NodeHandle nh;
+      sensor_msgs::NavSatFixConstPtr msg = ros::topic::waitForMessage<sensor_msgs::NavSatFix>("gps/fix");
+      std::cout << msg->latitude << std::endl;
+      std::cout << msg->longitude << std::endl;
+      auto position = gps_to_cartesian(msg->latitude, msg->longitude);
+      ROS_INFO("The translation from the origin (0,0) to the gps location provided is: %f, %f", position.x, position.y);
+
+      return 0;
+    }
+    
+    ```
+
 ### Preparing your Solution
 * Your solution should be prepared as ROS packages to be saved in your solution folder. Create a launch file in your ROS package which runs ALL the code you need in your solution. Name this launch file: `task1_solution.launch`.
 
