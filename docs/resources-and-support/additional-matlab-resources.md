@@ -5,8 +5,8 @@
 The `/parc_robot/weed_detection` topic expects a JSON array string of weed locations. The array should be an `n x 2` array of longitude and latitude values. Here is an example MATLAB script to publish to the `/parc_robot/weed_detection` topic:
 
 ```matlab
-% Create a ROS node
-rosinit
+rosshutdown
+rosinit             % Create a ROS node
 
 % Create a publisher to the /parc_robot/weed_detection topic
 pub = rospublisher('/parc_robot/weed_detection', 'std_msgs/String');
@@ -39,8 +39,8 @@ rosshutdown
 The `/parc_robot/robot_status` topic publishes the current status of the robot. The message type for this topic is `/std_msgs/String`, which indicates whether the robot has started moving along the route or has finished the designated route. The robot status has two possible values: "started" and "finished".
 
 ```matlab
-% Create a ROS node
-rosinit
+rosshutdown
+rosinit                % Create a ROS node
 
 % Create a subscriber to the /parc_robot/robot_status topic. The callback function is called when a message is received.
 sub = rossubscriber('/parc_robot/robot_status', @callbackFcn, 'DataFormat', 'struct');
