@@ -152,7 +152,7 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     ```
     To test this, run the MATLAB code and then run the following command in a terminal to subscribe to the topic: `rostopic echo /chatter`
     
-    You should see the a similar output to this in the terminal:
+    You should see a similar output to this in the terminal:
 
     ``` bash
     data: 'Hello, world! 4230'
@@ -171,7 +171,7 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     ```
     To test this, run publish a message using the terminal command `rostopic pub /chatter std_msgs/String "data: 'Hello, world!'"` and then run the MATLAB code.
 
-    You should see the following output in the MATLAB command window:
+    You should see a similar output in the MATLAB command window:
 
     ``` matlab
     Hello, world! 213243
