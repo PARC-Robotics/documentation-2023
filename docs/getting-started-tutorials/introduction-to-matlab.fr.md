@@ -133,19 +133,30 @@ MATLAB fournit un ensemble de fonctions et d'outils pour l'intégration avec ROS
 
      ``` matlab
      % Exemple de code pour l'intégration ROS
-     rosinit;                                           % initialise ROS.
+
+     rosshutdown;                                % arrêter ROS
+     rosinit;                                    % initialiser ROS
      pub = rospublisher('/chatter', 'std_msgs/String'); % créer un éditeur ROS
-     msg = rosmessage(pub);                             % créer un message ROS
-     msg.Data = 'Bonjour, monde!';                     % attribue une valeur aux données du message
-     send(pub, msg);                                    % envoie le message
+     count = 0;                                  % créer un compteur
+
+     while true                                      % continuer à publier pour toujours
+         msg = rosmessage(pub);                      % create a ROS message
+         c = num2str(count);
+         msg.Data = [Hello, world!' ' ' c];          % attribuer une valeur aux données du message
+         send(pub, msg);                             % publier le message
+         count = count + 1;                          % compteur d'incrémentation
+     end
      ```
 === "Exemple d'abonné ROS"
      ``` matlab
      % Exemple de code pour l'intégration ROS
+
+     rosshutdown;                                       % redémarrer le nœud global
      rosinit;                                           % initialise ROS
      sub = rossubscriber('/chatter');                   % créer un abonné ROS
      msg = recevoir(sub, 3);                            % reçoivent un message de l'abonné
      disp(msg.Data);                                    % afficher les données du message
+     rosshutdown;                                       % arrêter ROS
      ```
 
 ``` matlab

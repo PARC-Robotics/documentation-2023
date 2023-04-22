@@ -136,24 +136,33 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
 
     ``` matlab
     % Example code for ROS integration
+
+    rosshutdown;                                % shutdown ROS
     rosinit;                                    % initialize ROS.
     pub = rospublisher('/chatter', 'std_msgs/String'); % create a ROS publisher
-    msg = rosmessage(pub);                      % create a ROS message
-    msg.Data = 'Hello, world!';                 % assign a value to the message data
-    send(pub, msg);                             % send the message
-    rosshutdown;                                % shutdown ROS
+    count = 0;                                  % create a counter
+
+    while true                                      % keep publishing forever
+        msg = rosmessage(pub);                      % create a ROS message
+        c = num2str(count);
+        msg.Data = [Hello, world!' ' ' c];          % assign a value to the message data
+        send(pub, msg);                             % send the message
+        count = count + 1;                          % increment counter
+    end
     ```
     To test this, run the MATLAB code and then run the following command in a terminal to subscribe to the topic: `rostopic echo /chatter`
     
-    You should see the following output in the terminal:
+    You should see a similar output to this in the terminal:
 
     ``` bash
-    data: 'Hello, world!'
+    data: 'Hello, world! 4230'
     ---
     ```
 === "ROS Subscriber Example"
     ``` matlab
     % Example code for ROS integration
+
+    rosshutdown;                                % restart global node
     rosinit;                                    % initialize ROS
     sub = rossubscriber('/chatter');            % create a ROS subscriber
     msg = receive(sub, 3);                      % receive a message from the subscriber
@@ -162,10 +171,10 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     ```
     To test this, run publish a message using the terminal command `rostopic pub /chatter std_msgs/String "data: 'Hello, world!'"` and then run the MATLAB code.
 
-    You should see the following output in the MATLAB command window:
+    You should see a similar output in the MATLAB command window:
 
     ``` matlab
-    Hello, world!
+    Hello, world! 213243
     ```
 
 !!! note "Multiple Nodes"
