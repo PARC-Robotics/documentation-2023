@@ -26,10 +26,13 @@ You should see the display below in Gazebo and RViz respectively.
 
 Once the route is selected, the robot will promptly start moving. It's worth noting that the robot is equipped with a camera that detects weeds in the field.
 
-To publish the locations of the weeds detected by the robot, you should use the topic `/parc_robot/weed_detection`. The message type for this topic should be `std_msgs/Strings`, which should be in the form of a JSON array string. The array should contain pairs of lon and lat values that represent the GPS coordinates of the weeds in the field. Here's an example of how the array should look like: `[[lon1, lat1], [lon2, lat2], [lon3, lat3], ...]`. You can do this in MATLAB by passing the array to the `jsonencode` function.
+To publish the locations of the weeds detected by the robot, you should use the topic `/parc_robot/weed_detection`. The message type for this topic should be `std_msgs/Strings`, which should be in the form of a JSON array string. The array should contain pairs of X and Y values that represent the cartesian coordinates of the weeds in the field from the Gazebo world frame. Here's an example of how the array should look like: `[[x1, y1], [x2, y2], [x3, y3], ...]`. You can do this in MATLAB by passing the array to the `jsonencode` function.
 
 !!! note "JSON Array String"
-    Spacing between the values in the array is not important and will not affect results. The following are all valid JSON array strings: `[[lon1,lat1],[lon2,lat2],[lon3,lat3],...]`, `[[lon1, lat1], [lon2, lat2], [lon3, lat3], ...]`, `[[lon1,lat1], [lon2,lat2], [lon3,lat3], ...]`, `[[lon1, lat1],[lon2, lat2],[lon3, lat3],...]`, etc.
+    Spacing between the values in the array is not important and will not affect results. The following are all valid JSON array strings: `[[x1,y1],[x2,y2],[x3,y3],...]`, `[[x1, y1], [x2, y2], [x3, y3], ...]`, `[[x1,y1], [x2,y2], [x3,y3], ...]`, `[[x1, y1],[x2, y2],[x3, y3],...]`, etc.
+
+!!! hint "Computing the X and Y values"
+    To get the X and Y coordinates of the weeds, you might first get the position of weed in the robot frame, and then transform the position to the Gazbeo world frame. You can find more resources on frame transformations [here](/documentation-2023/resources-and-support/additional-matlab-resources/#transformations).
 
 A new topic called `/parc_robot/robot_status` has been added to publish the current status of the robot. The message type for this topic is `/std_msgs/String`, which indicates whether the robot has started moving along the route or has finished the designated route. The robot status has two possible values: "started" and "finished".
 
@@ -76,7 +79,7 @@ The objective of the task is to drive the robot through a row of crops to identi
 
 It's important to note that real-time publication of weed locations is not necessary. You can publish the locations of the weeds after the robot has stopped moving, which you can monitor through the `/parc_robot/robot_status` topic.
 
-After detecting that the robot has stopped moving, you need to publish the GPS coordinates of the weeds in the field to the `/parc_robot/weed_detection` topic. The message should contain a list of longitude and latitude coordinates for each weed location.
+After detecting that the robot has stopped moving, you need to publish the coordinates of the weeds in the field to the `/parc_robot/weed_detection` topic. The message should contain a list of X and Y position for each weed location, specified in the Gazebo world frame.
 
 !!! info "Publishing and Subscribing to Topics in MATLAB"
     To learn more about publishing and subscribing to topics in MATLAB, you can find instructions [here](/documentation-2023/getting-started-tutorials/introduction-to-matlab/#4-ros-integration) and examples specific to this task [here](/documentation-2023/resources-and-support/additional-matlab-resources).
@@ -93,6 +96,7 @@ matlab -nodesktop -nosplash -r "run('~/catkin_ws/scripts/<your solution folder>/
 
 ## Task Rules
 
+* Be sure to publish just ONCE to the `/parc_robot/weed_detection` topic, AND at the END of the run. The run ends when the robot sends `finished` on the `/parc_robot/robot_status` topic.
 * You are not allowed to publish to the `/cmd_vel` topic. The robot will be driven through the field by the simulation. You are only allowed to publish to the `/parc_robot/weed_detection` topic.
 * You should publish the locations of the weeds in the field to the `/parc_robot/weed_detection` topic not more than 5 seconds after the robot has stopped moving.
 * You are only allowed to use MATLAB for this task. You are not allowed to use any other programming language.
