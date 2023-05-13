@@ -145,7 +145,7 @@ MATLAB provides a set of functions and tools for integrating with ROS. You can u
     while true                                      % keep publishing forever
         msg = rosmessage(pub);                      % create a ROS message
         c = num2str(count);
-        msg.Data = [Hello, world!' ' ' c];          % assign a value to the message data
+        msg.Data = ['Hello, world!' ' ' c];         % assign a value to the message data
         send(pub, msg);                             % send the message
         count = count + 1;                          % increment counter
     end

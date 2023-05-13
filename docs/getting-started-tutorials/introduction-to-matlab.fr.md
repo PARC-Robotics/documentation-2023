@@ -142,7 +142,7 @@ MATLAB fournit un ensemble de fonctions et d'outils pour l'intégration avec ROS
      while true                                      % continuer à publier pour toujours
          msg = rosmessage(pub);                      % create a ROS message
          c = num2str(count);
-         msg.Data = [Hello, world!' ' ' c];          % attribuer une valeur aux données du message
+         msg.Data = ['Hello, world!' ' ' c];         % attribuer une valeur aux données du message
          send(pub, msg);                             % publier le message
          count = count + 1;                          % compteur d'incrémentation
      end
