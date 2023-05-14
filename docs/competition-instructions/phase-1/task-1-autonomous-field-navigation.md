@@ -298,7 +298,7 @@ roslaunch <your-package-name> task1_solution.launch
 
 ## Task Rules
 
-* The time limit to complete the task is **4 minutes (240 seconds)**.
+* The time limit to complete the task is **6 minutes (360 seconds)**.
 
 * The task is ONLY complete when ANY part of the robot is inside the orange-red sphere (goal location marker) after following the pre-defined path as shown above.
 
@@ -311,5 +311,5 @@ Scoring for this task would be based on the following criteria:
 | ----------- | ----------- | ------- |
 | 1  | **Pre-defined path** | Every route launched has a pre-defined path that **must** be followed as explained at [Route Description](#exploring-multiple-routes). |
 | 2  | **Crop avoidance**  | The robot should avoid going over or having contact with the crops. **(Less contact is better)** |
-| 3 | **Final travel distance to goal** | Shortest travel distance from robot (measured from robot center) through the crop rows to the goal which is calculated at the time limit [4 minutes] **(Smaller is better)**
+| 3 | **Final travel distance to goal** | Shortest travel distance from robot (measured from robot center) through the crop rows to the goal which is calculated at the time limit [6 minutes] **(Smaller is better)**
 | 4  | **Completion time** | Time from launching the solution to task completion **(Smaller is better)** |
