@@ -32,7 +32,7 @@ To publish the locations of the weeds detected by the robot, you should use the 
     Spacing between the values in the array is not important and will not affect results. The following are all valid JSON array strings: `[[x1,y1],[x2,y2],[x3,y3],...]`, `[[x1, y1], [x2, y2], [x3, y3], ...]`, `[[x1,y1], [x2,y2], [x3,y3], ...]`, `[[x1, y1],[x2, y2],[x3, y3],...]`, etc.
 
 !!! hint "Computing the X and Y values"
-    To get the X and Y coordinates of the weeds, you might first get the position of weed in the robot frame, and then transform the position to the Gazbeo world frame. You can find more resources on frame transformations [here](/documentation-2023/resources-and-support/additional-matlab-resources/#transformations).
+    To get the X and Y coordinates of the weeds, you might first get the position of weed in the robot frame, and then transform the position to the Gazbeo world frame. You can find more resources on frame transformations [here](/documentation-2023/resources-and-support/additional-transform-resources/).
 
 A new topic called `/parc_robot/robot_status` has been added to publish the current status of the robot. The message type for this topic is `/std_msgs/String`, which indicates whether the robot has started moving along the route or has finished the designated route. The robot status has two possible values: "started" and "finished".
 
