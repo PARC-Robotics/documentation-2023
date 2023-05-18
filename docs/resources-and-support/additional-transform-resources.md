@@ -2,23 +2,27 @@
 
 ## Introduction
 
-To successfully solve the weed detection challenge, you will need to understand how to use transforms. This document provides additional resources on transforms. While there might be alternative ways to solve the challenge, we expect that you will use these series of transforms to solve the challenge.
-
-- First, you will need to transform the weed locations from the camera perspective (pixels) to the camera reference frame (meters).
-- Next, you will need to transform the weed locations from the camera reference frame to the robot reference frame.
-- Finally, you will need to transform the weed locations from the robot reference frame to the world frame.
-
-This series of transformations is illustrated in the following figure:
+To successfully solve the weed detection challenge (Task 2), you will need to understand how to use transforms. This page provides additional resources on transforms. While there might be alternative ways to solve the challenge, we suggest you consider these series of transformations to solve the challenge (see figure below for corresponding illustration):
 
 ![Transforms](assets/transforms.png)
 
-## Transforming from Pixels to Meters
+### Transform 1 (Image frame to camera frame)
+First, you will need to transform the weed locations from the camera perspective to the camera reference frame. This is done by projecting the 2D points (u,v -- pixels) in the image plane into the 3D cartesian points (x,y,z -- meters) using a perspective transformation.
+To perform the transformation from image plane to cartesian coordinates in camera frame, you will need a few camera properties which you can find [here](https://github.com/PARC-Robotics/PARC-Engineers-League/blob/master/parc_robot/urdf/side_cameras.xacro).
 
-To convert the weed locations in pixels to a position in meters, you will need to know a few properties of the camera. These properties are:
+Relevant resources for Transform 1 can be found here:
 
-- The horizontal field of view of the camera in degrees: 1.7633 radians
-- The width of the camera sensor in pixels: 1280 pixels
-- The height of the camera sensor in pixels: 720 pixels
+- [Camera Calibration and 3D Reconstruction](https://docs.opencv.org/2.4.13/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html)
+- [CS231A Course Notes 1: Camera Models](https://web.stanford.edu/class/cs231a/course_notes/01-camera-models.pdf)
+
+
+### Transform 2 (Camera frame to robot frame)
+Next, you will need to transform the weed locations from the camera reference frame to the robot reference frame. This would require making use of the ROS tf transformation module (see useful links below).
+
+### Transform 3 (robot frame to world frame)
+Finally, you will need to transform the weed locations from the robot reference frame to the world frame. For this, you should consider getting the GPS coordinates of the robot and converting that to cartesian coordinate in the world frame using the **gps2cartesian** module described in [Task 1](https://parc-robotics.github.io/documentation-2023/competition-instructions/phase-1/task-1-autonomous-field-navigation/#exploring-multiple-routes).
+
+
 
 ## Transform Resources
 
