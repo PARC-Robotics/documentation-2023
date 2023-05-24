@@ -32,7 +32,7 @@ To publish the locations of the weeds detected by the robot, you should use the 
     Spacing between the values in the array is not important and will not affect results. The following are all valid JSON array strings: `[[x1,y1],[x2,y2],[x3,y3],...]`, `[[x1, y1], [x2, y2], [x3, y3], ...]`, `[[x1,y1], [x2,y2], [x3,y3], ...]`, `[[x1, y1],[x2, y2],[x3, y3],...]`, etc.
 
 !!! hint "Computing the X and Y values"
-    To get the X and Y coordinates of the weeds, you might first get the position of weed in the robot frame, and then transform the position to the Gazbeo world frame. You can find more resources on frame transformations [here](/documentation-2023/resources-and-support/additional-matlab-resources/#transformations).
+    To get the X and Y coordinates of the weeds, you might first get the position of weed in the robot frame, and then transform the position to the Gazbeo world frame. You can find more resources on frame transformations [here](/documentation-2023/resources-and-support/additional-transform-resources/).
 
 A new topic called `/parc_robot/robot_status` has been added to publish the current status of the robot. The message type for this topic is `/std_msgs/String`, which indicates whether the robot has started moving along the route or has finished the designated route. The robot status has two possible values: "started" and "finished".
 
@@ -49,8 +49,7 @@ We have prepared three pre-defined routes you can use as you develop your soluti
 === "Route 3"
     ![task1_world](../assets/Task2Route3.png)
 
-
-The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows: 
+The default route is `route1`, but you can select the second and third route option (`route2` and `route3`) by passing the argument in the roslaunch command as follows:
 
 ```bash
 ## route2
@@ -91,7 +90,7 @@ Your solution should be prepared as ROS packages to be saved in your solution fo
 Hence, your solution to Task 2 should be run by calling the following commands:
 
 ```matlab
-matlab -nodesktop -nosplash -r "run('~/catkin_ws/scripts/<your solution folder>/task2_solution.m')"
+matlab -nodesktop -nosplash -r "run('~/catkin_ws/src/<your solution folder>/scripts/task2_solution.m')"
 ```
 
 ## Task Rules
@@ -110,4 +109,3 @@ Your solution will be evaluated based on the following criteria:
 | 1 | Accuracy | Accuracy is based on how many weeds are correctly detected, within 0.1m of their actual location. Incorrect detections or missed weeds reduce accuracy. Multiple detections within 0.1m of the same actual location count as one accurate detection. |
 | 2 | Robustness | We measure the robustness of your solution by evaluating its accuracy across various routes and speeds. The accuracy is given a weight and averaged across different speeds and all three routes to determine the overall robustness of your solution. |
 | 3 | Precision | Precision is evaluated based on the number of weeds detected within 0.1m of their actual location by your solution. False negatives incur higher penalties in this evaluation, indicating that missing weeds is considered more detrimental than detecting weeds that are not actually present. |
-

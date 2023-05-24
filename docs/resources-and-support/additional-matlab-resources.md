@@ -2,7 +2,7 @@
 
 ## Publishing to the `/parc_robot/weed_detection` topic
 
-The `/parc_robot/weed_detection` topic expects a JSON array string of weed locations. The array should be an `n x 2` array of longitude and latitude values. Here is an example MATLAB script to publish to the `/parc_robot/weed_detection` topic:
+The `/parc_robot/weed_detection` topic expects a JSON array string of weed locations. The array should be an `n x 2` array of X and Y values. Here is an example MATLAB script to publish to the `/parc_robot/weed_detection` topic:
 
 ```matlab
 rosshutdown
@@ -11,11 +11,14 @@ rosinit             % Create a ROS node
 % Create a publisher to the /parc_robot/weed_detection topic
 pub = rospublisher('/parc_robot/weed_detection', 'std_msgs/String');
 
-% Define the weed locations as a nx2 array of longitude and latitude values
+% Define the weed locations as a nx2 array of X and Y values
 weed_locations = [
-    -122.3088, 47.6597;
-    -122.3091, 47.6600;  % Note: These are just example values.
-    -122.3094, 47.6602   % Your actual code will need to detect the weeds in the field.
+    0.5, 0.5;
+    0.5, 0.6;
+    0.5, 0.7;
+    0.5, 0.8;
+    -1.2, 3.25;  % Note: These are just example values.
+    1.1, 4.0;    % Your actual code will need to detect the weeds in the field.
     ];
 
 % Convert the weed locations to a JSON array string
