@@ -33,11 +33,14 @@ See figure below of expected directory structure:
     └── README.md                   # Required
 ```
 
-1. Prepare a README.md file following this format and store in solution folder (see [example](https://github.com/PARC-Robotics/PARC-Engineers-League/blob/develop/resources/sample-submission-readme.md)):
+1. Prepare a README.md file following this format and store in solution folder (see [example](https://github.com/PARC-Robotics/PARC-Engineers-League/blob/master/resources/sample-submission-readme.md)):
     * Introduction Section: Briefly describe your approach
     * Dependencies: List all the packages installed and used in your solution
-    * Task 1 - 3 description and run command(s)
+    * Task 1 - 2 description and run command(s)
     * Challenges faced
 
 2. Include all the packages (dependencies) used in your solution in your package's "package.xml" file ([see guide](http://wiki.ros.org/rosdep/Tutorials/How%20to%20add%20a%20system%20dependency))
-3. Zip your solution folder and upload on the [solution submission form](https://google.com) [TBA]
+
+3. Create simple short video demos of your solutions for Task 1 and 2. This can be done by taking a screen recording of your solution running in Gazebo. Please ensure the videos are less than 200 MB in size.
+
+4. Zip your solution folder and upload the folder and the videos on the [solution submission form](https://forms.gle/GwE7Tzm9FpYzUVQX9)
