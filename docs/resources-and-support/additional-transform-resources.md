@@ -20,7 +20,7 @@ Relevant resources for Transform 1 can be found here:
 Next, you will need to transform the weed locations from the camera reference frame to the robot reference frame. This would require making use of the ROS tf transformation module (see useful links below).
 
 ### Transform 3 (robot frame to world frame)
-Finally, you will need to transform the weed locations from the robot reference frame to the world frame. For this, you should consider getting the GPS coordinates of the robot and converting that to cartesian coordinate in the world frame using the **gps2cartesian** module described in [Task 1](https://parc-robotics.github.io/documentation-2023/competition-instructions/phase-1/task-1-autonomous-field-navigation/#exploring-multiple-routes).
+Finally, you will need to transform the weed locations from the robot reference frame to the world frame. For this, you should consider getting the GPS coordinates of the robot and converting that to cartesian coordinate in the world frame using the **gps2cartesian** module described in [Task 1](https://parc-robotics.github.io/documentation-2023/competition-instructions/phase-1/task-1-autonomous-field-navigation/#converting-gps-to-cartesian).
 
 
 

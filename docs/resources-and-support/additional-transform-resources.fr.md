@@ -20,7 +20,7 @@ Les ressources pertinentes pour Transform 1 peuvent être trouvées ici :
 Ensuite, vous devrez transformer les emplacements des mauvaises herbes du cadre de référence de la caméra au cadre de référence du robot. Cela nécessiterait d'utiliser le module de transformation ROS tf (voir liens utiles ci-dessous).
 
 ### Transformer 3 (image du robot en image du monde)
-Enfin, vous devrez transformer les emplacements des mauvaises herbes du cadre de référence du robot au cadre mondial. Pour cela, vous devriez envisager d'obtenir les coordonnées GPS du robot et de les convertir en coordonnées cartésiennes dans le cadre mondial à l'aide du module **gps2cartesian** décrit dans [Task 1](https://parc-robotics.github.io/documentation-2023/concours-instructions/phase-1/task-1-autonomous-field-navigation/#exploring-multiple-routes).
+Enfin, vous devrez transformer les emplacements des mauvaises herbes du cadre de référence du robot au cadre mondial. Pour cela, vous devriez envisager d'obtenir les coordonnées GPS du robot et de les convertir en coordonnées cartésiennes dans le cadre mondial à l'aide du module **gps2cartesian** décrit dans [Task 1](https://parc-robotics.github.io/documentation-2023/fr/competition-instructions/phase-1/task-1-autonomous-field-navigation/#conversion-du-gps-en-cartesien).
 
 
 
