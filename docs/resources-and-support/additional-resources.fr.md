@@ -5,6 +5,7 @@
 3. Atelier d'initiation à la robotique  (Pt 2) |   Avril 15, 2023   |   [[Slides](https://drive.google.com/file/d/1AXLnYqAxEu8j4qofcm40BPND3LagT2fJ/view?usp=share_link)] [[Video](https://youtu.be/zKF9jSyo_bo)]
 4. Atelier MATLAB/Simulink + ROS | Avril 21, 2023 | [[Lien vers Slides & Code](https://drive.google.com/file/d/1XdG9SiRBpX3B-VQUStxhmIL4D7rwFJ-Y/view?usp=sharing)] [[Vidéo](https://youtu.be/5W13vnHATT4 )]
 5. Atelier d'introduction à la vision par ordinateur avec OpenCV | Avril 29 2023 | [[Slides](https://drive.google.com/file/d/1achvfqw24_AUPbB6c1y54rVl9X-ClfPf/view?usp=sharing)] [[Vidéo](https://youtu.be/ZCxpaclvY-E)]
+6. Atelier sur ce qu'il faut soumettre avec Q&A | Mai 27 2023 | [[Vidéo](https://youtu.be/QWUOZn1oo1g)]
 
 !!! note "Référentiels d'atelier"
      * Le référentiel Intro to Robotics Workshop peut être trouvé ici : [GitHub Repository](https://github.com/PARC-Robotics/intro-to-robotics-workshops)
