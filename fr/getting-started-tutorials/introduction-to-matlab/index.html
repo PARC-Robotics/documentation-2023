@@ -1,0 +1,1312 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://parc-robotics.github.io/documentation-2023/fr/getting-started-tutorials/introduction-to-matlab/">
+      
+      
+        <link rel="prev" href="../setting-up-your-workspace/">
+      
+      
+        <link rel="next" href="../getting-started-with-ros/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>Commencer avec MATLAB - Pan African Robotics Competition</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#premiers-pas-avec-matlab" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="Pan African Robotics Competition" class="md-header__button md-logo" aria-label="Pan African Robotics Competition" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pan African Robotics Competition
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Commencer avec MATLAB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../getting-started-tutorials/introduction-to-matlab/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="fr" class="md-select__link">
+                    Français
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../introduction/" class="md-tabs__link">
+        Introduction
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../setting-up-your-pc/" class="md-tabs__link md-tabs__link--active">
+        Tutoriels pour commencer
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../faq/" class="md-tabs__link">
+      Questions fréquemment posées
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../rules-and-regulations/" class="md-tabs__link">
+      Règles et réglementations
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources-and-support/additional-resources/" class="md-tabs__link">
+        Ressources et soutien
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Pan African Robotics Competition" class="md-nav__button md-logo" aria-label="Pan African Robotics Competition" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    Pan African Robotics Competition
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        Aperçu de la compétition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/how-to-register/" class="md-nav__link">
+        Comment s'inscrire
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/important-dates/" class="md-nav__link">
+        Dates importantes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Tutoriels pour commencer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutoriels pour commencer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Commencer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Commencer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-your-pc/" class="md-nav__link">
+        Configurer votre PC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-with-docker/" class="md-nav__link">
+        Configurer votre PC avec Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-your-workspace/" class="md-nav__link">
+        Configurer votre espace de travail
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Commencer avec MATLAB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Commencer avec MATLAB
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-de-matlab-et-de-ses-fonctionnalites" class="md-nav__link">
+    Présentation de MATLAB et de ses fonctionnalités
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commencer" class="md-nav__link">
+    Commencer
+  </a>
+  
+    <nav class="md-nav" aria-label="Commencer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-de-matlab" class="md-nav__link">
+    Installation de MATLAB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demarrage-de-matlab" class="md-nav__link">
+    Démarrage de MATLAB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fenetre-de-commande-matlab" class="md-nav__link">
+    Fenêtre de commande MATLAB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntaxe-de-base-et-types-de-donnees" class="md-nav__link">
+    Syntaxe de base et types de données
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntaxe de base et types de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-matlab-de-base" class="md-nav__link">
+    Syntaxe MATLAB de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-de-donnees" class="md-nav__link">
+    Types de données
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctions-et-outils-communs" class="md-nav__link">
+    Fonctions et outils communs
+  </a>
+  
+    <nav class="md-nav" aria-label="Fonctions et outils communs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trace-et-visualisation" class="md-nav__link">
+    1. Tracé et visualisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-operations-matricielles" class="md-nav__link">
+    2. Opérations matricielles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-traitement-des-images" class="md-nav__link">
+    3. Traitement des images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integration-ros" class="md-nav__link">
+    4. Intégration ROS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-matlab-importantes" class="md-nav__link">
+    Ressources MATLAB importantes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started-with-ros/" class="md-nav__link">
+        Commencer avec ROS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Instructions de la compétition
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Instructions de la compétition
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          Phase 1: Simulation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 1: Simulation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition-instructions/phase-1/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition-instructions/phase-1/task-1-autonomous-field-navigation/" class="md-nav__link">
+        Tâche 1: Naviguer dans une ferme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition-instructions/phase-1/task-2-weed-detection/" class="md-nav__link">
+        Tâche 2: Détection des mauvaises herbes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition-instructions/phase-1/how-to-submit/" class="md-nav__link">
+        Comment soumettre
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition-instructions/phase-2/introduction/" class="md-nav__link">
+        Phase 2: Robot physique
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        Questions fréquemment posées
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rules-and-regulations/" class="md-nav__link">
+        Règles et réglementations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Ressources et soutien
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Ressources et soutien
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources-and-support/additional-resources/" class="md-nav__link">
+        Enregistrements de réunions virtuelles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources-and-support/additional-matlab-resources/" class="md-nav__link">
+        Additional MATLAB Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources-and-support/additional-transform-resources/" class="md-nav__link">
+        Additional Transform Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentation-de-matlab-et-de-ses-fonctionnalites" class="md-nav__link">
+    Présentation de MATLAB et de ses fonctionnalités
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commencer" class="md-nav__link">
+    Commencer
+  </a>
+  
+    <nav class="md-nav" aria-label="Commencer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-de-matlab" class="md-nav__link">
+    Installation de MATLAB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demarrage-de-matlab" class="md-nav__link">
+    Démarrage de MATLAB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fenetre-de-commande-matlab" class="md-nav__link">
+    Fenêtre de commande MATLAB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntaxe-de-base-et-types-de-donnees" class="md-nav__link">
+    Syntaxe de base et types de données
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntaxe de base et types de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-matlab-de-base" class="md-nav__link">
+    Syntaxe MATLAB de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-de-donnees" class="md-nav__link">
+    Types de données
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctions-et-outils-communs" class="md-nav__link">
+    Fonctions et outils communs
+  </a>
+  
+    <nav class="md-nav" aria-label="Fonctions et outils communs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trace-et-visualisation" class="md-nav__link">
+    1. Tracé et visualisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-operations-matricielles" class="md-nav__link">
+    2. Opérations matricielles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-traitement-des-images" class="md-nav__link">
+    3. Traitement des images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integration-ros" class="md-nav__link">
+    4. Intégration ROS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-matlab-importantes" class="md-nav__link">
+    Ressources MATLAB importantes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="premiers-pas-avec-matlab">Premiers pas avec MATLAB<a class="headerlink" href="#premiers-pas-avec-matlab" title="Permanent link">&para;</a></h1>
+<p>MATLAB est un langage de programmation et un environnement de calcul numérique utilisé par des millions d&rsquo;ingénieurs et de scientifiques dans le monde. Il fournit un ensemble d&rsquo;outils puissants pour analyser les données, développer des algorithmes et créer des modèles et des simulations.
+Les participants devront utiliser MATLAB pour effectuer la tâche 2 du concours.</p>
+<h2 id="presentation-de-matlab-et-de-ses-fonctionnalites">Présentation de MATLAB et de ses fonctionnalités<a class="headerlink" href="#presentation-de-matlab-et-de-ses-fonctionnalites" title="Permanent link">&para;</a></h2>
+<p>MATLAB est un langage de haut niveau et un environnement interactif qui vous permet d&rsquo;effectuer des tâches de calcul intensives. Il comprend un environnement de programmation, de visualisation et de calcul numérique qui est devenu la norme pour le calcul technique dans les principales entreprises d&rsquo;ingénierie et de science et le langage standard pour les mathématiques, l&rsquo;informatique et la science des données.</p>
+<p>MATLAB offre un certain nombre d&rsquo;avantages aux ingénieurs et aux scientifiques, notamment :</p>
+<ul>
+<li>Outils d&rsquo;analyse numérique complets</li>
+<li>Capacités graphiques et de visualisation faciles à utiliser</li>
+<li>Une grande communauté d&rsquo;utilisateurs et de ressources d&rsquo;assistance</li>
+<li>Compatibilité avec d&rsquo;autres langages de programmation et outils logiciels</li>
+</ul>
+<p>Pour <abbr title="Robot Operating System">ROS</abbr>, MATLAB fournit un ensemble d&rsquo;outils permettant de travailler avec des sujets, des services et des actions <abbr title="Robot Operating System">ROS</abbr>. Ces outils vous permettent de publier et de vous abonner à des rubriques <abbr title="Robot Operating System">ROS</abbr>, d&rsquo;appeler des services <abbr title="Robot Operating System">ROS</abbr> et d&rsquo;envoyer et de recevoir des actions <abbr title="Robot Operating System">ROS</abbr>. Vous pouvez également utiliser MATLAB pour créer et exécuter des nœuds <abbr title="Robot Operating System">ROS</abbr>, et pour créer et exécuter des fichiers de lancement <abbr title="Robot Operating System">ROS</abbr>.</p>
+<div class="admonition remarque">
+<p class="admonition-title">Concepts <abbr title="Robot Operating System">ROS</abbr></p>
+<p>Pour plus d&rsquo;informations sur les nœuds, les rubriques, les services et les actions <abbr title="Robot Operating System">ROS</abbr>, consultez la documentation <a href="/getting-started-tutorials/getting-started-with-ros/" target="_blank">Getting Started with <abbr title="Robot Operating System">ROS</abbr></a>.</p>
+</div>
+<h2 id="commencer">Commencer<a class="headerlink" href="#commencer" title="Permanent link">&para;</a></h2>
+<h3 id="installation-de-matlab">Installation de MATLAB<a class="headerlink" href="#installation-de-matlab" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Installation MATLAB</p>
+<p>En tant que sponsor officiel de PARC, MathWorks a fourni une licence gratuite et complémentaire à toutes les équipes participantes. Pour demander le logiciel, veuillez visiter la <a href="https://www.mathworks.com/academia/student-competitions/PARC.html" target="_blank">page MathWorks PARC</a>.</p>
+</div>
+<h3 id="demarrage-de-matlab">Démarrage de MATLAB<a class="headerlink" href="#demarrage-de-matlab" title="Permanent link">&para;</a></h3>
+<p>Pour démarrer MATLAB, ouvrez un terminal et tapez &ldquo;matlab&rdquo;. Cela ouvrira l&rsquo;application de bureau MATLAB. Vous pouvez également démarrer MATLAB en cliquant sur l&rsquo;icône MATLAB sur votre bureau ou dans votre menu Démarrer.</p>
+<h3 id="fenetre-de-commande-matlab">Fenêtre de commande MATLAB<a class="headerlink" href="#fenetre-de-commande-matlab" title="Permanent link">&para;</a></h3>
+<p>La fenêtre de commande MATLAB est l&rsquo;endroit où vous pouvez entrer des commandes et voir les résultats. Vous pouvez également utiliser la fenêtre de commande pour afficher la valeur des variables et afficher les résultats des calculs.</p>
+<h2 id="syntaxe-de-base-et-types-de-donnees">Syntaxe de base et types de données<a class="headerlink" href="#syntaxe-de-base-et-types-de-donnees" title="Permanent link">&para;</a></h2>
+<h3 id="syntaxe-matlab-de-base">Syntaxe MATLAB de base<a class="headerlink" href="#syntaxe-matlab-de-base" title="Permanent link">&para;</a></h3>
+<p>MATLAB a une syntaxe simple et intuitive, facile à apprendre et à utiliser. Voici quelques règles de syntaxe de base :</p>
+<ul>
+<li>Les instructions sont exécutées ligne par ligne.</li>
+<li>Un point-virgule (;) à la fin d&rsquo;une instruction supprime la sortie vers la fenêtre de commande.</li>
+<li>Les variables sont créées en leur attribuant une valeur.</li>
+<li>Les espaces blancs sont ignorés par MATLAB, l&rsquo;indentation n&rsquo;est donc pas nécessaire.</li>
+</ul>
+<p>Voici un exemple de syntaxe MATLAB de base :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">% Ceci est un commentaire</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">   </span><span class="c">% Attribuez la valeur 5 à la variable a</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c">% Affecter la valeur 10 à la variable b</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">disp</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c">% Affiche la valeur de b dans la fenêtre de commande</span>
+</code></pre></div>
+<h3 id="types-de-donnees">Types de données<a class="headerlink" href="#types-de-donnees" title="Permanent link">&para;</a></h3>
+<p>MATLAB prend en charge une variété de types de données, notamment :</p>
+<ul>
+<li>Types de données numériques (entiers, nombres à virgule flottante et nombres complexes)</li>
+<li>Types de données de caractère et de chaîne</li>
+<li>Types de données logiques (valeurs vrai/faux)</li>
+</ul>
+<p>Voici quelques exemples de création et d&rsquo;utilisation de ces types de données dans MATLAB :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c">% Types de données numériques</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">         </span><span class="c">% entier</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span><span class="w">   </span><span class="c">% nombre à virgule flottante</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="o">+</span>3<span class="nb">i</span><span class="p">;</span><span class="w">      </span><span class="c">% nombre complexe</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c">% Types de données caractère et chaîne</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="p">;</span><span class="w">                </span><span class="c">% personnage</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Hello, world!&#39;</span><span class="p">;</span><span class="w">    </span><span class="c">% chaîne</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c">% Types de données logiques</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">   </span><span class="c">% vraie valeur</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">q</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span><span class="c">% fausse valeur</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="c">% expression logique (renvoie vrai ou faux)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c">% Affichage et manipulation des données</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">disp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c">% valeur d&#39;affichage de x</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;La valeur de y est %f\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c">% impression chaîne formatée</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">s2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">strcat</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39; MATLAB est génial !&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% chaînes de concaténation</span>
+</code></pre></div>
+<h2 id="fonctions-et-outils-communs">Fonctions et outils communs<a class="headerlink" href="#fonctions-et-outils-communs" title="Permanent link">&para;</a></h2>
+<p>MATLAB fournit une riche collection de fonctions et d&rsquo;outils intégrés qui vous permettent d&rsquo;effectuer diverses tâches mathématiques et d&rsquo;ingénierie. Voici quelques-unes des fonctions et outils MATLAB courants qui pourraient vous être utiles :</p>
+<h3 id="1-trace-et-visualisation">1. Tracé et visualisation<a class="headerlink" href="#1-trace-et-visualisation" title="Permanent link">&para;</a></h3>
+<p>MATLAB fournit des outils puissants pour créer différents types de tracés, de graphiques et de tableaux. Vous pouvez utiliser la fonction plot pour créer des tracés linéaires 2D, la fonction surf pour créer des tracés de surface 3D, la fonction imagesc pour créer des images codées par couleur, et bien d&rsquo;autres. Voici un exemple d&rsquo;utilisation de la fonction plot pour créer un tracé linéaire 2D :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c">% Exemple de code pour créer un tracé linéaire simple</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-operations-matricielles">2. Opérations matricielles<a class="headerlink" href="#2-operations-matricielles" title="Permanent link">&para;</a></h3>
+<p>MATLAB a un support intégré pour les opérations matricielles et vectorielles. Vous pouvez effectuer des opérations élémentaires, la multiplication de matrices, l&rsquo;inversion de matrices et bien d&rsquo;autres. Voici quelques exemples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">% Exemple de code pour les opérations matricielles</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">3</span><span class="w"> </span><span class="s">4]</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">B</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">7</span><span class="w"> </span><span class="s">8]</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="p">;</span><span class="w">      </span><span class="c">% d&#39;ajout élément par élément</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">D</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">;</span><span class="w">      </span><span class="c">% multiplication matricielle</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">E</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">inv</span><span class="p">(</span><span class="n">A</span><span class="p">);</span><span class="w">     </span><span class="c">% d&#39;inversion de matrice</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">F</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">B</span><span class="p">;</span><span class="w">     </span><span class="c">% multiplicat élément par élément</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">.^</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">     </span><span class="c">% exponentiation élément par élément</span>
+</code></pre></div>
+<h3 id="3-traitement-des-images">3. Traitement des images<a class="headerlink" href="#3-traitement-des-images" title="Permanent link">&para;</a></h3>
+<p>MATLAB fournit un ensemble de fonctions et d&rsquo;outils pour le traitement d&rsquo;images. Vous pouvez utiliser la fonction imresize pour redimensionner une image, la fonction imrotate pour faire pivoter une image, et bien d&rsquo;autres. Voici un exemple d&rsquo;utilisation de la fonction imresize pour redimensionner une image :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c">% Exemple de code pour le traitement d&#39;images</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">I</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">imread</span><span class="p">(</span><span class="s">&#39;image.jpg&#39;</span><span class="p">);</span><span class="w">    </span><span class="c">% lire une image à partir d&#39;un fichier</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">J</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">imresize</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w">       </span><span class="c">% redimensionne l&#39;image par un facteur de 0.5</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">imshow</span><span class="p">(</span><span class="n">J</span><span class="p">);</span><span class="w">                  </span><span class="c">% affiche l&#39;image redimensionnée</span>
+</code></pre></div>
+<h3 id="4-integration-ros">4. Intégration <abbr title="Robot Operating System">ROS</abbr><a class="headerlink" href="#4-integration-ros" title="Permanent link">&para;</a></h3>
+<p>MATLAB fournit un ensemble de fonctions et d&rsquo;outils pour l&rsquo;intégration avec <abbr title="Robot Operating System">ROS</abbr>. Vous pouvez utiliser la fonction rossubscriber pour créer un abonné <abbr title="Robot Operating System">ROS</abbr>, la fonction rospublisher pour créer un éditeur <abbr title="Robot Operating System">ROS</abbr>, et bien d&rsquo;autres. Voici un exemple d&rsquo;utilisation de la fonction rossubscriber pour créer un abonné <abbr title="Robot Operating System">ROS</abbr> et un éditeur <abbr title="Robot Operating System">ROS</abbr> :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Exemple d&rsquo;éditeur <abbr title="Robot Operating System">ROS</abbr></label><label for="__tabbed_1_2">Exemple d&rsquo;abonné <abbr title="Robot Operating System">ROS</abbr></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c">% Exemple de code pour l&#39;intégration ROS</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">rosshutdown</span><span class="p">;</span><span class="w">                                </span><span class="c">% arrêter ROS</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">rosinit</span><span class="p">;</span><span class="w">                                    </span><span class="c">% initialiser ROS</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">pub</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">rospublisher</span><span class="p">(</span><span class="s">&#39;/chatter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;std_msgs/String&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% créer un éditeur ROS</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                                  </span><span class="c">% créer un compteur</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">while</span><span class="w"> </span><span class="nb">true</span><span class="w">                                      </span><span class="c">% continuer à publier pour toujours</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="n">msg</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">rosmessage</span><span class="p">(</span><span class="n">pub</span><span class="p">);</span><span class="w">                      </span><span class="c">% create a ROS message</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="nb">count</span><span class="p">);</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">msg</span><span class="p">.</span><span class="n">Data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;Hello, world!&#39;</span><span class="w"> </span><span class="s">&#39; &#39;</span><span class="w"> </span><span class="n">c</span><span class="p">];</span><span class="w">         </span><span class="c">% attribuer une valeur aux données du message</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="n">send</span><span class="p">(</span><span class="n">pub</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span><span class="w">                             </span><span class="c">% publier le message</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nb">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                          </span><span class="c">% compteur d&#39;incrémentation</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">end</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c">% Exemple de code pour l&#39;intégration ROS</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">rosshutdown</span><span class="p">;</span><span class="w">                                       </span><span class="c">% redémarrer le nœud global</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">rosinit</span><span class="p">;</span><span class="w">                                           </span><span class="c">% initialise ROS</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">sub</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">rossubscriber</span><span class="p">(</span><span class="s">&#39;/chatter&#39;</span><span class="p">);</span><span class="w">                   </span><span class="c">% créer un abonné ROS</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">msg</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">recevoir</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">                            </span><span class="c">% reçoivent un message de l&#39;abonné</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nb">disp</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">Data</span><span class="p">);</span><span class="w">                                    </span><span class="c">% afficher les données du message</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">rosshutdown</span><span class="p">;</span><span class="w">                                       </span><span class="c">% arrêter ROS</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Bonjour</span><span class="w"> </span><span class="s">le</span><span class="w"> </span><span class="s">monde!</span>
+</code></pre></div>
+<h2 id="ressources-matlab-importantes">Ressources MATLAB importantes<a class="headerlink" href="#ressources-matlab-importantes" title="Permanent link">&para;</a></h2>
+<p>De nombreuses ressources sont disponibles pour apprendre MATLAB, notamment des didacticiels, des cours en ligne et de la documentation. Le site Web MathWorks fournit un ensemble complet de ressources, notamment :</p>
+<!-- * [Tutoriel Premiers pas avec MATLAB](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html){:target="_blank"} -->
+<ul>
+<li><a href="https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted">MATLAB OnRamp</a> (Fortement recommandé)</li>
+<li><a href="https://www.mathworks.com/matlabcentral/answers/" target="_blank">MATLAB Answers</a> : une communauté d&rsquo;utilisateurs MATLAB qui peuvent vous aider à répondre à vos questions</li>
+<li><a href="https://github.com/mathworks-robotics/matlab-and-simulink-ros-tutorials">Tutoriels MATLAB et Simulink <abbr title="Robot Operating System">ROS</abbr></a></li>
+</ul>
+<p>Grâce à ces ressources, vous pouvez vous familiariser rapidement avec MATLAB et commencer à l&rsquo;utiliser pour ce concours et vos propres projets d&rsquo;ingénierie et scientifiques.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../setting-up-your-workspace/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Configurer votre espace de travail" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Précédent
+                </span>
+                Configurer votre espace de travail
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../getting-started-with-ros/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Commencer avec ROS" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Suivant
+                </span>
+                Commencer avec ROS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.path", "navigation.expand", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
